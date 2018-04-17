@@ -1,0 +1,31 @@
+{
+  "psi-header.changes-tracking": {
+    "isActive": true,
+    "autoHeader": "manualSave",
+    "include": ["markdown"],
+    "modAuthor": "author:",
+    "modDate": "updated:",
+    "modDateFormat": "YYYY-MM-DD HH:mm:ss"
+  },
+  "psi-header.lang-config": [
+    {
+      "language": "markdown",
+      "begin": "---",
+      "prefix": "",
+      "end": "---"
+    }
+  ],
+  "psi-header.templates": [
+    {
+      "language": "markdown",
+      "template": [
+        "title: ",
+        "date: <<filecreated('YYYY-MM-DD HH:mm:ss')>>",
+        "updated:",
+        "tags:",
+        "categories:",
+        "copyright: (c) <<year>><<copyrightHolder>>"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+# theme next config
+
+footer:
+  powered:
+    enable: false
+    version: false
+  theme:
+    enable: false
+    version: false
+
+seo: true
+
+menu:
+  home: /
+  tags: /tags/
+  categories: /categories/
+  archives: /archives/
+
+menu_settings:
+  badges: true
+
+scheme:
+  Mist
+
+social:
+  GitHub: https://github.com/wenkanglin
+  E-Mail: mailto:wenkanglin0910@gmail.com
+
+social_icons:
+  transition: true
+
+sidebar:
+  scrollpercent: true
+  onmobile: true
+
+codeblock:
+  copy_button: true
+
+wechatpay: /images/wxpay.png
+alipay: /images/alipay.png
+
+related_posts:
+  enable: true
+  title: sdsdfdsfsdfsdf
+  display_in_home: true
+  params:
+    maxCount: 5
+
+font:
+  enable: true
+  global:
+    external: true
+    family: Roboto
+  codes:
+    external: true
+    family: Source Code Pro
+
+pangu: true
