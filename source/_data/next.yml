@@ -33,15 +33,11 @@ sidebar:
   scrollpercent: true
   onmobile: true
 
-codeblock:
-  copy_button: true
-
 wechatpay: /images/wxpay.png
 alipay: /images/alipay.png
 
 related_posts:
   enable: true
-  title: sdsdfdsfsdfsdf
   display_in_home: true
   params:
     maxCount: 5
@@ -56,3 +52,14 @@ font:
     family: Source Code Pro
 
 pangu: true
+
+baidu_analytics: 05c58c795e9bb8d61e44f21c662e0a5b
+
+baidushare:
+  type: slide
+
+google_site_verification: google2f1b83aa3307e038.html
+
+google_analytics: UA-117961837-1
+
+baidu_push: true
