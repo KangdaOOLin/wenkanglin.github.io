@@ -1,11 +1,17 @@
 ---
-title: hexo from scratch
-date: 2018-04-21 20:05:26
-updated: 2018-04-21 20:07:26
-tags: [hexo]
-categories:
+title: hexo配置
+tags:
+  - hexo
 copyright: '(c) 2018-present, WenKang Lin'
+date: 2018-04-28 13:44:55
+updated: 2018-04-28 16:49:02
+categories:
+  - hexo
 ---
+
+初次使用`hexo`配置自己的博客网站，接下来记录自己对于`hexo`配置作用的理解和说明。配合[hexo 文档](https://hexo.io/docs/)，一步一步配置自己的博客。
+
+<!-- more -->
 
 ## language 和 timezone
 
@@ -123,3 +129,21 @@ index_generator:
 ```
 
 那么，首页路径将会是`http://domain.com/test`。这时需要注意的是直接访问`http://domain.com`将会访问不了页面。
+
+## deploy
+
+```yml
+deploy:
+  type: git
+  repo: git@github.com:wenkanglin/wenkanglin.github.io.git
+  message: ':rocket: Site update on {{ now("YYYY-MM-DD HH:mm:ss") }}'
+```
+
+部署你的本地博客至远程仓库中，例如`git`。其中：
+
+* **type**: 指的是远程仓库的类型。
+* **repo**: 远程仓库的地址。
+* **branch**: 远程仓库的分支，默认是`master`分支。
+* **message**: 提交时的消息，作用同等于`git commit -m`。
+
+:warning: 部署前根据类型需要安装依赖，例如`hexo-deployer-git`。

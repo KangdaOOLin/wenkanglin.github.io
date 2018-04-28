@@ -1,12 +1,17 @@
 ---
-title: hexo学习笔记
-date: 2018-04-15 18:26:34
-updated: 2018-04-21 20:07:19
-tags: [hexo]
+title: hexo命令
+tags:
+  - hexo
+copyright: '(c) 2018-present, WenKang Lin'
+date: 2018-04-28 13:45:59
+updated: 2018-04-28 16:43:42
 categories:
-description: 关于hexo的学习笔记
-copyright: (c) 2018-present, WenKang Lin
+  - hexo
 ---
+
+在学习和了解了`hexo`命令的前提下，写下来自己对这些配置命令的理解和使用说明。
+
+<!-- more -->
 
 ## --config
 
@@ -173,3 +178,29 @@ hexo publish [layout] <filename>
 ```
 
 通过上面的命令，把位于`_drafts`下的博客文件，发布到[layout](#layout)下面。其中若`layout`的值为`draft`，会被忽略，不会起到任何作用。如果未在`_drafts`文件夹下找到指定的`filename`，则报错。
+
+## generate
+
+```bash
+hexo g # hexo generate的简写
+```
+
+通过以上命令编译`source_dir`目录下面的文件，最终生成编译后的静态文件，并存放在`public_dir`目录下面。可使用`-d, --deploy`选项，相当于：
+
+```bash
+hexo generate
+hexo deploy
+```
+
+## deploy
+
+```bash
+hexo d # hexo deploy的简写
+```
+
+通过以上命令，发布你的博客到远程仓库中。前提是你已经在`_config.yml`中配置好了`deploy`。可使用`-g, --generate`选项，发布博客前先构建，相当于：
+
+```bash
+hexo generate
+hexo deploy
+```
