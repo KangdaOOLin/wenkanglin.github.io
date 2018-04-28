@@ -1,12 +1,10 @@
 ---
 title: hexo命令
-tags:
-  - hexo
-copyright: '(c) 2018-present, WenKang Lin'
 date: 2018-04-28 13:45:59
-updated: 2018-04-28 16:43:42
-categories:
-  - hexo
+updated: 2018-04-28 18:13:10
+tags: hexo
+categories: hexo
+copyright: '(c) 2018-present, WenKang Lin'
 ---
 
 在学习和了解了`hexo`命令的前提下，写下来自己对这些配置命令的理解和使用说明。

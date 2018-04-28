@@ -1,12 +1,10 @@
 ---
 title: hexo配置
-tags:
-  - hexo
-copyright: '(c) 2018-present, WenKang Lin'
 date: 2018-04-28 13:44:55
-updated: 2018-04-28 16:49:02
-categories:
-  - hexo
+updated: 2018-04-28 18:13:43
+tags: hexo
+categories: hexo
+copyright: '(c) 2018-present, WenKang Lin'
 ---
 
 初次使用`hexo`配置自己的博客网站，接下来记录自己对于`hexo`配置作用的理解和说明。配合[hexo 文档](https://hexo.io/docs/)，一步一步配置自己的博客。
