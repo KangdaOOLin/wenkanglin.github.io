@@ -39,12 +39,6 @@ scroll_to_more: false
 
 highlight_theme: night
 
-related_posts:
-  enable: true
-  display_in_home: true
-  params:
-    maxCount: 5
-
 font:
   enable: true
   global:
@@ -64,6 +58,13 @@ google_site_verification: google2f1b83aa3307e038.html
 google_analytics: UA-117961837-1
 
 baidu_push: true
+
+symbols_count_time:
+  separated_meta: true
+  item_text_post: true
+  item_text_total: true
+  awl: 4
+  wpm: 275
 
 algolia_search:
   enable: true
