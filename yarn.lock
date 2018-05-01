@@ -1010,6 +1010,10 @@ hexo-server@^0.3.1:
     opn "^4.0.0"
     serve-static "^1.10.0"
 
+hexo-symbols-count-time@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/hexo-symbols-count-time/-/hexo-symbols-count-time-0.4.2.tgz#91bcaf6957e1b4f7c741554c2b07ae5d2fa8f3fb"
+
 hexo-util@^0.6.0, hexo-util@^0.6.2, hexo-util@^0.6.3:
   version "0.6.3"
   resolved "https://registry.yarnpkg.com/hexo-util/-/hexo-util-0.6.3.tgz#16a2ade457bef955af0dfd22a3fe6f0a49a9137c"
