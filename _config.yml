@@ -96,11 +96,10 @@ algolia:
   chunkSize: 5000
 
 symbols_count_time:
-  separated_meta: true
-  item_text_post: true
-  item_text_total: true
-  awl: 4
-  wpm: 275
+  symbols: true
+  time: true
+  total_symbols: true
+  total_time: true
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
