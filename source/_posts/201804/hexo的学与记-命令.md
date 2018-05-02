@@ -1,9 +1,9 @@
 ---
-title: hexo命令
+title: hexo的学与记：命令
 date: 2018-04-28 13:45:59
-updated: 2018-04-28 18:13:10
+updated: 2018-05-02 18:02:29
 tags: hexo
-categories: hexo
+categories: hexo的学与记
 copyright: '(c) 2018-present, WenKang Lin'
 ---
 
