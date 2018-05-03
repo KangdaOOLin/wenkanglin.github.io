@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.wenkanglin.com/"/>
-  <updated>2018-05-02T09:11:53.000Z</updated>
+  <updated>2018-05-03T09:28:00.000Z</updated>
   <id>http://www.wenkanglin.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HTML Meta的学与记：format-Detection</title>
+    <link href="http://www.wenkanglin.com/2018/05/03/html-meta%E7%9A%84%E5%AD%A6%E4%B8%8E%E8%AE%B0%EF%BC%9Aformat-detection/"/>
+    <id>http://www.wenkanglin.com/2018/05/03/html-meta的学与记：format-detection/</id>
+    <published>2018-05-03T08:41:20.000Z</published>
+    <updated>2018-05-03T09:28:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在做移动端页面的过程中，可能都遇到过 <code>moble safari</code> 会自动识别一串数字为电话号码，并自动生成拨号的链接。如下图所示：</p><p><img src="/images/telephone-no.jpg" alt="拨号链接"></p><a id="more"></a><p>这可能并不是我们所期望的，需要关闭这个功能。</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"telephone=no"</span>&gt;</span></span><br></pre></td></tr></table></figure><p>如上面代码所示，通过 <code>format-detection</code> 这个 meta 字段，在 content 设置 <code>telephone=no</code>，来禁用 <code>mobile safari</code> 自动识别电话号码的功能。</p><p>另外，除了电话号码外，邮箱、地址、日期、链接这些字段也同样可以开启格式化保护：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"date=no"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"address=no"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"email=no"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"url=no"</span>&gt;</span></span><br></pre></td></tr></table></figure><p>或者直接在 content 属性中，添加多个值：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"telephone=no, address=no, email=no, date=no, url=no"</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在做移动端页面的过程中，可能都遇到过 &lt;code&gt;moble safari&lt;/code&gt; 会自动识别一串数字为电话号码，并自动生成拨号的链接。如下图所示：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/telephone-no.jpg&quot; alt=&quot;拨号链接&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="HTML meta的学与记" scheme="http://www.wenkanglin.com/categories/html-meta%E7%9A%84%E5%AD%A6%E4%B8%8E%E8%AE%B0/"/>
+    
+    
+      <category term="HTML meta" scheme="http://www.wenkanglin.com/tags/html-meta/"/>
+    
+  </entry>
   
   <entry>
     <title>js基础的学与记：Object.freeze</title>
