@@ -1,7 +1,7 @@
 ---
 title: DOM对象的学与记：NodeList和HTMLCollection
 date: 2018-05-05 11:08:03
-updated: 2018-05-05 15:42:18
+updated: 2018-05-05 15:50:46
 tags: DOM对象
 categories: DOM对象的学与记
 copyright: '(c) 2018-present, WenKang Lin'
@@ -39,7 +39,7 @@ console.log(document.body.nodeType === 1); // true
 console.log(document.body.nodeType === Node.ELEMENT_NODE); // true
 ```
 
-### NodeList 和 HTMLCollection的相似点
+## NodeList 和 HTMLCollection的相似点
 
 * 类数组数据结构类型，都可通过 `length` 获取集合的长度。
 * 都可通过数组下标的形式，或者 `item` 来获取集合的某一项。并且，数组下标若为负数或超过集合长度，那么返回 `undefined`；相同情况下，通过 `item` 访问返回 `null`。
@@ -72,7 +72,7 @@ console.log(childNodes.item(childNodes.length + 1)); // null
 console.log(children.item(-1)); // null
 ```
 
-### NodeList 和 HTMLCollection的不同点
+## NodeList 和 HTMLCollection的不同点
 
 * 开头讲到的，`NodeList` 集合包括所有的节点，即包括了元素。
 * `NodeList`虽然是类数组，但本身支持 `forEach`, `keys`, `values`, `entries`方法。
