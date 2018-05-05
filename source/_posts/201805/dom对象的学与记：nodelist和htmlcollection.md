@@ -1,8 +1,8 @@
 ---
 title: DOM对象的学与记：NodeList和HTMLCollection
 date: 2018-05-05 11:08:03
-updated: 2018-05-05 15:37:09
-tags: [js, DOM对象]
+updated: 2018-05-05 15:42:18
+tags: DOM对象
 categories: DOM对象的学与记
 copyright: '(c) 2018-present, WenKang Lin'
 ---
