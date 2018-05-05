@@ -152,7 +152,7 @@
 <meta property="og:site_name" content="林文康的博客">
 <meta property="og:description" content="NodeList 是一系列页面节点的集合，相比较于 HTMLCollection 的一系列页面元素的集合，从它们字面上的含义也都可以看出两者的不同。前者节点不仅仅包括元素节点，还包括文本节点、属性节点、注释节点等，而后者质保卡元素节点。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-05T07:42:18.000Z">
+<meta property="og:updated_time" content="2018-05-05T07:50:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DOM对象的学与记：NodeList和HTMLCollection">
 <meta name="twitter:description" content="NodeList 是一系列页面节点的集合，相比较于 HTMLCollection 的一系列页面元素的集合，从它们字面上的含义也都可以看出两者的不同。前者节点不仅仅包括元素节点，还包括文本节点、属性节点、注释节点等，而后者质保卡元素节点。">
@@ -436,7 +436,7 @@
                 
               
 
-              <time title="创建时间：2018-05-05 11:08:03 / 修改时间：15:42:18" itemprop="dateCreated datePublished" datetime="2018-05-05T11:08:03+08:00">2018-05-05</time>
+              <time title="创建时间：2018-05-05 11:08:03 / 修改时间：15:50:46" itemprop="dateCreated datePublished" datetime="2018-05-05T11:08:03+08:00">2018-05-05</time>
             
 
             
@@ -557,7 +557,7 @@
 </tbody>
 </table>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.body.nodeType === <span class="number">1</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.body.nodeType === Node.ELEMENT_NODE); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-<h3 id="NodeList-和-HTMLCollection的相似点"><a href="#NodeList-和-HTMLCollection的相似点" class="headerlink" title="NodeList 和 HTMLCollection的相似点"></a>NodeList 和 HTMLCollection的相似点</h3><ul>
+<h2 id="NodeList-和-HTMLCollection的相似点"><a href="#NodeList-和-HTMLCollection的相似点" class="headerlink" title="NodeList 和 HTMLCollection的相似点"></a>NodeList 和 HTMLCollection的相似点</h2><ul>
 <li>类数组数据结构类型，都可通过 <code>length</code> 获取集合的长度。</li>
 <li>都可通过数组下标的形式，或者 <code>item</code> 来获取集合的某一项。并且，数组下标若为负数或超过集合长度，那么返回 <code>undefined</code>；相同情况下，通过 <code>item</code> 访问返回 <code>null</code>。</li>
 </ul>
@@ -565,7 +565,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> childNodes = <span class="built_in">document</span>.body.childNodes;</span><br><span class="line"><span class="keyword">const</span> children = <span class="built_in">document</span>.body.children;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过es6的Array.from，转化为数组</span></span><br><span class="line"><span class="built_in">Array</span>.from(childNodes);</span><br><span class="line"><span class="built_in">Array</span>.from(children)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过es6的数组解构赋值，转化为数组</span></span><br><span class="line">[...childNodes];</span><br><span class="line">[...children];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过apply或call</span></span><br><span class="line"><span class="built_in">Array</span>.prototype.slice.call(childNodes, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">Array</span>.prototype.forEach.call(children, () =&gt; &#123;&#125;);</span><br></pre></td></tr></table></figure>
 <p>都可通过数组下标或者 <code>item</code> 来访问集合的某一项：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(childNodes[<span class="number">-1</span>]); <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(children[<span class="number">-1</span>]); <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(childNodes.item(childNodes.length + <span class="number">1</span>)); <span class="comment">// null</span></span><br><span class="line"><span class="built_in">console</span>.log(children.item(<span class="number">-1</span>)); <span class="comment">// null</span></span><br></pre></td></tr></table></figure>
-<h3 id="NodeList-和-HTMLCollection的不同点"><a href="#NodeList-和-HTMLCollection的不同点" class="headerlink" title="NodeList 和 HTMLCollection的不同点"></a>NodeList 和 HTMLCollection的不同点</h3><ul>
+<h2 id="NodeList-和-HTMLCollection的不同点"><a href="#NodeList-和-HTMLCollection的不同点" class="headerlink" title="NodeList 和 HTMLCollection的不同点"></a>NodeList 和 HTMLCollection的不同点</h2><ul>
 <li>开头讲到的，<code>NodeList</code> 集合包括所有的节点，即包括了元素。</li>
 <li><code>NodeList</code>虽然是类数组，但本身支持 <code>forEach</code>, <code>keys</code>, <code>values</code>, <code>entries</code>方法。</li>
 <li><code>HTMLCollection</code> 有一个 <code>namedItem</code> 的方法，参数为字符串，用于查找集合中存在元素的 <code>id</code> 和字符串相等的元素。</li>
@@ -834,7 +834,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#节点类型"><span class="nav-number">1.</span> <span class="nav-text">节点类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NodeList-和-HTMLCollection的相似点"><span class="nav-number">1.1.</span> <span class="nav-text">NodeList 和 HTMLCollection的相似点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NodeList-和-HTMLCollection的不同点"><span class="nav-number">1.2.</span> <span class="nav-text">NodeList 和 HTMLCollection的不同点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关阅读"><span class="nav-number">2.</span> <span class="nav-text">相关阅读</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#节点类型"><span class="nav-number">1.</span> <span class="nav-text">节点类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NodeList-和-HTMLCollection的相似点"><span class="nav-number">2.</span> <span class="nav-text">NodeList 和 HTMLCollection的相似点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NodeList-和-HTMLCollection的不同点"><span class="nav-number">3.</span> <span class="nav-text">NodeList 和 HTMLCollection的不同点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关阅读"><span class="nav-number">4.</span> <span class="nav-text">相关阅读</span></a></li></ol></div>
             
 
           </div>
