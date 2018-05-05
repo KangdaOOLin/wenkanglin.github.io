@@ -1,10 +1,10 @@
 ---
-title: HTML meta的学与记：format-detection
-tags: HTML meta
-categories: HTML meta的学与记
+title: html-meta的学与记：format-detection
+tags: html-meta
+categories: html-meta的学与记
 copyright: '(c) 2018-present, WenKang Lin'
 date: 2018-05-03 16:41:20
-updated: 2018-05-03 17:28:00
+updated: 2018-05-05 10:09:21
 ---
 
 在做移动端页面的过程中，可能都遇到过 `moble safari` 会自动识别一串数字为电话号码，并自动生成拨号的链接。如下图所示：
