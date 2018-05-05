@@ -19,8 +19,7 @@ menu:
 menu_settings:
   badges: true
 
-scheme:
-  Mist
+scheme: Gemini
 
 avatar: /images/avatar.jpg
 
