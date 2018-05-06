@@ -144,18 +144,20 @@
 
 
 
-  <meta name="description" content="初次使用hexo配置自己的博客网站，接下来记录自己对于hexo配置作用的理解和说明。配合hexo 文档，一步一步配置自己的博客。">
-<meta name="keywords" content="hexo">
+  <meta name="description" content="面试的时候，或者自我基础总结的时候，经常会遇到以下的问题：  什么是事件捕获和事件冒泡？ 事件捕获和事件冒泡顺序的优先级？ 事件捕获和事件冒泡的使用场景是什么？ 事件捕获单独的使用场景是什么？为什么会同时存在这两种事件传播的机制？">
+<meta name="keywords" content="js事件,js面试题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo的学与记：配置">
-<meta property="og:url" content="http://www.wenkanglin.com/2018/04/28/hexo的学与记-配置/index.html">
+<meta property="og:title" content="Js事件的学与记：事件捕获和事件冒泡">
+<meta property="og:url" content="http://www.wenkanglin.com/2018/05/06/js事件的学与记：事件捕获和事件冒泡/index.html">
 <meta property="og:site_name" content="林文康的博客">
-<meta property="og:description" content="初次使用hexo配置自己的博客网站，接下来记录自己对于hexo配置作用的理解和说明。配合hexo 文档，一步一步配置自己的博客。">
+<meta property="og:description" content="面试的时候，或者自我基础总结的时候，经常会遇到以下的问题：  什么是事件捕获和事件冒泡？ 事件捕获和事件冒泡顺序的优先级？ 事件捕获和事件冒泡的使用场景是什么？ 事件捕获单独的使用场景是什么？为什么会同时存在这两种事件传播的机制？">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-02T10:03:15.000Z">
+<meta property="og:image" content="http://www.wenkanglin.com/images/eventflow.jpg">
+<meta property="og:updated_time" content="2018-05-06T10:33:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo的学与记：配置">
-<meta name="twitter:description" content="初次使用hexo配置自己的博客网站，接下来记录自己对于hexo配置作用的理解和说明。配合hexo 文档，一步一步配置自己的博客。">
+<meta name="twitter:title" content="Js事件的学与记：事件捕获和事件冒泡">
+<meta name="twitter:description" content="面试的时候，或者自我基础总结的时候，经常会遇到以下的问题：  什么是事件捕获和事件冒泡？ 事件捕获和事件冒泡顺序的优先级？ 事件捕获和事件冒泡的使用场景是什么？ 事件捕获单独的使用场景是什么？为什么会同时存在这两种事件传播的机制？">
+<meta name="twitter:image" content="http://www.wenkanglin.com/images/eventflow.jpg">
 
 
 
@@ -164,7 +166,7 @@
 
 
 
-  <link rel="canonical" href="http://www.wenkanglin.com/2018/04/28/hexo的学与记-配置/"/>
+  <link rel="canonical" href="http://www.wenkanglin.com/2018/05/06/js事件的学与记：事件捕获和事件冒泡/"/>
 
 
 
@@ -174,7 +176,7 @@
   };
 </script>
 
-  <title>Hexo的学与记：配置 | 林文康的博客</title>
+  <title>Js事件的学与记：事件捕获和事件冒泡 | 林文康的博客</title>
   
 
 
@@ -394,7 +396,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.wenkanglin.com/2018/04/28/hexo的学与记-配置/">
+    <link itemprop="mainEntityOfPage" href="http://www.wenkanglin.com/2018/05/06/js事件的学与记：事件捕获和事件冒泡/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="林文康">
@@ -411,7 +413,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Hexo的学与记：配置
+          <h2 class="post-title" itemprop="name headline">Js事件的学与记：事件捕获和事件冒泡
               
             
           </h2>
@@ -436,24 +438,12 @@
                 
               
 
-              <time title="创建时间：2018-04-28 13:44:55" itemprop="dateCreated datePublished" datetime="2018-04-28T13:44:55+08:00">2018-04-28</time>
+              <time title="创建时间：2018-05-06 15:53:33 / 修改时间：18:33:42" itemprop="dateCreated datePublished" datetime="2018-05-06T15:53:33+08:00">2018-05-06</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-05-02 18:03:15" itemprop="dateModified" datetime="2018-05-02T18:03:15+08:00">2018-05-02</time>
               
             
           </span>
@@ -470,7 +460,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/hexo的学与记/" itemprop="url" rel="index"><span itemprop="name">hexo的学与记</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/js事件的学与记/" itemprop="url" rel="index"><span itemprop="name">js事件的学与记</span></a></span>
 
                 
                 
@@ -532,65 +522,47 @@
       
 
       
-        <p>初次使用<code>hexo</code>配置自己的博客网站，接下来记录自己对于<code>hexo</code>配置作用的理解和说明。配合<a href="https://hexo.io/docs/" target="_blank" rel="noopener">hexo 文档</a>，一步一步配置自己的博客。</p>
+        <p>面试的时候，或者自我基础总结的时候，经常会遇到以下的问题：</p>
+<ul>
+<li>什么是事件捕获和事件冒泡？</li>
+<li>事件捕获和事件冒泡顺序的优先级？</li>
+<li>事件捕获和事件冒泡的使用场景是什么？</li>
+<li>事件捕获单独的使用场景是什么？为什么会同时存在这两种事件传播的机制？</li>
+</ul>
 <a id="more"></a>
-<h2 id="language-和-timezone"><a href="#language-和-timezone" class="headerlink" title="language 和 timezone"></a>language 和 timezone</h2><p>国内的话，一般这样设置：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">language:</span> <span class="string">zh-CN</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">Asia/Shanghai</span></span><br></pre></td></tr></table></figure>
-<p><code>language</code>字段可以配置多个值，例如：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">language:</span> <span class="string">[zh-CN,</span> <span class="string">en]</span></span><br></pre></td></tr></table></figure>
-<p>另外，如果使用的<code>hexo</code>主题支持<code>i18n</code>的话，根据<code>language</code>的设置会自动切换相关的语言。</p>
-<h2 id="permalink"><a href="#permalink" class="headerlink" title="permalink"></a>permalink</h2><p>若<code>permalink</code>中的某一个链接分割(segment)没有定义，那么值为<code>undefined</code>。比如：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:lang/:title/</span></span><br></pre></td></tr></table></figure>
-<p>上面示例中，显示的地址链接将会是<code>www.xxx.com/undefined/post-title</code>。</p>
-<p>若<code>lang</code>定义但没有赋值，那么值会是<code>null</code>。比如：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:lang/:title/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br><span class="line"><span class="attr">  lang:</span></span><br></pre></td></tr></table></figure>
-<p>上面示例中，显示的地址链接将会是<code>www.xxx.com/null/post-title</code>。</p>
-<p>可以设置空字符串，例如：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:lang/:title/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br><span class="line"><span class="attr">  lang:</span> <span class="string">''</span></span><br></pre></td></tr></table></figure>
-<p>上面的示例中，如果没有设置<a href="#front-matter">front-matter</a>，那么显示的地址链接将会是<code>www.xxx.com/post-title</code>。可是，需要注意的是，通过<code>hexo generate</code>生成页面时，因为是根据<code>permalink</code>动态生成目录结构，此时<code>lang</code>为空字符串，文件夹名称会自动转化为<code>null</code>。</p>
-<p>:warning: <code>permalink</code>的末尾必须带上<code>/</code>，否则：</p>
+<h2 id="事件流程"><a href="#事件流程" class="headerlink" title="事件流程"></a>事件流程</h2><p>在说到事件捕获和冒泡前，我们需要先了解一个事件的触发到底经历了哪些？</p>
+<p><img src="/images/eventflow.jpg" alt="事件触发流程"></p>
+<p>如上图所示，一般事件触发的流程会经历这三个阶段：</p>
 <ul>
-<li>通过<code>hexo serve</code>访问进去的不是博客页面，而是直接下载页面了。</li>
-<li>通过<code>hexo generate</code>生成的不是<code>.html</code>文件，而是无后缀的文件。</li>
+<li><strong>捕获阶段</strong>。事件对象通过目标的祖先从页面根元素传播到事件目标的父节点。</li>
+<li><strong>目标阶段</strong>。事件对象到达事件目标的阶段，即 <code>event.target</code>。如果事件不冒泡，那么事件对象将在此阶段完成后停止。</li>
+<li><strong>冒泡阶段</strong>。事件对象以捕获阶段相反的顺序，从目标的父节点开始，向上传播到页面根元素结束。</li>
 </ul>
-<h2 id="permalink-defaults"><a href="#permalink-defaults" class="headerlink" title="permalink_defaults"></a>permalink_defaults</h2><p>从作用上来讲，<code>permalink_defaults</code>的作用主要有：</p>
+<p>在事件触发的过程中，我们也可以通过<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/eventPhase" target="_blank" rel="noopener">Event.eventPhase</a>来得到当前事件执行的阶段。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">el.addEventListener(<span class="string">'click'</span>, event =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'current pahse:'</span>, event.eventPhase);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>到这里为止，我们应该知道了一开始问题一的事件捕获和事件冒泡是啥了，它们用相反的事件传播顺序触发事件流。而且，根据上面的三个阶段，也应该知道问题二的答案。</p>
+<blockquote>
+<p>问题：事件捕获和事件冒泡顺序的优先级？<br><br>答案：先经历事件捕获，再经历事件冒泡。</p>
+</blockquote>
+<h2 id="设置事件触发的阶段"><a href="#设置事件触发的阶段" class="headerlink" title="设置事件触发的阶段"></a>设置事件触发的阶段</h2><p>我们可以通过 <code>addEventListener</code> 绑定一个事件，并决定事件是在捕获阶段触发呢，还是在冒泡阶段触发。默认是冒泡阶段触发，可通过设置第三个参数为 <code>true</code> 来设置事件在捕获阶段触发。</p>
+<iframe scrolling="no" width="100%" height="300" src="//jsfiddle.net/xvbevmj5/embedded/js,html,css,result/dark" frameborder="0" allowfullscreen></iframe>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">addEventListener(type, handler, useCapture);</span><br><span class="line">addEventListener(type, handler, &#123; capture &#125;);</span><br></pre></td></tr></table></figure>
+<p>另外，<strong>阻止事件捕获和冒泡</strong>，都可以通过 <code>event.stopPropagation()</code> 来达到阻止的效果。正确来说，若处于事件捕获阶段，然后调用它，那么事件流将在目标阶段结束，而不会执行事件冒泡的流程。若处于事件冒泡阶段，然后调用它，那么将阻止事件继续向上冒泡的过程。</p>
+<h2 id="事件代理或事件委托"><a href="#事件代理或事件委托" class="headerlink" title="事件代理或事件委托"></a>事件代理或事件委托</h2><p>事件代理和事件委托指的是同一个玩意，是一个很常见的事件冒泡使用场景。而且由于作为一个典型的事件性能优化手段，可供参考的资料有很多。所以，这里不做具体的描述。一个字，懒 -_-||。</p>
+<h2 id="事件捕获的使用场景"><a href="#事件捕获的使用场景" class="headerlink" title="事件捕获的使用场景"></a>事件捕获的使用场景</h2><p>接下来，我们重点讨论一下事件捕获的使用场景，这也是为什么为同时存在捕获和冒泡两种事件传播方式的原因吧。</p>
+<p>个人目前想的到的使用场景主要有以下两个：</p>
 <ul>
-<li>设置<code>permalink</code>的默认值。</li>
-<li>可添加自定义的<code>permalink</code>链接分割(segment)。</li>
+<li>一个是<strong>非冒泡事件的事件代理</strong>。类似于 <code>focus</code>、<code>blur</code>、<code>mouseenter</code>等不能冒泡的事件类型，不能通过基于事件冒泡的事件代理方式来处理。那么可以通过基于事件捕获的事件代理来处理。但是，个人经验有限，实在是想不出具体实际的场景。</li>
+<li>因为事件捕获阶段先于事件冒泡阶段，那么是不是可以在事件捕获阶段，充当一个拦截器，或过滤器的作用，当满足条件时，才继续执行事件冒泡阶段。这样的话，具体的判断逻辑放在事件捕获阶段，具体的事件处理逻辑放在事件冒泡阶段，职责分明，充当不同的角色。</li>
 </ul>
-<p>例如，添加自定义的<code>lang</code>字段：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:lang/:title</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br><span class="line"><span class="attr">  lang:</span> <span class="string">zh</span></span><br></pre></td></tr></table></figure>
-<h2 id="skip-render"><a href="#skip-render" class="headerlink" title="skip_render"></a>skip_render</h2><p><code>skip_render</code>的主要作用是忽略渲染<code>source_dir</code>文件夹下面的被匹配文件，即在执行<code>hexo serve</code>或者<code>hexo generate</code>命令时，被匹配的文件不会被编译转化。根据文件的类型，会如下处理：</p>
-<ul>
-<li>若是匹配到了<code>.md</code>文件，则会忽略它们，不进行渲染编译。</li>
-<li>若是匹配到了其他文件，例如<code>*.html</code>文件，则会复制它们到<code>public_dir</code>，否则会编译渲染。</li>
-</ul>
-<p>如果<code>skip_render</code>的值有<code>*</code>符号，则需要使用字符串的形式，否则报错。例如：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">skip_render:</span> <span class="string">'**/*.md'</span></span><br></pre></td></tr></table></figure>
-<p>如果<code>skip_render</code>的值是具体的路径名称，则不需要字符串。例如：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">skip_render:</span> <span class="string">_post/index.html</span></span><br></pre></td></tr></table></figure>
-<p>如果是多项值，可以是数组的形式，也可以是列表形式。例如：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">skip_render:</span> <span class="string">['**/*.&#123;md,html&#125;',</span> <span class="string">_post/test.md]</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">skip_render:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">'**/*.&#123;md,html&#125;'</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">_post/test.md</span></span><br></pre></td></tr></table></figure>
-<p>:warning: 如果发现<code>skip_render</code>作用效果无效，可以执行<code>hexo clean</code>，然后再尝试。</p>
-<h2 id="index-generator"><a href="#index-generator" class="headerlink" title="index_generator"></a>index_generator</h2><p>首页配置，主要有：</p>
-<ul>
-<li><strong>path</strong>: 设置首页的路径，默认为空字符串。</li>
-<li><strong>per_page</strong>: 设置首页博客文章每页显示的数量，设置<code>0</code>，是禁用分页功能。若设置为负数，将不能正常显示页面。默认为<code>10</code>。</li>
-<li><strong>order_by</strong>: 博客文章排序方式，默认值是<code>-date</code>，即按最近日期依次排列。</li>
-</ul>
-<p>关于<code>path</code>，若设置不为空，例如：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">index_generator:</span></span><br><span class="line"><span class="attr">  path:</span> <span class="string">'test'</span></span><br></pre></td></tr></table></figure>
-<p>那么，首页路径将会是<code>http://domain.com/test</code>。这时需要注意的是直接访问<code>http://domain.com</code>将会访问不了页面。</p>
-<h2 id="deploy"><a href="#deploy" class="headerlink" title="deploy"></a>deploy</h2><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="string">git@github.com:wenkanglin/wenkanglin.github.io.git</span></span><br><span class="line"><span class="attr">  message:</span> <span class="string">':rocket: Site update on <span class="template-variable">&#123;&#123; now("YYYY-MM-DD HH:mm:ss") &#125;&#125;</span>'</span></span><br></pre></td></tr></table></figure>
-<p>部署你的本地博客至远程仓库中，例如<code>git</code>。其中：</p>
-<ul>
-<li><strong>type</strong>: 指的是远程仓库的类型。</li>
-<li><strong>repo</strong>: 远程仓库的地址。</li>
-<li><strong>branch</strong>: 远程仓库的分支，默认是<code>master</code>分支。</li>
-<li><strong>message</strong>: 提交时的消息，作用同等于<code>git commit -m</code>。</li>
-</ul>
-<p>:warning: 部署前根据类型需要安装依赖，例如<code>hexo-deployer-git</code>。</p>
+<p>至于，为什么会同时存在这两种事件传播的机制？这个问题撇开使用场景这方面原因，更多的应该是历史发展的原因。当初 Netscape Navigator 4 的事件传播方式是近似于事件捕获，而 IE 4 的正相反。最后，W3C DOM 标准，从设计思路上是更接近 IE 的设计的，即事件冒泡，只是加入了事件捕获阶段。</p>
+<h2 id="其它一些补充"><a href="#其它一些补充" class="headerlink" title="其它一些补充"></a>其它一些补充</h2><p>上面讲到“非冒泡事件”，那么怎么来判断一个事件能否冒泡呢？答案是可通过 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/bubbles" target="_blank" rel="noopener">event.bubbles</a>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">input.addEventListener(<span class="string">'focus'</span>, event =&gt; &#123;</span><br><span class="line">  <span class="comment">// focus事件不能冒泡</span></span><br><span class="line">  <span class="built_in">console</span>.log(event.bubbles); <span class="comment">// false</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><code>event.stopPropagation()</code> 方法兼容 <code>IE9+</code>，低于这个版本的 IE 浏览器，应使用 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/cancelBubble" target="_blank" rel="noopener">event.cancelBubble</a>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">el.addEventListener(<span class="string">'click'</span>, event =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> event.stopPropagation === <span class="string">'function'</span>) &#123;</span><br><span class="line">    event.stopPropagation();</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    event.cancelBubble = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h2><blockquote>
+<p><a href="http://javascript.info/bubbling-and-capturing" target="_blank" rel="noopener">http://javascript.info/bubbling-and-capturing</a><br> <a href="https://www.w3.org/TR/DOM-Level-3-Events/#dom-event-architecture" target="_blank" rel="noopener">https://www.w3.org/TR/DOM-Level-3-Events/#dom-event-architecture</a></p>
+</blockquote>
 
       
     </div>
@@ -611,7 +583,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/js事件/" rel="tag"># js事件</a>
+          
+            <a href="/tags/js面试题/" rel="tag"># js面试题</a>
           
         </div>
       
@@ -624,15 +598,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/05/05/dom对象的学与记：nodelist和htmlcollection/" rel="next" title="DOM对象的学与记：NodeList和HTMLCollection">
+                <i class="fa fa-chevron-left"></i> DOM对象的学与记：NodeList和HTMLCollection
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/28/hexo的学与记-命令/" rel="prev" title="Hexo的学与记：命令">
-                Hexo的学与记：命令 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -848,7 +822,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#language-和-timezone"><span class="nav-number">1.</span> <span class="nav-text">language 和 timezone</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#permalink"><span class="nav-number">2.</span> <span class="nav-text">permalink</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#permalink-defaults"><span class="nav-number">3.</span> <span class="nav-text">permalink_defaults</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#skip-render"><span class="nav-number">4.</span> <span class="nav-text">skip_render</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#index-generator"><span class="nav-number">5.</span> <span class="nav-text">index_generator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deploy"><span class="nav-number">6.</span> <span class="nav-text">deploy</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#事件流程"><span class="nav-number">1.</span> <span class="nav-text">事件流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置事件触发的阶段"><span class="nav-number">2.</span> <span class="nav-text">设置事件触发的阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件代理或事件委托"><span class="nav-number">3.</span> <span class="nav-text">事件代理或事件委托</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件捕获的使用场景"><span class="nav-number">4.</span> <span class="nav-text">事件捕获的使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它一些补充"><span class="nav-number">5.</span> <span class="nav-text">其它一些补充</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关阅读"><span class="nav-number">6.</span> <span class="nav-text">相关阅读</span></a></li></ol></div>
             
 
           </div>
