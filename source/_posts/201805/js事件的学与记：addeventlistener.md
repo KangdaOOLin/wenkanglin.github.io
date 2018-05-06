@@ -1,7 +1,7 @@
 ---
 title: js事件的学与记：addEventListener
 date: 2018-05-06 21:34:34
-updated: 2018-05-07 01:26:24
+updated: 2018-05-07 01:27:49
 tags: js事件
 categories: js事件的学与记
 copyright: '(c) 2018-present, WenKang Lin'
