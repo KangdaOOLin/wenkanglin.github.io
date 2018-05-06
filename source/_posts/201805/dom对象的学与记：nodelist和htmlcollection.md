@@ -1,13 +1,13 @@
 ---
 title: DOM对象的学与记：NodeList和HTMLCollection
 date: 2018-05-05 11:08:03
-updated: 2018-05-05 15:50:46
+updated: 2018-05-06 09:37:59
 tags: DOM对象
 categories: DOM对象的学与记
 copyright: '(c) 2018-present, WenKang Lin'
 ---
 
-`NodeList` 是一系列页面节点的集合，相比较于 `HTMLCollection` 的一系列页面元素的集合，从它们字面上的含义也都可以看出两者的不同。前者节点不仅仅包括元素节点，还包括文本节点、属性节点、注释节点等，而后者质保卡元素节点。
+`NodeList` 是一系列页面节点的集合，相比较于 `HTMLCollection` 的一系列页面元素的集合，从它们字面上的含义也都可以看出两者的不同。前者节点不仅仅包括元素节点，还包括文本节点、属性节点、注释节点等，而后者只包括元素节点。
 
 <!-- more -->
 
