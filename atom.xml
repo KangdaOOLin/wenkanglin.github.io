@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.wenkanglin.com/"/>
-  <updated>2018-05-08T08:42:46.000Z</updated>
+  <updated>2018-05-08T16:34:14.000Z</updated>
   <id>http://www.wenkanglin.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js事件的学与记：浏览器环境下注册自定义事件</title>
+    <link href="http://www.wenkanglin.com/2018/05/08/js%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%AD%A6%E4%B8%8E%E8%AE%B0%EF%BC%9A%E6%B5%8F%E8%A7%88%E5%99%A8%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%B3%A8%E5%86%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6/"/>
+    <id>http://www.wenkanglin.com/2018/05/08/js事件的学与记：浏览器环境下注册自定义事件/</id>
+    <published>2018-05-08T08:54:41.000Z</published>
+    <updated>2018-05-08T16:34:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>通过本文章来了解一下，怎么在浏览器环境下，通过注册自定义事件。一般分为 3 个步骤：</p><ul><li>首先，通过<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event" target="_blank" rel="noopener">event</a>或者<a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent" target="_blank" rel="noopener">CustomEvent</a>注册一个自定义事件。</li><li>然后，通过<a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener" target="_blank" rel="noopener">addEventListener</a>订阅自定义事件。</li><li>最后，通过<a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent" target="_blank" rel="noopener">dispatchEvent</a>触发自定义事件。</li></ul><a id="more"></a><h2 id="Event"><a href="#Event" class="headerlink" title="Event"></a>Event</h2><blockquote><p>event = new Event(typeArg, eventInit);</p></blockquote><p><code>eventInit</code> 作为一个可选配置对象，有以下三个属性：</p><ul><li><strong>bubbles</strong>：表示事件是否可以冒泡，默认为 false。</li><li><strong>cancelable</strong>：表示事件是否可以被取消掉，默认为 false。可取消的话，则可以使用 <code>preventDefault</code> 阻止默认事件；否则报错。</li><li><strong>composed</strong>：和影子 DOM 有关的选项，不是很了解。默认为 false。</li></ul><p>通过 <code>Event</code> 构造函数实例化一个自定义事件，例如：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> event = <span class="keyword">new</span> Event(<span class="string">'xiba'</span>);</span><br></pre></td></tr></table></figure><p>当然也可以实例化一个更加具体的 <code>Event</code>，例如 <code>MouseEvent</code>、<code>InputEvent</code>等等：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> event = <span class="keyword">new</span> MouseEvent(<span class="string">'xiba'</span>);</span><br></pre></td></tr></table></figure><p>另外，虽然也可以通过<a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/createEvent" target="_blank" rel="noopener">document.createEvent</a>创建一个自定义事件对象：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> event = <span class="built_in">document</span>.createEvent(<span class="string">'MouseEvent'</span>);</span><br></pre></td></tr></table></figure><p>但是，必须通过 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/initEvent" target="_blank" rel="noopener">event.initEvent</a>进行初始化，否则不能触发该自定义事件，报错信息如下：</p><blockquote><p>Uncaught DOMException: Failed to execute ‘dispatchEvent’ on ‘EventTarget’: The event provided is uninitialized.</p></blockquote><p>因为，<code>event.initEvent</code> 处于被弃用的状态，所以不建议使用 <code>document.createEvent</code>。</p><h2 id="CustomEvent"><a href="#CustomEvent" class="headerlink" title="CustomEvent"></a>CustomEvent</h2><blockquote><p>event = new CustomEvent(typeArg, customEventInit);</p></blockquote><p>作为 <code>Event</code> 的一个原型继承的对象，使用方式唯一不太一样的在于 <code>customEventInit</code>，比 <code>Event</code> 多了一个属性：</p><ul><li><strong>detail</strong>：默认为 null，可用于事件的自定义数据，能在事件监听器里面通过 <code>event.detail</code> 访问自定义数据。</li></ul><p>相比于<code>Event</code>，建议通过 <code>CustomEvent</code> 去自定义事件。虽然功能相差不大，但后者无疑更具备语义化。</p><h2 id="dispatchEvent"><a href="#dispatchEvent" class="headerlink" title="dispatchEvent"></a>dispatchEvent</h2><p>在调用这个方法之前，<strong>必须要订阅自定义事件</strong>，才能确保触发的自定义事件能够被监听到。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> event = <span class="keyword">new</span> CustomEvent(<span class="string">'test'</span>);</span><br><span class="line">element.addEventListener(<span class="string">'test'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'test custom event'</span>);</span><br><span class="line">&#125;);</span><br><span class="line">element.dispatchEvent(event);</span><br></pre></td></tr></table></figure><p><code>dispatchEvent</code> 的返回值是一个布尔值，表示是否已经触发。如果触发的事件 <code>cacelable</code> 为 true，并且执行监听事件时，执行了 <code>preventDefault</code>，那么 <code>dispatchEvent</code> 的返回值为 false；否则为 true。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cancelled = !element.dispatchEvent(event);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (cancelled) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'event cancelled'</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'event not cancelled'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h2><blockquote><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/API/Event</a><br> <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent</a><br> <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent</a><br> <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;通过本文章来了解一下，怎么在浏览器环境下，通过注册自定义事件。一般分为 3 个步骤：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首先，通过&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Event&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;event&lt;/a&gt;或者&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;CustomEvent&lt;/a&gt;注册一个自定义事件。&lt;/li&gt;
+&lt;li&gt;然后，通过&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;addEventListener&lt;/a&gt;订阅自定义事件。&lt;/li&gt;
+&lt;li&gt;最后，通过&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;dispatchEvent&lt;/a&gt;触发自定义事件。&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="JavaScript，js事件的学与记" scheme="http://www.wenkanglin.com/categories/javascript%EF%BC%8Cjs%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%AD%A6%E4%B8%8E%E8%AE%B0/"/>
+    
+    
+      <category term="js事件" scheme="http://www.wenkanglin.com/tags/js%E4%BA%8B%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>js事件的学与记：使用观察者模式实现自定义事件</title>
@@ -32,13 +59,13 @@
     
     </summary>
     
-      <category term="面试题" scheme="http://www.wenkanglin.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-      <category term="js面试题的学与记" scheme="http://www.wenkanglin.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/js%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9A%84%E5%AD%A6%E4%B8%8E%E8%AE%B0/"/>
-    
       <category term="JavaScript" scheme="http://www.wenkanglin.com/categories/javascript/"/>
     
       <category term="js事件的学与记" scheme="http://www.wenkanglin.com/categories/javascript/js%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%AD%A6%E4%B8%8E%E8%AE%B0/"/>
+    
+      <category term="面试题" scheme="http://www.wenkanglin.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+      <category term="js面试题的学与记" scheme="http://www.wenkanglin.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/js%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9A%84%E5%AD%A6%E4%B8%8E%E8%AE%B0/"/>
     
     
       <category term="js事件" scheme="http://www.wenkanglin.com/tags/js%E4%BA%8B%E4%BB%B6/"/>
@@ -117,13 +144,13 @@
     
     </summary>
     
-      <category term="面试题" scheme="http://www.wenkanglin.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-      <category term="js面试题的学与记" scheme="http://www.wenkanglin.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/js%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9A%84%E5%AD%A6%E4%B8%8E%E8%AE%B0/"/>
-    
       <category term="JavaScript" scheme="http://www.wenkanglin.com/categories/javascript/"/>
     
       <category term="js事件的学与记" scheme="http://www.wenkanglin.com/categories/javascript/js%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%AD%A6%E4%B8%8E%E8%AE%B0/"/>
+    
+      <category term="面试题" scheme="http://www.wenkanglin.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+      <category term="js面试题的学与记" scheme="http://www.wenkanglin.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/js%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9A%84%E5%AD%A6%E4%B8%8E%E8%AE%B0/"/>
     
     
       <category term="js事件" scheme="http://www.wenkanglin.com/tags/js%E4%BA%8B%E4%BB%B6/"/>

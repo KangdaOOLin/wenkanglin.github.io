@@ -144,17 +144,18 @@
 
 
 
-  <meta name="description" content="前端路上的学与记">
-<meta name="keywords" content="WenKang Lin,林文康,博客,blog,web,JavaScript,ECMAScript,CSS3,HTML5,developer,front-end,前端,技术">
-<meta property="og:type" content="website">
-<meta property="og:title" content="林文康的博客">
-<meta property="og:url" content="http://www.wenkanglin.com/archives/index.html">
+  <meta name="description" content="通过本文章来了解一下，怎么在浏览器环境下，通过注册自定义事件。一般分为 3 个步骤：  首先，通过event或者CustomEvent注册一个自定义事件。 然后，通过addEventListener订阅自定义事件。 最后，通过dispatchEvent触发自定义事件。">
+<meta name="keywords" content="js事件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js事件的学与记：浏览器环境下注册自定义事件">
+<meta property="og:url" content="http://www.wenkanglin.com/2018/05/08/js事件的学与记：浏览器环境下注册自定义事件/index.html">
 <meta property="og:site_name" content="林文康的博客">
-<meta property="og:description" content="前端路上的学与记">
+<meta property="og:description" content="通过本文章来了解一下，怎么在浏览器环境下，通过注册自定义事件。一般分为 3 个步骤：  首先，通过event或者CustomEvent注册一个自定义事件。 然后，通过addEventListener订阅自定义事件。 最后，通过dispatchEvent触发自定义事件。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-08T16:34:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="林文康的博客">
-<meta name="twitter:description" content="前端路上的学与记">
+<meta name="twitter:title" content="js事件的学与记：浏览器环境下注册自定义事件">
+<meta name="twitter:description" content="通过本文章来了解一下，怎么在浏览器环境下，通过注册自定义事件。一般分为 3 个步骤：  首先，通过event或者CustomEvent注册一个自定义事件。 然后，通过addEventListener订阅自定义事件。 最后，通过dispatchEvent触发自定义事件。">
 
 
 
@@ -163,7 +164,7 @@
 
 
 
-  <link rel="canonical" href="http://www.wenkanglin.com/archives/"/>
+  <link rel="canonical" href="http://www.wenkanglin.com/2018/05/08/js事件的学与记：浏览器环境下注册自定义事件/"/>
 
 
 
@@ -173,7 +174,7 @@
   };
 </script>
 
-  <title>归档 | 林文康的博客</title>
+  <title>js事件的学与记：浏览器环境下注册自定义事件 | 林文康的博客</title>
   
 
 
@@ -239,7 +240,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -287,7 +288,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">11</span></a>
   </li>
@@ -371,440 +372,316 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.wenkanglin.com/2018/05/08/js事件的学与记：浏览器环境下注册自定义事件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="林文康">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="林文康的博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h2 class="post-title" itemprop="name headline">js事件的学与记：浏览器环境下注册自定义事件
+              
+            
+          </h2>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-05-08 16:54:41" itemprop="dateCreated datePublished" datetime="2018-05-08T16:54:41+08:00">2018-05-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-09 00:34:14" itemprop="dateModified" datetime="2018-05-09T00:34:14+08:00">2018-05-09</time>
+              
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 11 篇日志。 继续努力。
-      </span>
-      
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/javascript，js事件的学与记/" itemprop="url" rel="index"><span itemprop="name">JavaScript，js事件的学与记</span></a></span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h2 class="archive-year" id="archive-year-2018">2018</h2>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
+             <span id="/2018/05/08/js事件的学与记：浏览器环境下注册自定义事件/" class="leancloud_visitors" data-flag-title="js事件的学与记：浏览器环境下注册自定义事件">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/08/js事件的学与记：浏览器环境下注册自定义事件/" itemprop="url">
+          
+
+          
+            <div class="post-symbolscount">
               
-                <span itemprop="name">js事件的学与记：浏览器环境下注册自定义事件</span>
+
               
-            </a>
-        
-      </h3>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">1.9k</span>
+              
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-08T16:54:41+08:00"
-              content="2018-05-08" >
-          05-08
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">2 分钟</span>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/08/js事件的学与记：使用观察者模式实现自定义事件/" itemprop="url">
-              
-                <span itemprop="name">js事件的学与记：使用观察者模式实现自定义事件</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-08T10:55:09+08:00"
-              content="2018-05-08" >
-          05-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/07/dom对象的学与记：innerhtml、innertext、outerhtml、outertext/" itemprop="url">
-              
-                <span itemprop="name">DOM对象的学与记：innerHTML、innerText、outerHTML、outerText</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-07T11:17:59+08:00"
-              content="2018-05-07" >
-          05-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>通过本文章来了解一下，怎么在浏览器环境下，通过注册自定义事件。一般分为 3 个步骤：</p>
+<ul>
+<li>首先，通过<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event" target="_blank" rel="noopener">event</a>或者<a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent" target="_blank" rel="noopener">CustomEvent</a>注册一个自定义事件。</li>
+<li>然后，通过<a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener" target="_blank" rel="noopener">addEventListener</a>订阅自定义事件。</li>
+<li>最后，通过<a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent" target="_blank" rel="noopener">dispatchEvent</a>触发自定义事件。</li>
+</ul>
+<a id="more"></a>
+<h2 id="Event"><a href="#Event" class="headerlink" title="Event"></a>Event</h2><blockquote>
+<p>event = new Event(typeArg, eventInit);</p>
+</blockquote>
+<p><code>eventInit</code> 作为一个可选配置对象，有以下三个属性：</p>
+<ul>
+<li><strong>bubbles</strong>：表示事件是否可以冒泡，默认为 false。</li>
+<li><strong>cancelable</strong>：表示事件是否可以被取消掉，默认为 false。可取消的话，则可以使用 <code>preventDefault</code> 阻止默认事件；否则报错。</li>
+<li><strong>composed</strong>：和影子 DOM 有关的选项，不是很了解。默认为 false。</li>
+</ul>
+<p>通过 <code>Event</code> 构造函数实例化一个自定义事件，例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> event = <span class="keyword">new</span> Event(<span class="string">'xiba'</span>);</span><br></pre></td></tr></table></figure>
+<p>当然也可以实例化一个更加具体的 <code>Event</code>，例如 <code>MouseEvent</code>、<code>InputEvent</code>等等：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> event = <span class="keyword">new</span> MouseEvent(<span class="string">'xiba'</span>);</span><br></pre></td></tr></table></figure>
+<p>另外，虽然也可以通过<a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/createEvent" target="_blank" rel="noopener">document.createEvent</a>创建一个自定义事件对象：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> event = <span class="built_in">document</span>.createEvent(<span class="string">'MouseEvent'</span>);</span><br></pre></td></tr></table></figure>
+<p>但是，必须通过 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/initEvent" target="_blank" rel="noopener">event.initEvent</a>进行初始化，否则不能触发该自定义事件，报错信息如下：</p>
+<blockquote>
+<p>Uncaught DOMException: Failed to execute ‘dispatchEvent’ on ‘EventTarget’: The event provided is uninitialized.</p>
+</blockquote>
+<p>因为，<code>event.initEvent</code> 处于被弃用的状态，所以不建议使用 <code>document.createEvent</code>。</p>
+<h2 id="CustomEvent"><a href="#CustomEvent" class="headerlink" title="CustomEvent"></a>CustomEvent</h2><blockquote>
+<p>event = new CustomEvent(typeArg, customEventInit);</p>
+</blockquote>
+<p>作为 <code>Event</code> 的一个原型继承的对象，使用方式唯一不太一样的在于 <code>customEventInit</code>，比 <code>Event</code> 多了一个属性：</p>
+<ul>
+<li><strong>detail</strong>：默认为 null，可用于事件的自定义数据，能在事件监听器里面通过 <code>event.detail</code> 访问自定义数据。</li>
+</ul>
+<p>相比于<code>Event</code>，建议通过 <code>CustomEvent</code> 去自定义事件。虽然功能相差不大，但后者无疑更具备语义化。</p>
+<h2 id="dispatchEvent"><a href="#dispatchEvent" class="headerlink" title="dispatchEvent"></a>dispatchEvent</h2><p>在调用这个方法之前，<strong>必须要订阅自定义事件</strong>，才能确保触发的自定义事件能够被监听到。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> event = <span class="keyword">new</span> CustomEvent(<span class="string">'test'</span>);</span><br><span class="line">element.addEventListener(<span class="string">'test'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'test custom event'</span>);</span><br><span class="line">&#125;);</span><br><span class="line">element.dispatchEvent(event);</span><br></pre></td></tr></table></figure>
+<p><code>dispatchEvent</code> 的返回值是一个布尔值，表示是否已经触发。如果触发的事件 <code>cacelable</code> 为 true，并且执行监听事件时，执行了 <code>preventDefault</code>，那么 <code>dispatchEvent</code> 的返回值为 false；否则为 true。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cancelled = !element.dispatchEvent(event);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (cancelled) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'event cancelled'</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'event not cancelled'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h2><blockquote>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/API/Event</a><br> <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent</a><br> <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent</a><br> <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events</a></p>
+</blockquote>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/06/js事件的学与记：addeventlistener/" itemprop="url">
-              
-                <span itemprop="name">js事件的学与记：addEventListener</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-06T21:34:34+08:00"
-              content="2018-05-06" >
-          05-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/06/js事件的学与记：事件捕获和事件冒泡/" itemprop="url">
-              
-                <span itemprop="name">js事件的学与记：事件捕获和事件冒泡</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-06T15:53:33+08:00"
-              content="2018-05-06" >
-          05-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/05/dom对象的学与记：nodelist和htmlcollection/" itemprop="url">
-              
-                <span itemprop="name">DOM对象的学与记：NodeList和HTMLCollection</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-05T11:08:03+08:00"
-              content="2018-05-05" >
-          05-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/03/html-meta的学与记：format-detection/" itemprop="url">
-              
-                <span itemprop="name">html-meta的学与记：format-detection</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-03T16:41:20+08:00"
-              content="2018-05-03" >
-          05-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/02/js对象的学与记：Object.freeze/" itemprop="url">
-              
-                <span itemprop="name">js对象的学与记：Object.freeze</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-02T17:11:53+08:00"
-              content="2018-05-02" >
-          05-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/28/git的学与记：01/" itemprop="url">
-              
-                <span itemprop="name">git的学与记：01</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-28T18:10:32+08:00"
-              content="2018-04-28" >
-          04-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/28/hexo的学与记：命令/" itemprop="url">
-              
-                <span itemprop="name">hexo的学与记：命令</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-28T13:45:59+08:00"
-              content="2018-04-28" >
-          04-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js事件/" rel="tag"># js事件</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/08/js事件的学与记：使用观察者模式实现自定义事件/" rel="next" title="js事件的学与记：使用观察者模式实现自定义事件">
+                <i class="fa fa-chevron-left"></i> js事件的学与记：使用观察者模式实现自定义事件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -827,8 +704,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -960,6 +846,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Event"><span class="nav-number">1.</span> <span class="nav-text">Event</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CustomEvent"><span class="nav-number">2.</span> <span class="nav-text">CustomEvent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dispatchEvent"><span class="nav-number">3.</span> <span class="nav-text">dispatchEvent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关阅读"><span class="nav-number">4.</span> <span class="nav-text">相关阅读</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1118,6 +1020,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
 
   
 
