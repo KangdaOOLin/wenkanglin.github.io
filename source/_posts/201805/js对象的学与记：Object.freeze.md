@@ -1,10 +1,10 @@
 ---
 title: js对象的学与记：Object.freeze
-tags: js对象
-categories: js对象的学与记
-copyright: '(c) 2018-present, WenKang Lin'
 date: 2018-05-02 17:11:53
-updated: 2018-05-05 15:42:29
+updated: 2018-05-08 16:40:19
+tags: js对象
+categories: [JavaScript, js对象的学与记]
+copyright: '(c) 2018-present, WenKang Lin'
 ---
 
 众所周知，`es5`中新增了`Object.freeze`用来“冻结”对象的属性，阻止对象新增属性，修改属性的值，来达到类似于`writable: false`和`configurable: false`的效果。但是，要注意的是，对象中嵌套对象并不能被冻结。

@@ -1,9 +1,9 @@
 ---
 title: DOM对象的学与记：innerHTML、innerText、outerHTML、outerText
 date: 2018-05-07 11:17:59
-updated: 2018-05-07 21:09:42
+updated: 2018-05-08 16:38:24
 tags: DOM对象
-categories: DOM对象的学与记
+categories: [JavaScript, DOM对象的学与记]
 copyright: '(c) 2018-present, WenKang Lin'
 ---
 

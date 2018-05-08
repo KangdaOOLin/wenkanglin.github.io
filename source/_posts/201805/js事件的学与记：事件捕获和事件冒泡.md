@@ -1,9 +1,11 @@
 ---
 title: js事件的学与记：事件捕获和事件冒泡
 date: 2018-05-06 15:53:33
-updated: 2018-05-08 16:05:28
+updated: 2018-05-08 16:39:10
 tags: [js事件, js面试题]
-categories: js事件的学与记
+categories:
+  - [JavaScript, js事件的学与记]
+  - [面试题, js面试题的学与记]
 copyright: '(c) 2018-present, WenKang Lin'
 ---
 

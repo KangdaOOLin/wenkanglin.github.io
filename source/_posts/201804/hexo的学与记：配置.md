@@ -1,9 +1,9 @@
 ---
 title: hexo的学与记：配置
 date: 2018-04-28 13:44:55
-updated: 2018-05-02 18:03:15
+updated: 2018-05-08 16:41:47
 tags: hexo
-categories: hexo的学与记
+categories: [Hexo, hexo的学与记]
 copyright: '(c) 2018-present, WenKang Lin'
 ---
 

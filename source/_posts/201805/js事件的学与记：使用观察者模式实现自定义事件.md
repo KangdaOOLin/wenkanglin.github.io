@@ -1,9 +1,11 @@
 ---
 title: js事件的学与记：使用观察者模式实现自定义事件
 date: 2018-05-08 10:55:09
-updated: 2018-05-08 16:32:26
+updated: 2018-05-08 16:42:46
 tags: [js事件, js面试题]
-categories: js事件的学与记
+categories:
+  - [JavaScript, js事件的学与记]
+  - [面试题, js面试题的学与记]
 copyright: '(c) 2018-present, WenKang Lin'
 ---
 

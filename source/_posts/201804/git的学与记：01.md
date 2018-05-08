@@ -1,9 +1,9 @@
 ---
 title: git的学与记：01
 date: 2018-04-28 18:10:32
-updated: 2018-05-02 18:01:10
+updated: 2018-05-08 16:41:13
 tags: git
-categories: git的学与记
+categories: [Git, git的学与记]
 copyright: '(c) 2018-present, WenKang Lin'
 ---
 
