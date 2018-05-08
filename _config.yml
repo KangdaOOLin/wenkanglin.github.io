@@ -95,6 +95,13 @@ algolia:
   indexName: blog
   chunkSize: 5000
 
+leancloud_counter_security:
+  enable_sync: true
+  app_id: l2Dm1Um1RyL3w2aGklUyO05R-gzGzoHsz
+  app_key: IUw8OtUCOtM54o6MQKw3a2uc
+  username: wenkanglin
+  password:
+
 symbols_count_time:
   symbols: true
   time: true
@@ -104,6 +111,7 @@ symbols_count_time:
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  repo: git@github.com:wenkanglin/wenkanglin.github.io.git
-  message: ':rocket: Site update on {{ now("YYYY-MM-DD HH:mm:ss") }}'
+  - type: git
+    repo: git@github.com:wenkanglin/wenkanglin.github.io.git
+    message: ':rocket: Site update on {{ now("YYYY-MM-DD HH:mm:ss") }}'
+  - type: leancloud_counter_security_sync

@@ -67,6 +67,13 @@ algolia_search:
     hits_empty: "未找到任何关于${query}的博客文章"
     hits_stats: "共找到${hits}个结果，耗时${time}ms"
 
+leancloud_visitors:
+  enable: true
+  app_id: l2Dm1Um1RyL3w2aGklUyO05R-gzGzoHsz
+  app_key: IUw8OtUCOtM54o6MQKw3a2uc
+  security: true
+  betterPerformance: true
+
 reading_progress:
   enable: true
   color: "#3684e8"
