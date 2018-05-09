@@ -38,6 +38,12 @@ scroll_to_more: false
 
 highlight_theme: night
 
+creative_commons: by-nc-sa
+
+post_copyright:
+  enable: true
+  license: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a>
+
 font:
   enable: true
   global:
