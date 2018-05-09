@@ -1,9 +1,9 @@
 ---
-title: js面试题的学与记：实现mul函数
+title: JavaScript面试题的学与记：实现mul函数
 date: 2018-05-09 21:43:52
-updated: 2018-05-09 21:55:51
-tags: js面试题
-categories: [面试题, js面试题的学与记]
+updated: 2018-05-09 23:31:30
+tags: JavaScript面试题
+categories: [面试题, JavaScript面试题的学与记]
 copyright: '(c) 2018-present, WenKang Lin'
 ---
 
