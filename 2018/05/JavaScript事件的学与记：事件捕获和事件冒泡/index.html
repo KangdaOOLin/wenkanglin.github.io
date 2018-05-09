@@ -144,18 +144,20 @@
 
 
 
-  <meta name="description" content="NodeList 是一系列页面节点的集合，相比较于 HTMLCollection 的一系列页面元素的集合，从它们字面上的含义也都可以看出两者的不同。前者节点不仅仅包括元素节点，还包括文本节点、属性节点、注释节点等，而后者只包括元素节点。">
-<meta name="keywords" content="DOM对象">
+  <meta name="description" content="面试的时候，或者自我基础总结的时候，经常会遇到以下的问题：  什么是事件捕获和事件冒泡？ 事件捕获和事件冒泡顺序的优先级？ 事件捕获和事件冒泡的使用场景是什么？ 事件捕获单独的使用场景是什么？为什么会同时存在这两种事件传播的机制？">
+<meta name="keywords" content="JavaScript事件,JavaScript面试题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DOM对象的学与记：NodeList和HTMLCollection">
-<meta property="og:url" content="http://www.wenkanglin.com/2018/05/05/DOM对象的学与记：nodelist和htmlcollection/index.html">
+<meta property="og:title" content="JavaScript事件的学与记：事件捕获和事件冒泡">
+<meta property="og:url" content="http://www.wenkanglin.com/2018/05/JavaScript事件的学与记：事件捕获和事件冒泡/index.html">
 <meta property="og:site_name" content="林文康的博客">
-<meta property="og:description" content="NodeList 是一系列页面节点的集合，相比较于 HTMLCollection 的一系列页面元素的集合，从它们字面上的含义也都可以看出两者的不同。前者节点不仅仅包括元素节点，还包括文本节点、属性节点、注释节点等，而后者只包括元素节点。">
+<meta property="og:description" content="面试的时候，或者自我基础总结的时候，经常会遇到以下的问题：  什么是事件捕获和事件冒泡？ 事件捕获和事件冒泡顺序的优先级？ 事件捕获和事件冒泡的使用场景是什么？ 事件捕获单独的使用场景是什么？为什么会同时存在这两种事件传播的机制？">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-09T14:28:23.000Z">
+<meta property="og:image" content="http://www.wenkanglin.com/images/eventflow.jpg">
+<meta property="og:updated_time" content="2018-05-09T14:31:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DOM对象的学与记：NodeList和HTMLCollection">
-<meta name="twitter:description" content="NodeList 是一系列页面节点的集合，相比较于 HTMLCollection 的一系列页面元素的集合，从它们字面上的含义也都可以看出两者的不同。前者节点不仅仅包括元素节点，还包括文本节点、属性节点、注释节点等，而后者只包括元素节点。">
+<meta name="twitter:title" content="JavaScript事件的学与记：事件捕获和事件冒泡">
+<meta name="twitter:description" content="面试的时候，或者自我基础总结的时候，经常会遇到以下的问题：  什么是事件捕获和事件冒泡？ 事件捕获和事件冒泡顺序的优先级？ 事件捕获和事件冒泡的使用场景是什么？ 事件捕获单独的使用场景是什么？为什么会同时存在这两种事件传播的机制？">
+<meta name="twitter:image" content="http://www.wenkanglin.com/images/eventflow.jpg">
 
 
 
@@ -164,7 +166,7 @@
 
 
 
-  <link rel="canonical" href="http://www.wenkanglin.com/2018/05/05/DOM对象的学与记：nodelist和htmlcollection/"/>
+  <link rel="canonical" href="http://www.wenkanglin.com/2018/05/JavaScript事件的学与记：事件捕获和事件冒泡/"/>
 
 
 
@@ -174,7 +176,7 @@
   };
 </script>
 
-  <title>DOM对象的学与记：NodeList和HTMLCollection | 林文康的博客</title>
+  <title>JavaScript事件的学与记：事件捕获和事件冒泡 | 林文康的博客</title>
   
 
 
@@ -394,7 +396,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.wenkanglin.com/2018/05/05/DOM对象的学与记：nodelist和htmlcollection/">
+    <link itemprop="mainEntityOfPage" href="http://www.wenkanglin.com/2018/05/JavaScript事件的学与记：事件捕获和事件冒泡/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="林文康">
@@ -411,7 +413,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">DOM对象的学与记：NodeList和HTMLCollection
+          <h2 class="post-title" itemprop="name headline">JavaScript事件的学与记：事件捕获和事件冒泡
               
             
           </h2>
@@ -436,7 +438,7 @@
                 
               
 
-              <time title="创建时间：2018-05-05 11:08:03" itemprop="dateCreated datePublished" datetime="2018-05-05T11:08:03+08:00">2018-05-05</time>
+              <time title="创建时间：2018-05-06 15:53:33" itemprop="dateCreated datePublished" datetime="2018-05-06T15:53:33+08:00">2018-05-06</time>
             
 
             
@@ -453,7 +455,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-09 22:28:23" itemprop="dateModified" datetime="2018-05-09T22:28:23+08:00">2018-05-09</time>
+                <time title="修改时间：2018-05-09 22:31:35" itemprop="dateModified" datetime="2018-05-09T22:31:35+08:00">2018-05-09</time>
               
             
           </span>
@@ -470,6 +472,13 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/面试题/" itemprop="url" rel="index"><span itemprop="name">面试题</span></a></span>
+
+                
+                
+                  ，
+                
+              
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
 
                 
@@ -477,7 +486,14 @@
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/javascript/dom对象的学与记/" itemprop="url" rel="index"><span itemprop="name">DOM对象的学与记</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/面试题/javascript面试题的学与记/" itemprop="url" rel="index"><span itemprop="name">JavaScript面试题的学与记</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/javascript/javascript事件的学与记/" itemprop="url" rel="index"><span itemprop="name">JavaScript事件的学与记</span></a></span>
 
                 
                 
@@ -491,7 +507,7 @@
 
           
           
-             <span id="/2018/05/05/DOM对象的学与记：nodelist和htmlcollection/" class="leancloud_visitors" data-flag-title="DOM对象的学与记：NodeList和HTMLCollection">
+             <span id="/2018/05/JavaScript事件的学与记：事件捕获和事件冒泡/" class="leancloud_visitors" data-flag-title="JavaScript事件的学与记：事件捕获和事件冒泡">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -516,7 +532,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2.7k</span>
+                <span title="本文字数">2.1k</span>
               
 
               
@@ -550,66 +566,46 @@
       
 
       
-        <p><code>NodeList</code> 是一系列页面节点的集合，相比较于 <code>HTMLCollection</code> 的一系列页面元素的集合，从它们字面上的含义也都可以看出两者的不同。前者节点不仅仅包括元素节点，还包括文本节点、属性节点、注释节点等，而后者只包括元素节点。</p>
+        <p>面试的时候，或者自我基础总结的时候，经常会遇到以下的问题：</p>
+<ul>
+<li>什么是事件捕获和事件冒泡？</li>
+<li>事件捕获和事件冒泡顺序的优先级？</li>
+<li>事件捕获和事件冒泡的使用场景是什么？</li>
+<li>事件捕获单独的使用场景是什么？为什么会同时存在这两种事件传播的机制？</li>
+</ul>
 <a id="more"></a>
-<p>也就是说，<code>NodeList</code> 的每一项都是 <code>Node</code> 对象类型，而 <code>HTMLCollection</code> 的每一项是 <code>HTMLElement</code> 对象类型。例如：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> childNodes = <span class="built_in">document</span>.body.childNodes;</span><br><span class="line"><span class="keyword">const</span> children = <span class="built_in">document</span>.body.children;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(childNodes <span class="keyword">instanceof</span> NodeList); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(children <span class="keyword">instanceof</span> HTMLCollection); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(childNodes.item(<span class="number">0</span>) <span class="keyword">instanceof</span> Node); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(children.item(<span class="number">0</span>) <span class="keyword">instanceof</span> HTMLElement); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-<h2 id="节点类型"><a href="#节点类型" class="headerlink" title="节点类型"></a>节点类型</h2><p>一般来说，判断节点的类型，是通过节点的 <code>nodeType</code> 属性来判断，常用的节点类型有：</p>
-<table>
-<thead>
-<tr>
-<th>节点类型</th>
-<th>nodeType的值</th>
-<th>常量</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>元素节点</td>
-<td>1</td>
-<td>Node.ELEMENT_NODE</td>
-</tr>
-<tr>
-<td>属性节点</td>
-<td>2</td>
-<td>Node.ATTRIBUTE_NODE</td>
-</tr>
-<tr>
-<td>文本节点</td>
-<td>3</td>
-<td>Node.TEXT_NODE</td>
-</tr>
-<tr>
-<td>注释节点</td>
-<td>8</td>
-<td>Node.COMMENT_NODE</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.body.nodeType === <span class="number">1</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.body.nodeType === Node.ELEMENT_NODE); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-<h2 id="NodeList-和-HTMLCollection的相似点"><a href="#NodeList-和-HTMLCollection的相似点" class="headerlink" title="NodeList 和 HTMLCollection的相似点"></a>NodeList 和 HTMLCollection的相似点</h2><ul>
-<li>类数组数据结构类型，都可通过 <code>length</code> 获取集合的长度。</li>
-<li>都可通过数组下标的形式，或者 <code>item</code> 来获取集合的某一项。并且，数组下标若为负数或超过集合长度，那么返回 <code>undefined</code>；相同情况下，通过 <code>item</code> 访问返回 <code>null</code>。</li>
+<h2 id="事件流程"><a href="#事件流程" class="headerlink" title="事件流程"></a>事件流程</h2><p>在说到事件捕获和冒泡前，我们需要先了解一个事件的触发到底经历了哪些？</p>
+<p><img src="/images/eventflow.jpg" alt="事件触发流程"></p>
+<p>如上图所示，一般事件触发的流程会经历这三个阶段：</p>
+<ul>
+<li><strong>捕获阶段</strong>。事件对象通过目标的祖先从页面根元素传播到事件目标的父节点。</li>
+<li><strong>目标阶段</strong>。事件对象到达事件目标的阶段，即 <code>event.target</code>。如果事件不冒泡，那么事件对象将在此阶段完成后停止。</li>
+<li><strong>冒泡阶段</strong>。事件对象以捕获阶段相反的顺序，从目标的父节点开始，向上传播到页面根元素结束。</li>
 </ul>
-<p>类数组结构，可通过一系列方式使用数组遍历：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> childNodes = <span class="built_in">document</span>.body.childNodes;</span><br><span class="line"><span class="keyword">const</span> children = <span class="built_in">document</span>.body.children;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过es6的Array.from，转化为数组</span></span><br><span class="line"><span class="built_in">Array</span>.from(childNodes);</span><br><span class="line"><span class="built_in">Array</span>.from(children)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过es6的数组解构赋值，转化为数组</span></span><br><span class="line">[...childNodes];</span><br><span class="line">[...children];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过apply或call</span></span><br><span class="line"><span class="built_in">Array</span>.prototype.slice.call(childNodes, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">Array</span>.prototype.forEach.call(children, () =&gt; &#123;&#125;);</span><br></pre></td></tr></table></figure>
-<p>都可通过数组下标或者 <code>item</code> 来访问集合的某一项：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(childNodes[<span class="number">-1</span>]); <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(children[<span class="number">-1</span>]); <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(childNodes.item(childNodes.length + <span class="number">1</span>)); <span class="comment">// null</span></span><br><span class="line"><span class="built_in">console</span>.log(children.item(<span class="number">-1</span>)); <span class="comment">// null</span></span><br></pre></td></tr></table></figure>
-<h2 id="NodeList-和-HTMLCollection的不同点"><a href="#NodeList-和-HTMLCollection的不同点" class="headerlink" title="NodeList 和 HTMLCollection的不同点"></a>NodeList 和 HTMLCollection的不同点</h2><ul>
-<li>开头讲到的，<code>NodeList</code> 集合包括所有的节点，即包括了元素。</li>
-<li><code>NodeList</code>虽然是类数组，但本身支持 <code>forEach</code>, <code>keys</code>, <code>values</code>, <code>entries</code>方法。</li>
-<li><code>HTMLCollection</code> 有一个 <code>namedItem</code> 的方法，参数为字符串，用于查找集合中存在元素的 <code>id</code> 和字符串相等的元素。</li>
-</ul>
-<p><code>NodeList</code> 中的 <code>keys</code>, <code>values</code>, <code>entries</code>方法，返回的是一个迭代器，这和数组的方法不太一样。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> childNodes = docuemnt.body.childNodes;</span><br><span class="line"></span><br><span class="line">childNodes.forEach(<span class="function"><span class="params">node</span> =&gt;</span> <span class="built_in">console</span>.log(node));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用for...of遍历迭代器，或者next</span></span><br><span class="line"><span class="comment">// key是无符号的整数，0....n</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">of</span> childNodes.keys()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> node <span class="keyword">of</span> childNodes.values()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(node);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>namedItem</code> 方法，在 MDN 中解释是：</p>
+<p>在事件触发的过程中，我们也可以通过<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/eventPhase" target="_blank" rel="noopener">Event.eventPhase</a>来得到当前事件执行的阶段。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">el.addEventListener(<span class="string">'click'</span>, event =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'current pahse:'</span>, event.eventPhase);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>到这里为止，我们应该知道了一开始问题一的事件捕获和事件冒泡是啥了，它们用相反的事件传播顺序触发事件流。而且，根据上面的三个阶段，也应该知道问题二的答案。</p>
 <blockquote>
-<p>Returns the specific node whose ID or, as a fallback, name matches the string specified by name. Matching by name is only done as a last resort, only in HTML, and only if the referenced element supports the name attribute. Returns null if no node exists by the given name.</p>
+<p>问题：事件捕获和事件冒泡顺序的优先级？<br><br>答案：先经历事件捕获，再经历事件冒泡。</p>
 </blockquote>
-<p>上面描述中，不但可以通过元素的 <code>id</code> 来查找，也可以通过 <code>name</code> 属性来查找，前提是元素支持该属性。然而，本人亲自在 chrome 浏览器中试了一下，查找支持 <code>name</code> 属性的 <code>input</code>，不起作用。可能是不同浏览器存在差异性。</p>
-<p>另外，<code>namedItem</code> 方法返回的结果在不同的浏览器下也存在<a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection#Browser_compatibility" target="_blank" rel="noopener">差异性</a>。</p>
+<h2 id="设置事件触发的阶段"><a href="#设置事件触发的阶段" class="headerlink" title="设置事件触发的阶段"></a>设置事件触发的阶段</h2><p>我们可以通过 <code>addEventListener</code> 绑定一个事件，并决定事件是在捕获阶段触发呢，还是在冒泡阶段触发。默认是冒泡阶段触发，可通过设置第三个参数为 <code>true</code> 来设置事件在捕获阶段触发。</p>
+<iframe scrolling="no" width="100%" height="300" src="//jsfiddle.net/xvbevmj5/embedded/js,html,css,result/dark" frameborder="0" allowfullscreen></iframe>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">addEventListener(type, handler, useCapture);</span><br><span class="line">addEventListener(type, handler, &#123; capture &#125;);</span><br></pre></td></tr></table></figure>
+<p>另外，<strong>阻止事件捕获和冒泡</strong>，都可以通过 <code>event.stopPropagation()</code> 来达到阻止的效果。正确来说，若处于事件捕获阶段，然后调用它，那么事件流将在目标阶段结束，而不会执行事件冒泡的流程。若处于事件冒泡阶段，然后调用它，那么将阻止事件继续向上冒泡的过程。</p>
+<h2 id="事件代理或事件委托"><a href="#事件代理或事件委托" class="headerlink" title="事件代理或事件委托"></a>事件代理或事件委托</h2><p>事件代理和事件委托指的是同一个玩意，是一个很常见的事件冒泡使用场景。而且由于作为一个典型的事件性能优化手段，可供参考的资料有很多。所以，这里不做具体的描述。一个字，懒 -_-||。</p>
+<h2 id="事件捕获的使用场景"><a href="#事件捕获的使用场景" class="headerlink" title="事件捕获的使用场景"></a>事件捕获的使用场景</h2><p>接下来，我们重点讨论一下事件捕获的使用场景，这也是为什么为同时存在捕获和冒泡两种事件传播方式的原因吧。</p>
+<p>个人目前想的到的使用场景主要有以下两个：</p>
+<ul>
+<li>一个是<strong>非冒泡事件的事件代理</strong>。类似于 <code>focus</code>、<code>blur</code>、<code>mouseenter</code>等不能冒泡的事件类型，不能通过基于事件冒泡的事件代理方式来处理。那么可以通过基于事件捕获的事件代理来处理。但是，个人经验有限，实在是想不出具体实际的场景。</li>
+<li>因为事件捕获阶段先于事件冒泡阶段，那么是不是可以在事件捕获阶段，充当一个拦截器，或过滤器的作用，当满足条件时，才继续执行事件冒泡阶段。这样的话，具体的判断逻辑放在事件捕获阶段，具体的事件处理逻辑放在事件冒泡阶段，职责分明，充当不同的角色。</li>
+</ul>
+<p>至于，为什么会同时存在这两种事件传播的机制？这个问题撇开使用场景这方面原因，更多的应该是历史发展的原因。当初 Netscape Navigator 4 的事件传播方式是近似于事件捕获，而 IE 4 的正相反。最后，W3C DOM 标准，从设计思路上是更接近 IE 的设计的，即事件冒泡，只是加入了事件捕获阶段。</p>
+<h2 id="其它一些补充"><a href="#其它一些补充" class="headerlink" title="其它一些补充"></a>其它一些补充</h2><p>上面讲到“非冒泡事件”，那么怎么来判断一个事件能否冒泡呢？答案是可通过 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/bubbles" target="_blank" rel="noopener">event.bubbles</a>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">input.addEventListener(<span class="string">'focus'</span>, event =&gt; &#123;</span><br><span class="line">  <span class="comment">// focus事件不能冒泡</span></span><br><span class="line">  <span class="built_in">console</span>.log(event.bubbles); <span class="comment">// false</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><code>event.stopPropagation()</code> 方法兼容 <code>IE9+</code>，低于这个版本的 IE 浏览器，应使用 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/cancelBubble" target="_blank" rel="noopener">event.cancelBubble</a>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">el.addEventListener(<span class="string">'click'</span>, event =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> event.stopPropagation === <span class="string">'function'</span>) &#123;</span><br><span class="line">    event.stopPropagation();</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    event.cancelBubble = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <h2 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h2><blockquote>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/NodeList" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/API/NodeList</a><br><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection</a></p>
+<p><a href="http://javascript.info/bubbling-and-capturing" target="_blank" rel="noopener">http://javascript.info/bubbling-and-capturing</a><br> <a href="https://www.w3.org/TR/DOM-Level-3-Events/#dom-event-architecture" target="_blank" rel="noopener">https://www.w3.org/TR/DOM-Level-3-Events/#dom-event-architecture</a></p>
 </blockquote>
 
       
@@ -632,7 +628,7 @@
     <strong>本文作者： </strong>林文康</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.wenkanglin.com/2018/05/05/DOM对象的学与记：nodelist和htmlcollection/" title="DOM对象的学与记：NodeList和HTMLCollection">http://www.wenkanglin.com/2018/05/05/DOM对象的学与记：nodelist和htmlcollection/</a>
+    <a href="http://www.wenkanglin.com/2018/05/JavaScript事件的学与记：事件捕获和事件冒泡/" title="JavaScript事件的学与记：事件捕获和事件冒泡">http://www.wenkanglin.com/2018/05/JavaScript事件的学与记：事件捕获和事件冒泡/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -645,7 +641,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/dom对象/" rel="tag"># DOM对象</a>
+            <a href="/tags/javascript事件/" rel="tag"># JavaScript事件</a>
+          
+            <a href="/tags/javascript面试题/" rel="tag"># JavaScript面试题</a>
           
         </div>
       
@@ -658,8 +656,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/03/HTML meta的学与记：format-detection/" rel="next" title="HTML meta的学与记：format-detection">
-                <i class="fa fa-chevron-left"></i> HTML meta的学与记：format-detection
+              <a href="/2018/05/DOM对象的学与记：nodelist和htmlcollection/" rel="next" title="DOM对象的学与记：NodeList和HTMLCollection">
+                <i class="fa fa-chevron-left"></i> DOM对象的学与记：NodeList和HTMLCollection
               </a>
             
           </div>
@@ -668,8 +666,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/06/JavaScript事件的学与记：事件捕获和事件冒泡/" rel="prev" title="JavaScript事件的学与记：事件捕获和事件冒泡">
-                JavaScript事件的学与记：事件捕获和事件冒泡 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/JavaScript事件的学与记：addeventlistener/" rel="prev" title="JavaScript事件的学与记：addEventListener">
+                JavaScript事件的学与记：addEventListener <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -908,7 +906,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#节点类型"><span class="nav-number">1.</span> <span class="nav-text">节点类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NodeList-和-HTMLCollection的相似点"><span class="nav-number">2.</span> <span class="nav-text">NodeList 和 HTMLCollection的相似点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NodeList-和-HTMLCollection的不同点"><span class="nav-number">3.</span> <span class="nav-text">NodeList 和 HTMLCollection的不同点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关阅读"><span class="nav-number">4.</span> <span class="nav-text">相关阅读</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#事件流程"><span class="nav-number">1.</span> <span class="nav-text">事件流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置事件触发的阶段"><span class="nav-number">2.</span> <span class="nav-text">设置事件触发的阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件代理或事件委托"><span class="nav-number">3.</span> <span class="nav-text">事件代理或事件委托</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件捕获的使用场景"><span class="nav-number">4.</span> <span class="nav-text">事件捕获的使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它一些补充"><span class="nav-number">5.</span> <span class="nav-text">其它一些补充</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关阅读"><span class="nav-number">6.</span> <span class="nav-text">相关阅读</span></a></li></ol></div>
             
 
           </div>

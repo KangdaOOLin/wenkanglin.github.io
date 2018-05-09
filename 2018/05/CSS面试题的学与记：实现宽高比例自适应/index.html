@@ -144,20 +144,18 @@
 
 
 
-  <meta name="description" content="众所周知，es5中新增了Object.freeze用来“冻结”对象的属性，阻止对象新增属性，修改属性的值，来达到类似于writable: false和configurable: false的效果。但是，要注意的是，对象中嵌套对象并不能被冻结。">
-<meta name="keywords" content="JavaScript对象">
+  <meta name="description" content="主要是上次被面试官问到的这个问题，然后回答的并不是很好。所以，这里总结一下通过 CSS 方式实现固定宽高比例。  使用 padding-top 或 padding-bottom。 使用 calc。 使用 vw 新单位。 使用 vw 结合 grid 布局。 未来原生方案 aspect-ratio.">
+<meta name="keywords" content="CSS面试题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript对象的学与记：Object.freeze">
-<meta property="og:url" content="http://www.wenkanglin.com/2018/05/02/JavaScript对象的学与记：Object.freeze/index.html">
+<meta property="og:title" content="CSS面试题的学与记：实现宽高比例自适应">
+<meta property="og:url" content="http://www.wenkanglin.com/2018/05/CSS面试题的学与记：实现宽高比例自适应/index.html">
 <meta property="og:site_name" content="林文康的博客">
-<meta property="og:description" content="众所周知，es5中新增了Object.freeze用来“冻结”对象的属性，阻止对象新增属性，修改属性的值，来达到类似于writable: false和configurable: false的效果。但是，要注意的是，对象中嵌套对象并不能被冻结。">
+<meta property="og:description" content="主要是上次被面试官问到的这个问题，然后回答的并不是很好。所以，这里总结一下通过 CSS 方式实现固定宽高比例。  使用 padding-top 或 padding-bottom。 使用 calc。 使用 vw 新单位。 使用 vw 结合 grid 布局。 未来原生方案 aspect-ratio.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.wenkanglin.com/images/sikao.jpg">
-<meta property="og:updated_time" content="2018-05-09T14:32:59.000Z">
+<meta property="og:updated_time" content="2018-05-09T15:41:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript对象的学与记：Object.freeze">
-<meta name="twitter:description" content="众所周知，es5中新增了Object.freeze用来“冻结”对象的属性，阻止对象新增属性，修改属性的值，来达到类似于writable: false和configurable: false的效果。但是，要注意的是，对象中嵌套对象并不能被冻结。">
-<meta name="twitter:image" content="http://www.wenkanglin.com/images/sikao.jpg">
+<meta name="twitter:title" content="CSS面试题的学与记：实现宽高比例自适应">
+<meta name="twitter:description" content="主要是上次被面试官问到的这个问题，然后回答的并不是很好。所以，这里总结一下通过 CSS 方式实现固定宽高比例。  使用 padding-top 或 padding-bottom。 使用 calc。 使用 vw 新单位。 使用 vw 结合 grid 布局。 未来原生方案 aspect-ratio.">
 
 
 
@@ -166,7 +164,7 @@
 
 
 
-  <link rel="canonical" href="http://www.wenkanglin.com/2018/05/02/JavaScript对象的学与记：Object.freeze/"/>
+  <link rel="canonical" href="http://www.wenkanglin.com/2018/05/CSS面试题的学与记：实现宽高比例自适应/"/>
 
 
 
@@ -176,7 +174,7 @@
   };
 </script>
 
-  <title>JavaScript对象的学与记：Object.freeze | 林文康的博客</title>
+  <title>CSS面试题的学与记：实现宽高比例自适应 | 林文康的博客</title>
   
 
 
@@ -396,7 +394,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.wenkanglin.com/2018/05/02/JavaScript对象的学与记：Object.freeze/">
+    <link itemprop="mainEntityOfPage" href="http://www.wenkanglin.com/2018/05/CSS面试题的学与记：实现宽高比例自适应/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="林文康">
@@ -413,7 +411,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">JavaScript对象的学与记：Object.freeze
+          <h2 class="post-title" itemprop="name headline">CSS面试题的学与记：实现宽高比例自适应
               
             
           </h2>
@@ -438,24 +436,12 @@
                 
               
 
-              <time title="创建时间：2018-05-02 17:11:53" itemprop="dateCreated datePublished" datetime="2018-05-02T17:11:53+08:00">2018-05-02</time>
+              <time title="创建时间：2018-05-09 22:22:57 / 修改时间：23:41:28" itemprop="dateCreated datePublished" datetime="2018-05-09T22:22:57+08:00">2018-05-09</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-05-09 22:32:59" itemprop="dateModified" datetime="2018-05-09T22:32:59+08:00">2018-05-09</time>
               
             
           </span>
@@ -472,14 +458,14 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/面试题/" itemprop="url" rel="index"><span itemprop="name">面试题</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/javascript/javascript对象的学与记/" itemprop="url" rel="index"><span itemprop="name">JavaScript对象的学与记</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/面试题/css面试题的学与记/" itemprop="url" rel="index"><span itemprop="name">CSS面试题的学与记</span></a></span>
 
                 
                 
@@ -493,7 +479,7 @@
 
           
           
-             <span id="/2018/05/02/JavaScript对象的学与记：Object.freeze/" class="leancloud_visitors" data-flag-title="JavaScript对象的学与记：Object.freeze">
+             <span id="/2018/05/CSS面试题的学与记：实现宽高比例自适应/" class="leancloud_visitors" data-flag-title="CSS面试题的学与记：实现宽高比例自适应">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -518,7 +504,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">783</span>
+                <span title="本文字数">391</span>
               
 
               
@@ -552,20 +538,21 @@
       
 
       
-        <p>众所周知，<code>es5</code>中新增了<code>Object.freeze</code>用来“冻结”对象的属性，阻止对象新增属性，修改属性的值，来达到类似于<code>writable: false</code>和<code>configurable: false</code>的效果。但是，要注意的是，对象中嵌套对象并不能被冻结。</p>
+        <p>主要是上次被面试官问到的这个问题，然后回答的并不是很好。所以，这里总结一下通过 <code>CSS</code> 方式实现固定宽高比例。</p>
+<ul>
+<li>使用 <code>padding-top</code> 或 <code>padding-bottom</code>。</li>
+<li>使用 <code>calc</code>。</li>
+<li>使用 <code>vw</code> 新单位。</li>
+<li>使用 <code>vw</code> 结合 <code>grid</code> 布局。</li>
+<li>未来原生方案 <code>aspect-ratio</code>.</li>
+</ul>
 <a id="more"></a>
-<p>例如，存在如下对象：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  age: <span class="number">23</span>,</span><br><span class="line">  type: &#123;</span><br><span class="line">    name: <span class="string">'lwk'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.freeze(obj);</span><br></pre></td></tr></table></figure>
-<p>其中，<code>obj.type</code>依旧可以添加属性，修改属性的值：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">obj.type.name = <span class="string">'lwk2'</span>;</span><br><span class="line">obj.newAttr = <span class="string">'001'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj.type); <span class="comment">// &#123; name: 'lwk2', newAttr: '001' &#125;</span></span><br></pre></td></tr></table></figure>
-<p>那么有什么办法，来真正实现对象的“冻结”呢？</p>
-<p><img src="/images/sikao.jpg" alt="思考"></p>
-<p>首先，先不妨思考一下，使用属性描述符<code>writable</code>和<code>configurable</code>是否可行？</p>
-<p>答案是不可行，因为属性描述符虽然可以防止属性值被修改或删除，但不能阻止新增对象属性。</p>
-<p>那么，<code>Object.seal</code>呢？</p>
-<p>答案也是不行，因为<code>Object.seal</code>可以阻止新增对象属性，或者删除属性，但不能阻止修改属性值。</p>
-<p>最终，我所能想到的是，递归调用<code>Object.freeze</code>，例如：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> freezeObject = <span class="function"><span class="params">obj</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">Object</span>.freeze(obj);</span><br><span class="line">  <span class="built_in">Object</span>.keys(obj).forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">typeof</span> obj[key] === <span class="string">'object'</span> &amp;&amp; <span class="built_in">Object</span>.freeze(obj[key]);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="垂直-padding"><a href="#垂直-padding" class="headerlink" title="垂直 padding"></a>垂直 padding</h2><p>第一种方式的原理是元素的 <code>padding</code> 和 <code>margin</code> 属性值为百分比的情况下，是参照父元素的宽度进行百分比计算的，元素的宽度也是。所以，让元素的宽度和 <code>padding-top</code> 按比例为父元素宽度的百分比，即可实现宽高比例自适应。</p>
+<iframe scrolling="no" width="100%" height="300" src="//jsfiddle.net/pgx15b7h/embedded/html,css,result/dark" frameborder="0" allowfullscreen></iframe>
+<p>优点是兼容性高，缺点是如果需要填充元素的话，只能设置 <code>position: absolute</code>，否则内容会溢出导致变形。</p>
+<h2 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h2><blockquote>
+<p><a href="https://www.w3cplus.com/css/aspect-ratio.html" target="_blank" rel="noopener">https://www.w3cplus.com/css/aspect-ratio.html</a></p>
+</blockquote>
 
       
     </div>
@@ -587,7 +574,7 @@
     <strong>本文作者： </strong>林文康</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.wenkanglin.com/2018/05/02/JavaScript对象的学与记：Object.freeze/" title="JavaScript对象的学与记：Object.freeze">http://www.wenkanglin.com/2018/05/02/JavaScript对象的学与记：Object.freeze/</a>
+    <a href="http://www.wenkanglin.com/2018/05/CSS面试题的学与记：实现宽高比例自适应/" title="CSS面试题的学与记：实现宽高比例自适应">http://www.wenkanglin.com/2018/05/CSS面试题的学与记：实现宽高比例自适应/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -600,7 +587,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/javascript对象/" rel="tag"># JavaScript对象</a>
+            <a href="/tags/css面试题/" rel="tag"># CSS面试题</a>
           
         </div>
       
@@ -613,8 +600,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/28/Git的学与记：01/" rel="next" title="Git的学与记：01">
-                <i class="fa fa-chevron-left"></i> Git的学与记：01
+              <a href="/2018/05/JavaScript面试题的学与记：实现mul函数/" rel="next" title="JavaScript面试题的学与记：实现mul函数">
+                <i class="fa fa-chevron-left"></i> JavaScript面试题的学与记：实现mul函数
               </a>
             
           </div>
@@ -622,10 +609,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/03/HTML meta的学与记：format-detection/" rel="prev" title="HTML meta的学与记：format-detection">
-                HTML meta的学与记：format-detection <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -703,8 +686,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -844,6 +836,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#垂直-padding"><span class="nav-number">1.</span> <span class="nav-text">垂直 padding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关阅读"><span class="nav-number">2.</span> <span class="nav-text">相关阅读</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

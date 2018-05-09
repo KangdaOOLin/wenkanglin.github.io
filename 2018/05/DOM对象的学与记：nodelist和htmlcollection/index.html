@@ -144,18 +144,18 @@
 
 
 
-  <meta name="description" content="观察者模式（发布-订阅者模式），应该不用多说，使用场景应该说是无处不在的。如 addEventListener，又如 Node.js 中的 EventEmitter，还有 Vue 中数据更新驱动视图更新的原理，都是基于这个模式去实现的。 那么，自己通过观察者模式怎么去实现呢？这也是在经历面试过程中，经常会被面试官问到的。">
-<meta name="keywords" content="JavaScript事件,JavaScript面试题">
+  <meta name="description" content="NodeList 是一系列页面节点的集合，相比较于 HTMLCollection 的一系列页面元素的集合，从它们字面上的含义也都可以看出两者的不同。前者节点不仅仅包括元素节点，还包括文本节点、属性节点、注释节点等，而后者只包括元素节点。">
+<meta name="keywords" content="DOM对象">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript事件的学与记：使用观察者模式实现自定义事件">
-<meta property="og:url" content="http://www.wenkanglin.com/2018/05/08/JavaScript事件的学与记：使用观察者模式实现自定义事件/index.html">
+<meta property="og:title" content="DOM对象的学与记：NodeList和HTMLCollection">
+<meta property="og:url" content="http://www.wenkanglin.com/2018/05/DOM对象的学与记：nodelist和htmlcollection/index.html">
 <meta property="og:site_name" content="林文康的博客">
-<meta property="og:description" content="观察者模式（发布-订阅者模式），应该不用多说，使用场景应该说是无处不在的。如 addEventListener，又如 Node.js 中的 EventEmitter，还有 Vue 中数据更新驱动视图更新的原理，都是基于这个模式去实现的。 那么，自己通过观察者模式怎么去实现呢？这也是在经历面试过程中，经常会被面试官问到的。">
+<meta property="og:description" content="NodeList 是一系列页面节点的集合，相比较于 HTMLCollection 的一系列页面元素的集合，从它们字面上的含义也都可以看出两者的不同。前者节点不仅仅包括元素节点，还包括文本节点、属性节点、注释节点等，而后者只包括元素节点。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-09T14:32:17.000Z">
+<meta property="og:updated_time" content="2018-05-09T14:28:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript事件的学与记：使用观察者模式实现自定义事件">
-<meta name="twitter:description" content="观察者模式（发布-订阅者模式），应该不用多说，使用场景应该说是无处不在的。如 addEventListener，又如 Node.js 中的 EventEmitter，还有 Vue 中数据更新驱动视图更新的原理，都是基于这个模式去实现的。 那么，自己通过观察者模式怎么去实现呢？这也是在经历面试过程中，经常会被面试官问到的。">
+<meta name="twitter:title" content="DOM对象的学与记：NodeList和HTMLCollection">
+<meta name="twitter:description" content="NodeList 是一系列页面节点的集合，相比较于 HTMLCollection 的一系列页面元素的集合，从它们字面上的含义也都可以看出两者的不同。前者节点不仅仅包括元素节点，还包括文本节点、属性节点、注释节点等，而后者只包括元素节点。">
 
 
 
@@ -164,7 +164,7 @@
 
 
 
-  <link rel="canonical" href="http://www.wenkanglin.com/2018/05/08/JavaScript事件的学与记：使用观察者模式实现自定义事件/"/>
+  <link rel="canonical" href="http://www.wenkanglin.com/2018/05/DOM对象的学与记：nodelist和htmlcollection/"/>
 
 
 
@@ -174,7 +174,7 @@
   };
 </script>
 
-  <title>JavaScript事件的学与记：使用观察者模式实现自定义事件 | 林文康的博客</title>
+  <title>DOM对象的学与记：NodeList和HTMLCollection | 林文康的博客</title>
   
 
 
@@ -394,7 +394,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.wenkanglin.com/2018/05/08/JavaScript事件的学与记：使用观察者模式实现自定义事件/">
+    <link itemprop="mainEntityOfPage" href="http://www.wenkanglin.com/2018/05/DOM对象的学与记：nodelist和htmlcollection/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="林文康">
@@ -411,7 +411,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">JavaScript事件的学与记：使用观察者模式实现自定义事件
+          <h2 class="post-title" itemprop="name headline">DOM对象的学与记：NodeList和HTMLCollection
               
             
           </h2>
@@ -436,7 +436,7 @@
                 
               
 
-              <time title="创建时间：2018-05-08 10:55:09" itemprop="dateCreated datePublished" datetime="2018-05-08T10:55:09+08:00">2018-05-08</time>
+              <time title="创建时间：2018-05-05 11:08:03" itemprop="dateCreated datePublished" datetime="2018-05-05T11:08:03+08:00">2018-05-05</time>
             
 
             
@@ -453,7 +453,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-09 22:32:17" itemprop="dateModified" datetime="2018-05-09T22:32:17+08:00">2018-05-09</time>
+                <time title="修改时间：2018-05-09 22:28:23" itemprop="dateModified" datetime="2018-05-09T22:28:23+08:00">2018-05-09</time>
               
             
           </span>
@@ -470,13 +470,6 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/面试题/" itemprop="url" rel="index"><span itemprop="name">面试题</span></a></span>
-
-                
-                
-                  ，
-                
-              
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
 
                 
@@ -484,14 +477,7 @@
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/面试题/javascript面试题的学与记/" itemprop="url" rel="index"><span itemprop="name">JavaScript面试题的学与记</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/javascript/javascript事件的学与记/" itemprop="url" rel="index"><span itemprop="name">JavaScript事件的学与记</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/javascript/dom对象的学与记/" itemprop="url" rel="index"><span itemprop="name">DOM对象的学与记</span></a></span>
 
                 
                 
@@ -505,7 +491,7 @@
 
           
           
-             <span id="/2018/05/08/JavaScript事件的学与记：使用观察者模式实现自定义事件/" class="leancloud_visitors" data-flag-title="JavaScript事件的学与记：使用观察者模式实现自定义事件">
+             <span id="/2018/05/DOM对象的学与记：nodelist和htmlcollection/" class="leancloud_visitors" data-flag-title="DOM对象的学与记：NodeList和HTMLCollection">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -530,7 +516,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">341</span>
+                <span title="本文字数">2.7k</span>
               
 
               
@@ -544,7 +530,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">1 分钟</span>
+                <span title="阅读时长">2 分钟</span>
               
             </div>
           
@@ -564,18 +550,67 @@
       
 
       
-        <p>观察者模式（发布-订阅者模式），应该不用多说，使用场景应该说是无处不在的。如 <code>addEventListener</code>，又如 Node.js 中的 <code>EventEmitter</code>，还有 Vue 中数据更新驱动视图更新的原理，都是基于这个模式去实现的。</p>
-<p>那么，自己通过观察者模式怎么去实现呢？这也是在经历面试过程中，经常会被面试官问到的。</p>
+        <p><code>NodeList</code> 是一系列页面节点的集合，相比较于 <code>HTMLCollection</code> 的一系列页面元素的集合，从它们字面上的含义也都可以看出两者的不同。前者节点不仅仅包括元素节点，还包括文本节点、属性节点、注释节点等，而后者只包括元素节点。</p>
 <a id="more"></a>
-<p>自定义事件的功能，一般也要包括以下几个功能：</p>
-<ul>
-<li>事件订阅功能 on。</li>
-<li>事件发布功能 emit。</li>
-<li>事件取消订阅功能 off。</li>
-<li>事件单次订阅功能 once。</li>
+<p>也就是说，<code>NodeList</code> 的每一项都是 <code>Node</code> 对象类型，而 <code>HTMLCollection</code> 的每一项是 <code>HTMLElement</code> 对象类型。例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> childNodes = <span class="built_in">document</span>.body.childNodes;</span><br><span class="line"><span class="keyword">const</span> children = <span class="built_in">document</span>.body.children;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(childNodes <span class="keyword">instanceof</span> NodeList); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(children <span class="keyword">instanceof</span> HTMLCollection); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(childNodes.item(<span class="number">0</span>) <span class="keyword">instanceof</span> Node); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(children.item(<span class="number">0</span>) <span class="keyword">instanceof</span> HTMLElement); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h2 id="节点类型"><a href="#节点类型" class="headerlink" title="节点类型"></a>节点类型</h2><p>一般来说，判断节点的类型，是通过节点的 <code>nodeType</code> 属性来判断，常用的节点类型有：</p>
+<table>
+<thead>
+<tr>
+<th>节点类型</th>
+<th>nodeType的值</th>
+<th>常量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>元素节点</td>
+<td>1</td>
+<td>Node.ELEMENT_NODE</td>
+</tr>
+<tr>
+<td>属性节点</td>
+<td>2</td>
+<td>Node.ATTRIBUTE_NODE</td>
+</tr>
+<tr>
+<td>文本节点</td>
+<td>3</td>
+<td>Node.TEXT_NODE</td>
+</tr>
+<tr>
+<td>注释节点</td>
+<td>8</td>
+<td>Node.COMMENT_NODE</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.body.nodeType === <span class="number">1</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.body.nodeType === Node.ELEMENT_NODE); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h2 id="NodeList-和-HTMLCollection的相似点"><a href="#NodeList-和-HTMLCollection的相似点" class="headerlink" title="NodeList 和 HTMLCollection的相似点"></a>NodeList 和 HTMLCollection的相似点</h2><ul>
+<li>类数组数据结构类型，都可通过 <code>length</code> 获取集合的长度。</li>
+<li>都可通过数组下标的形式，或者 <code>item</code> 来获取集合的某一项。并且，数组下标若为负数或超过集合长度，那么返回 <code>undefined</code>；相同情况下，通过 <code>item</code> 访问返回 <code>null</code>。</li>
 </ul>
-<iframe scrolling="no" width="100%" height="300" src="//jsfiddle.net/1zsqd2tt/embedded/js/dark" frameborder="0" allowfullscreen></iframe>
-<p>上面示例的代码，原理很简单。用一个对象 <code>storage</code> 存储当下所有的事件名称和事件监听器。每一种事件类型，都将作为这个对象的 key 值，即属性名，属性值是数组，存储每一个事件类型下的所有事件。</p>
+<p>类数组结构，可通过一系列方式使用数组遍历：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> childNodes = <span class="built_in">document</span>.body.childNodes;</span><br><span class="line"><span class="keyword">const</span> children = <span class="built_in">document</span>.body.children;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过es6的Array.from，转化为数组</span></span><br><span class="line"><span class="built_in">Array</span>.from(childNodes);</span><br><span class="line"><span class="built_in">Array</span>.from(children)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过es6的数组解构赋值，转化为数组</span></span><br><span class="line">[...childNodes];</span><br><span class="line">[...children];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过apply或call</span></span><br><span class="line"><span class="built_in">Array</span>.prototype.slice.call(childNodes, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">Array</span>.prototype.forEach.call(children, () =&gt; &#123;&#125;);</span><br></pre></td></tr></table></figure>
+<p>都可通过数组下标或者 <code>item</code> 来访问集合的某一项：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(childNodes[<span class="number">-1</span>]); <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(children[<span class="number">-1</span>]); <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(childNodes.item(childNodes.length + <span class="number">1</span>)); <span class="comment">// null</span></span><br><span class="line"><span class="built_in">console</span>.log(children.item(<span class="number">-1</span>)); <span class="comment">// null</span></span><br></pre></td></tr></table></figure>
+<h2 id="NodeList-和-HTMLCollection的不同点"><a href="#NodeList-和-HTMLCollection的不同点" class="headerlink" title="NodeList 和 HTMLCollection的不同点"></a>NodeList 和 HTMLCollection的不同点</h2><ul>
+<li>开头讲到的，<code>NodeList</code> 集合包括所有的节点，即包括了元素。</li>
+<li><code>NodeList</code>虽然是类数组，但本身支持 <code>forEach</code>, <code>keys</code>, <code>values</code>, <code>entries</code>方法。</li>
+<li><code>HTMLCollection</code> 有一个 <code>namedItem</code> 的方法，参数为字符串，用于查找集合中存在元素的 <code>id</code> 和字符串相等的元素。</li>
+</ul>
+<p><code>NodeList</code> 中的 <code>keys</code>, <code>values</code>, <code>entries</code>方法，返回的是一个迭代器，这和数组的方法不太一样。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> childNodes = docuemnt.body.childNodes;</span><br><span class="line"></span><br><span class="line">childNodes.forEach(<span class="function"><span class="params">node</span> =&gt;</span> <span class="built_in">console</span>.log(node));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用for...of遍历迭代器，或者next</span></span><br><span class="line"><span class="comment">// key是无符号的整数，0....n</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">of</span> childNodes.keys()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> node <span class="keyword">of</span> childNodes.values()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(node);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>namedItem</code> 方法，在 MDN 中解释是：</p>
+<blockquote>
+<p>Returns the specific node whose ID or, as a fallback, name matches the string specified by name. Matching by name is only done as a last resort, only in HTML, and only if the referenced element supports the name attribute. Returns null if no node exists by the given name.</p>
+</blockquote>
+<p>上面描述中，不但可以通过元素的 <code>id</code> 来查找，也可以通过 <code>name</code> 属性来查找，前提是元素支持该属性。然而，本人亲自在 chrome 浏览器中试了一下，查找支持 <code>name</code> 属性的 <code>input</code>，不起作用。可能是不同浏览器存在差异性。</p>
+<p>另外，<code>namedItem</code> 方法返回的结果在不同的浏览器下也存在<a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection#Browser_compatibility" target="_blank" rel="noopener">差异性</a>。</p>
+<h2 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h2><blockquote>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/NodeList" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/API/NodeList</a><br><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection</a></p>
+</blockquote>
 
       
     </div>
@@ -597,7 +632,7 @@
     <strong>本文作者： </strong>林文康</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.wenkanglin.com/2018/05/08/JavaScript事件的学与记：使用观察者模式实现自定义事件/" title="JavaScript事件的学与记：使用观察者模式实现自定义事件">http://www.wenkanglin.com/2018/05/08/JavaScript事件的学与记：使用观察者模式实现自定义事件/</a>
+    <a href="http://www.wenkanglin.com/2018/05/DOM对象的学与记：nodelist和htmlcollection/" title="DOM对象的学与记：NodeList和HTMLCollection">http://www.wenkanglin.com/2018/05/DOM对象的学与记：nodelist和htmlcollection/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -610,9 +645,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/javascript事件/" rel="tag"># JavaScript事件</a>
-          
-            <a href="/tags/javascript面试题/" rel="tag"># JavaScript面试题</a>
+            <a href="/tags/dom对象/" rel="tag"># DOM对象</a>
           
         </div>
       
@@ -625,8 +658,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/07/DOM对象的学与记：innerhtml、innertext、outerhtml、outertext/" rel="next" title="DOM对象的学与记：innerHTML、innerText、outerHTML、outerText">
-                <i class="fa fa-chevron-left"></i> DOM对象的学与记：innerHTML、innerText、outerHTML、outerText
+              <a href="/2018/05/HTML meta的学与记：format-detection/" rel="next" title="HTML meta的学与记：format-detection">
+                <i class="fa fa-chevron-left"></i> HTML meta的学与记：format-detection
               </a>
             
           </div>
@@ -635,8 +668,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/08/JavaScript事件的学与记：浏览器环境下注册自定义事件/" rel="prev" title="JavaScript事件的学与记：浏览器环境下注册自定义事件">
-                JavaScript事件的学与记：浏览器环境下注册自定义事件 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/JavaScript事件的学与记：事件捕获和事件冒泡/" rel="prev" title="JavaScript事件的学与记：事件捕获和事件冒泡">
+                JavaScript事件的学与记：事件捕获和事件冒泡 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -715,8 +748,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -856,6 +898,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#节点类型"><span class="nav-number">1.</span> <span class="nav-text">节点类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NodeList-和-HTMLCollection的相似点"><span class="nav-number">2.</span> <span class="nav-text">NodeList 和 HTMLCollection的相似点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NodeList-和-HTMLCollection的不同点"><span class="nav-number">3.</span> <span class="nav-text">NodeList 和 HTMLCollection的不同点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关阅读"><span class="nav-number">4.</span> <span class="nav-text">相关阅读</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

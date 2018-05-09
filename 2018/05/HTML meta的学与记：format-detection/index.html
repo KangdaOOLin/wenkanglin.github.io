@@ -144,18 +144,20 @@
 
 
 
-  <meta name="description" content="主要是上次被面试官问到的这个问题，然后回答的并不是很好。所以，这里总结一下通过 CSS 方式实现固定宽高比例。  使用 padding-top 或 padding-bottom。 使用 calc。 使用 vw 新单位。 使用 vw 结合 grid 布局。 未来原生方案 aspect-ratio.">
-<meta name="keywords" content="CSS面试题">
+  <meta name="description" content="在做移动端页面的过程中，可能都遇到过 moble safari 会自动识别一串数字为电话号码，并自动生成拨号的链接。如下图所示：">
+<meta name="keywords" content="HTML meta">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS面试题的学与记：实现宽高比例自适应">
-<meta property="og:url" content="http://www.wenkanglin.com/2018/05/09/CSS面试题的学与记：实现宽高比例自适应/index.html">
+<meta property="og:title" content="HTML meta的学与记：format-detection">
+<meta property="og:url" content="http://www.wenkanglin.com/2018/05/HTML meta的学与记：format-detection/index.html">
 <meta property="og:site_name" content="林文康的博客">
-<meta property="og:description" content="主要是上次被面试官问到的这个问题，然后回答的并不是很好。所以，这里总结一下通过 CSS 方式实现固定宽高比例。  使用 padding-top 或 padding-bottom。 使用 calc。 使用 vw 新单位。 使用 vw 结合 grid 布局。 未来原生方案 aspect-ratio.">
+<meta property="og:description" content="在做移动端页面的过程中，可能都遇到过 moble safari 会自动识别一串数字为电话号码，并自动生成拨号的链接。如下图所示：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-09T15:41:28.000Z">
+<meta property="og:image" content="http://www.wenkanglin.com/images/telephone-no.jpg">
+<meta property="og:updated_time" content="2018-05-09T14:30:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS面试题的学与记：实现宽高比例自适应">
-<meta name="twitter:description" content="主要是上次被面试官问到的这个问题，然后回答的并不是很好。所以，这里总结一下通过 CSS 方式实现固定宽高比例。  使用 padding-top 或 padding-bottom。 使用 calc。 使用 vw 新单位。 使用 vw 结合 grid 布局。 未来原生方案 aspect-ratio.">
+<meta name="twitter:title" content="HTML meta的学与记：format-detection">
+<meta name="twitter:description" content="在做移动端页面的过程中，可能都遇到过 moble safari 会自动识别一串数字为电话号码，并自动生成拨号的链接。如下图所示：">
+<meta name="twitter:image" content="http://www.wenkanglin.com/images/telephone-no.jpg">
 
 
 
@@ -164,7 +166,7 @@
 
 
 
-  <link rel="canonical" href="http://www.wenkanglin.com/2018/05/09/CSS面试题的学与记：实现宽高比例自适应/"/>
+  <link rel="canonical" href="http://www.wenkanglin.com/2018/05/HTML meta的学与记：format-detection/"/>
 
 
 
@@ -174,7 +176,7 @@
   };
 </script>
 
-  <title>CSS面试题的学与记：实现宽高比例自适应 | 林文康的博客</title>
+  <title>HTML meta的学与记：format-detection | 林文康的博客</title>
   
 
 
@@ -394,7 +396,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.wenkanglin.com/2018/05/09/CSS面试题的学与记：实现宽高比例自适应/">
+    <link itemprop="mainEntityOfPage" href="http://www.wenkanglin.com/2018/05/HTML meta的学与记：format-detection/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="林文康">
@@ -411,7 +413,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">CSS面试题的学与记：实现宽高比例自适应
+          <h2 class="post-title" itemprop="name headline">HTML meta的学与记：format-detection
               
             
           </h2>
@@ -436,12 +438,24 @@
                 
               
 
-              <time title="创建时间：2018-05-09 22:22:57 / 修改时间：23:41:28" itemprop="dateCreated datePublished" datetime="2018-05-09T22:22:57+08:00">2018-05-09</time>
+              <time title="创建时间：2018-05-03 16:41:20" itemprop="dateCreated datePublished" datetime="2018-05-03T16:41:20+08:00">2018-05-03</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-09 22:30:00" itemprop="dateModified" datetime="2018-05-09T22:30:00+08:00">2018-05-09</time>
               
             
           </span>
@@ -458,14 +472,14 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/面试题/" itemprop="url" rel="index"><span itemprop="name">面试题</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/html/" itemprop="url" rel="index"><span itemprop="name">HTML</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/面试题/css面试题的学与记/" itemprop="url" rel="index"><span itemprop="name">CSS面试题的学与记</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/html/html-meta的学与记/" itemprop="url" rel="index"><span itemprop="name">HTML meta的学与记</span></a></span>
 
                 
                 
@@ -479,7 +493,7 @@
 
           
           
-             <span id="/2018/05/09/CSS面试题的学与记：实现宽高比例自适应/" class="leancloud_visitors" data-flag-title="CSS面试题的学与记：实现宽高比例自适应">
+             <span id="/2018/05/HTML meta的学与记：format-detection/" class="leancloud_visitors" data-flag-title="HTML meta的学与记：format-detection">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -504,7 +518,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">391</span>
+                <span title="本文字数">636</span>
               
 
               
@@ -538,21 +552,16 @@
       
 
       
-        <p>主要是上次被面试官问到的这个问题，然后回答的并不是很好。所以，这里总结一下通过 <code>CSS</code> 方式实现固定宽高比例。</p>
-<ul>
-<li>使用 <code>padding-top</code> 或 <code>padding-bottom</code>。</li>
-<li>使用 <code>calc</code>。</li>
-<li>使用 <code>vw</code> 新单位。</li>
-<li>使用 <code>vw</code> 结合 <code>grid</code> 布局。</li>
-<li>未来原生方案 <code>aspect-ratio</code>.</li>
-</ul>
+        <p>在做移动端页面的过程中，可能都遇到过 <code>moble safari</code> 会自动识别一串数字为电话号码，并自动生成拨号的链接。如下图所示：</p>
+<p><img src="/images/telephone-no.jpg" alt="拨号链接"></p>
 <a id="more"></a>
-<h2 id="垂直-padding"><a href="#垂直-padding" class="headerlink" title="垂直 padding"></a>垂直 padding</h2><p>第一种方式的原理是元素的 <code>padding</code> 和 <code>margin</code> 属性值为百分比的情况下，是参照父元素的宽度进行百分比计算的，元素的宽度也是。所以，让元素的宽度和 <code>padding-top</code> 按比例为父元素宽度的百分比，即可实现宽高比例自适应。</p>
-<iframe scrolling="no" width="100%" height="300" src="//jsfiddle.net/pgx15b7h/embedded/html,css,result/dark" frameborder="0" allowfullscreen></iframe>
-<p>优点是兼容性高，缺点是如果需要填充元素的话，只能设置 <code>position: absolute</code>，否则内容会溢出导致变形。</p>
-<h2 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h2><blockquote>
-<p><a href="https://www.w3cplus.com/css/aspect-ratio.html" target="_blank" rel="noopener">https://www.w3cplus.com/css/aspect-ratio.html</a></p>
-</blockquote>
+<p>这可能并不是我们所期望的，需要关闭这个功能。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"telephone=no"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如上面代码所示，通过 <code>format-detection</code> 这个 meta 字段，在 content 设置 <code>telephone=no</code>，来禁用 <code>mobile safari</code> 自动识别电话号码的功能。</p>
+<p>另外，除了电话号码外，邮箱、地址、日期、链接这些字段也同样可以开启格式化保护：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"date=no"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"address=no"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"email=no"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"url=no"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>或者直接在 content 属性中，添加多个值：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"telephone=no, address=no, email=no, date=no, url=no"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -574,7 +583,7 @@
     <strong>本文作者： </strong>林文康</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.wenkanglin.com/2018/05/09/CSS面试题的学与记：实现宽高比例自适应/" title="CSS面试题的学与记：实现宽高比例自适应">http://www.wenkanglin.com/2018/05/09/CSS面试题的学与记：实现宽高比例自适应/</a>
+    <a href="http://www.wenkanglin.com/2018/05/HTML meta的学与记：format-detection/" title="HTML meta的学与记：format-detection">http://www.wenkanglin.com/2018/05/HTML meta的学与记：format-detection/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -587,7 +596,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/css面试题/" rel="tag"># CSS面试题</a>
+            <a href="/tags/html-meta/" rel="tag"># HTML meta</a>
           
         </div>
       
@@ -600,8 +609,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/09/JavaScript面试题的学与记：实现mul函数/" rel="next" title="JavaScript面试题的学与记：实现mul函数">
-                <i class="fa fa-chevron-left"></i> JavaScript面试题的学与记：实现mul函数
+              <a href="/2018/05/JavaScript对象的学与记：Object.freeze/" rel="next" title="JavaScript对象的学与记：Object.freeze">
+                <i class="fa fa-chevron-left"></i> JavaScript对象的学与记：Object.freeze
               </a>
             
           </div>
@@ -609,6 +618,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/DOM对象的学与记：nodelist和htmlcollection/" rel="prev" title="DOM对象的学与记：NodeList和HTMLCollection">
+                DOM对象的学与记：NodeList和HTMLCollection <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -686,17 +699,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -836,22 +840,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#垂直-padding"><span class="nav-number">1.</span> <span class="nav-text">垂直 padding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关阅读"><span class="nav-number">2.</span> <span class="nav-text">相关阅读</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

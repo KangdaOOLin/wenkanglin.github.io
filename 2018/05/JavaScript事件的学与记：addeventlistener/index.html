@@ -144,20 +144,18 @@
 
 
 
-  <meta name="description" content="面试的时候，或者自我基础总结的时候，经常会遇到以下的问题：  什么是事件捕获和事件冒泡？ 事件捕获和事件冒泡顺序的优先级？ 事件捕获和事件冒泡的使用场景是什么？ 事件捕获单独的使用场景是什么？为什么会同时存在这两种事件传播的机制？">
-<meta name="keywords" content="JavaScript事件,JavaScript面试题">
+  <meta name="description" content="不得不说，addEventListener 是一个非常常用的 api，可能也都不陌生。但今天补知识点的时候，发现并没有掌握的非常全面。所以，这里我要好好的补一补关于它的知识点了。">
+<meta name="keywords" content="JavaScript事件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript事件的学与记：事件捕获和事件冒泡">
-<meta property="og:url" content="http://www.wenkanglin.com/2018/05/06/JavaScript事件的学与记：事件捕获和事件冒泡/index.html">
+<meta property="og:title" content="JavaScript事件的学与记：addEventListener">
+<meta property="og:url" content="http://www.wenkanglin.com/2018/05/JavaScript事件的学与记：addeventlistener/index.html">
 <meta property="og:site_name" content="林文康的博客">
-<meta property="og:description" content="面试的时候，或者自我基础总结的时候，经常会遇到以下的问题：  什么是事件捕获和事件冒泡？ 事件捕获和事件冒泡顺序的优先级？ 事件捕获和事件冒泡的使用场景是什么？ 事件捕获单独的使用场景是什么？为什么会同时存在这两种事件传播的机制？">
+<meta property="og:description" content="不得不说，addEventListener 是一个非常常用的 api，可能也都不陌生。但今天补知识点的时候，发现并没有掌握的非常全面。所以，这里我要好好的补一补关于它的知识点了。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.wenkanglin.com/images/eventflow.jpg">
-<meta property="og:updated_time" content="2018-05-09T14:31:35.000Z">
+<meta property="og:updated_time" content="2018-05-09T14:30:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript事件的学与记：事件捕获和事件冒泡">
-<meta name="twitter:description" content="面试的时候，或者自我基础总结的时候，经常会遇到以下的问题：  什么是事件捕获和事件冒泡？ 事件捕获和事件冒泡顺序的优先级？ 事件捕获和事件冒泡的使用场景是什么？ 事件捕获单独的使用场景是什么？为什么会同时存在这两种事件传播的机制？">
-<meta name="twitter:image" content="http://www.wenkanglin.com/images/eventflow.jpg">
+<meta name="twitter:title" content="JavaScript事件的学与记：addEventListener">
+<meta name="twitter:description" content="不得不说，addEventListener 是一个非常常用的 api，可能也都不陌生。但今天补知识点的时候，发现并没有掌握的非常全面。所以，这里我要好好的补一补关于它的知识点了。">
 
 
 
@@ -166,7 +164,7 @@
 
 
 
-  <link rel="canonical" href="http://www.wenkanglin.com/2018/05/06/JavaScript事件的学与记：事件捕获和事件冒泡/"/>
+  <link rel="canonical" href="http://www.wenkanglin.com/2018/05/JavaScript事件的学与记：addeventlistener/"/>
 
 
 
@@ -176,7 +174,7 @@
   };
 </script>
 
-  <title>JavaScript事件的学与记：事件捕获和事件冒泡 | 林文康的博客</title>
+  <title>JavaScript事件的学与记：addEventListener | 林文康的博客</title>
   
 
 
@@ -396,7 +394,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.wenkanglin.com/2018/05/06/JavaScript事件的学与记：事件捕获和事件冒泡/">
+    <link itemprop="mainEntityOfPage" href="http://www.wenkanglin.com/2018/05/JavaScript事件的学与记：addeventlistener/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="林文康">
@@ -413,7 +411,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">JavaScript事件的学与记：事件捕获和事件冒泡
+          <h2 class="post-title" itemprop="name headline">JavaScript事件的学与记：addEventListener
               
             
           </h2>
@@ -438,7 +436,7 @@
                 
               
 
-              <time title="创建时间：2018-05-06 15:53:33" itemprop="dateCreated datePublished" datetime="2018-05-06T15:53:33+08:00">2018-05-06</time>
+              <time title="创建时间：2018-05-06 21:34:34" itemprop="dateCreated datePublished" datetime="2018-05-06T21:34:34+08:00">2018-05-06</time>
             
 
             
@@ -455,7 +453,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-09 22:31:35" itemprop="dateModified" datetime="2018-05-09T22:31:35+08:00">2018-05-09</time>
+                <time title="修改时间：2018-05-09 22:30:58" itemprop="dateModified" datetime="2018-05-09T22:30:58+08:00">2018-05-09</time>
               
             
           </span>
@@ -472,21 +470,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/面试题/" itemprop="url" rel="index"><span itemprop="name">面试题</span></a></span>
-
-                
-                
-                  ，
-                
-              
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/面试题/javascript面试题的学与记/" itemprop="url" rel="index"><span itemprop="name">JavaScript面试题的学与记</span></a></span>
 
                 
                 
@@ -507,7 +491,7 @@
 
           
           
-             <span id="/2018/05/06/JavaScript事件的学与记：事件捕获和事件冒泡/" class="leancloud_visitors" data-flag-title="JavaScript事件的学与记：事件捕获和事件冒泡">
+             <span id="/2018/05/JavaScript事件的学与记：addeventlistener/" class="leancloud_visitors" data-flag-title="JavaScript事件的学与记：addEventListener">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -532,7 +516,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2.1k</span>
+                <span title="本文字数">3.3k</span>
               
 
               
@@ -546,7 +530,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">2 分钟</span>
+                <span title="阅读时长">3 分钟</span>
               
             </div>
           
@@ -566,46 +550,56 @@
       
 
       
-        <p>面试的时候，或者自我基础总结的时候，经常会遇到以下的问题：</p>
-<ul>
-<li>什么是事件捕获和事件冒泡？</li>
-<li>事件捕获和事件冒泡顺序的优先级？</li>
-<li>事件捕获和事件冒泡的使用场景是什么？</li>
-<li>事件捕获单独的使用场景是什么？为什么会同时存在这两种事件传播的机制？</li>
-</ul>
+        <p>不得不说，<code>addEventListener</code> 是一个非常常用的 api，可能也都不陌生。但今天补知识点的时候，发现并没有掌握的非常全面。所以，这里我要好好的补一补关于它的知识点了。</p>
 <a id="more"></a>
-<h2 id="事件流程"><a href="#事件流程" class="headerlink" title="事件流程"></a>事件流程</h2><p>在说到事件捕获和冒泡前，我们需要先了解一个事件的触发到底经历了哪些？</p>
-<p><img src="/images/eventflow.jpg" alt="事件触发流程"></p>
-<p>如上图所示，一般事件触发的流程会经历这三个阶段：</p>
-<ul>
-<li><strong>捕获阶段</strong>。事件对象通过目标的祖先从页面根元素传播到事件目标的父节点。</li>
-<li><strong>目标阶段</strong>。事件对象到达事件目标的阶段，即 <code>event.target</code>。如果事件不冒泡，那么事件对象将在此阶段完成后停止。</li>
-<li><strong>冒泡阶段</strong>。事件对象以捕获阶段相反的顺序，从目标的父节点开始，向上传播到页面根元素结束。</li>
-</ul>
-<p>在事件触发的过程中，我们也可以通过<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/eventPhase" target="_blank" rel="noopener">Event.eventPhase</a>来得到当前事件执行的阶段。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">el.addEventListener(<span class="string">'click'</span>, event =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'current pahse:'</span>, event.eventPhase);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>到这里为止，我们应该知道了一开始问题一的事件捕获和事件冒泡是啥了，它们用相反的事件传播顺序触发事件流。而且，根据上面的三个阶段，也应该知道问题二的答案。</p>
+<p>使用语法：</p>
 <blockquote>
-<p>问题：事件捕获和事件冒泡顺序的优先级？<br><br>答案：先经历事件捕获，再经历事件冒泡。</p>
+<p>target.addEventListener(type, listener[, options]);<br>target.addEventListener(type, listener[, useCapture]);</p>
 </blockquote>
-<h2 id="设置事件触发的阶段"><a href="#设置事件触发的阶段" class="headerlink" title="设置事件触发的阶段"></a>设置事件触发的阶段</h2><p>我们可以通过 <code>addEventListener</code> 绑定一个事件，并决定事件是在捕获阶段触发呢，还是在冒泡阶段触发。默认是冒泡阶段触发，可通过设置第三个参数为 <code>true</code> 来设置事件在捕获阶段触发。</p>
-<iframe scrolling="no" width="100%" height="300" src="//jsfiddle.net/xvbevmj5/embedded/js,html,css,result/dark" frameborder="0" allowfullscreen></iframe>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">addEventListener(type, handler, useCapture);</span><br><span class="line">addEventListener(type, handler, &#123; capture &#125;);</span><br></pre></td></tr></table></figure>
-<p>另外，<strong>阻止事件捕获和冒泡</strong>，都可以通过 <code>event.stopPropagation()</code> 来达到阻止的效果。正确来说，若处于事件捕获阶段，然后调用它，那么事件流将在目标阶段结束，而不会执行事件冒泡的流程。若处于事件冒泡阶段，然后调用它，那么将阻止事件继续向上冒泡的过程。</p>
-<h2 id="事件代理或事件委托"><a href="#事件代理或事件委托" class="headerlink" title="事件代理或事件委托"></a>事件代理或事件委托</h2><p>事件代理和事件委托指的是同一个玩意，是一个很常见的事件冒泡使用场景。而且由于作为一个典型的事件性能优化手段，可供参考的资料有很多。所以，这里不做具体的描述。一个字，懒 -_-||。</p>
-<h2 id="事件捕获的使用场景"><a href="#事件捕获的使用场景" class="headerlink" title="事件捕获的使用场景"></a>事件捕获的使用场景</h2><p>接下来，我们重点讨论一下事件捕获的使用场景，这也是为什么为同时存在捕获和冒泡两种事件传播方式的原因吧。</p>
-<p>个人目前想的到的使用场景主要有以下两个：</p>
+<p>接下来，我将详细地对 listener 和 options 进行说明。</p>
+<h2 id="listener-监听器"><a href="#listener-监听器" class="headerlink" title="listener 监听器"></a>listener 监听器</h2><p>使用过 <code>addEventListener</code> 的人会觉得这有什么好说的，不就是一个回调函数吗？之前我也是这么觉得，但今天补完相关知识点之后，才发现 listener 还有一种用法。</p>
+<p>listener 这个参数可以有以下几种形式：</p>
 <ul>
-<li>一个是<strong>非冒泡事件的事件代理</strong>。类似于 <code>focus</code>、<code>blur</code>、<code>mouseenter</code>等不能冒泡的事件类型，不能通过基于事件冒泡的事件代理方式来处理。那么可以通过基于事件捕获的事件代理来处理。但是，个人经验有限，实在是想不出具体实际的场景。</li>
-<li>因为事件捕获阶段先于事件冒泡阶段，那么是不是可以在事件捕获阶段，充当一个拦截器，或过滤器的作用，当满足条件时，才继续执行事件冒泡阶段。这样的话，具体的判断逻辑放在事件捕获阶段，具体的事件处理逻辑放在事件冒泡阶段，职责分明，充当不同的角色。</li>
+<li>函数类型。大家用的比较多的回调函数。</li>
+<li>对象类型。是的，没错，可以是一个对象，如空对象。但重点是，如果该对象实现了<a href="https://developer.mozilla.org/en-US/docs/Web/API/EventListener" target="_blank" rel="noopener">EventListner</a>接口，也是可以正常的注册监听事件的。</li>
+<li>null 值，即可以为空。</li>
 </ul>
-<p>至于，为什么会同时存在这两种事件传播的机制？这个问题撇开使用场景这方面原因，更多的应该是历史发展的原因。当初 Netscape Navigator 4 的事件传播方式是近似于事件捕获，而 IE 4 的正相反。最后，W3C DOM 标准，从设计思路上是更接近 IE 的设计的，即事件冒泡，只是加入了事件捕获阶段。</p>
-<h2 id="其它一些补充"><a href="#其它一些补充" class="headerlink" title="其它一些补充"></a>其它一些补充</h2><p>上面讲到“非冒泡事件”，那么怎么来判断一个事件能否冒泡呢？答案是可通过 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/bubbles" target="_blank" rel="noopener">event.bubbles</a>。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">input.addEventListener(<span class="string">'focus'</span>, event =&gt; &#123;</span><br><span class="line">  <span class="comment">// focus事件不能冒泡</span></span><br><span class="line">  <span class="built_in">console</span>.log(event.bubbles); <span class="comment">// false</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p><code>event.stopPropagation()</code> 方法兼容 <code>IE9+</code>，低于这个版本的 IE 浏览器，应使用 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/cancelBubble" target="_blank" rel="noopener">event.cancelBubble</a>。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">el.addEventListener(<span class="string">'click'</span>, event =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> event.stopPropagation === <span class="string">'function'</span>) &#123;</span><br><span class="line">    event.stopPropagation();</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    event.cancelBubble = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<iframe scrolling="no" width="100%" height="300" src="//jsfiddle.net/y0n69wtL/embedded/js,html,result/dark" frameborder="0" allowfullscreen></iframe>
+<h2 id="options"><a href="#options" class="headerlink" title="options"></a>options</h2><p>根据上面的使用语法，第三个参数可以是 useCapture，一个布尔值，表示是否在事件捕获阶段触发事件，默认值为 false，即默认在事件冒泡阶段触发事件。</p>
+<p>除此之外，第三个参数还可以是一个详细的选项 options，一个对象，其中可供选择的属性有：</p>
+<ul>
+<li><strong>capture</strong>，作用同 useCapture。</li>
+<li><strong>once</strong>，一个布尔值，表示注册的监听事件 listener 是否只执行一次，执行一次后被注销，默认为 false。</li>
+<li><strong>passive</strong>，一个布尔值，表示是否禁用 <code>event.preventDefault()</code>。默认值为 false。如果值为 true，并且监听事件内部调用了 <code>preventDefault</code>，那么将会发出警告。</li>
+</ul>
+<p>前面两个选项比较容易理解，这里重点说明一下 <code>passive</code>，以及它的作用。</p>
+<p>总结一句话，<code>passive</code> 的作用是<strong>提升页面滑动的流畅度</strong>。如果我们在 touchstart 事件调用 <code>preventDefault</code> 会怎样呢？这时页面会禁止，不会滚动或缩放。那么问题来了：浏览器无法预先知道一个监听器会不会调用 <code>preventDefault</code>，它需要等监听器执行完后，再去执行默认行为，而监听器执行是要耗时的，这样就会导致页面卡顿。</p>
+<blockquote>
+<p>当你触摸滑动页面时，页面应该跟随手指一起滚动。而此时你绑定了一个 touchstart 事件，你的事件大概执行 200 毫秒。这时浏览器就犯迷糊了：如果你在事件绑定函数中调用了 preventDefault，那么页面就不应该滚动，如果你没有调用 preventDefault，页面就需要滚动。但是你到底调用了还是没有调用，浏览器不知道。只能先执行你的函数，等 200 毫秒后，绑定事件执行完了，浏览器才知道，“哦，原来你没有阻止默认行为，好的，我马上滚”。此时，页面开始滚。</p>
+</blockquote>
+<p>而且 Chrome 做了统计：</p>
+<blockquote>
+<p>在 Android 版 Chrome 浏览器的 touch 事件监听器的页面中，80% 的页面都不会调用 preventDefault 函数来阻止事件的默认行为。在滑动流畅度上，有 10% 的页面增加至少 100ms 的延迟，1% 的页面甚至增加 500ms 以上的延迟。</p>
+</blockquote>
+<p>也就是说，当浏览器等待执行事件的默认行为时，大部分情况是白等了。如果 Web 开发者能够提前告诉浏览器：“我不调用 preventDefault 函数来阻止事件事件行为”，那么浏览器就能快速生成事件，从而提升页面性能。</p>
+<p>这也正是 <code>passive</code> 的作用。我们可以通过传递 <code>passive</code> 为 true 来明确告诉浏览器，事件处理程序不会调用 <code>preventDefault</code> 来阻止默认滑动行为。</p>
+<p>在 Chrome 浏览器中，如果发现耗时超过 100 毫秒的非 <code>passive</code> 的监听器，会在 DevTools 里面警告你设置 <code>{ passive: true }</code>。</p>
+<p>对于那些不支持 <code>passive</code>，或者只支持第三个参数为布尔类型的浏览器来说，如果冒然设置第三个参数为 <code>options</code> 对象格式的话，会隐式的把它转换为 true，即 <code>useCapture</code> 为 true。这可能不是我们想要看到的，所以可以通过以下这段代码，做一个 polyfill：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> supportPassive = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> opts = <span class="built_in">Object</span>.defineProperty(&#123;&#125;, <span class="string">'passive'</span>, &#123;</span><br><span class="line">    get() &#123;</span><br><span class="line">      supportPassive = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">'testPassive'</span>, <span class="literal">null</span>, opts);</span><br><span class="line">  <span class="built_in">window</span>.removeEventListener(<span class="string">'testPaiive'</span>, <span class="literal">null</span>, opts);</span><br><span class="line">&#125; <span class="keyword">catch</span> (err) &#123;&#125;</span><br><span class="line"></span><br><span class="line">target.addEventListener(</span><br><span class="line">  <span class="string">'touchstart'</span>,</span><br><span class="line">  handler,</span><br><span class="line">  supportPassive ? &#123; <span class="attr">passive</span>: <span class="literal">true</span> &#125; : <span class="literal">false</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>上面的代码原理是：如果浏览器支持第三个参数为 <code>options</code> 对象格式的话，在注册自定义事件 <code>testPassive</code>时，那么肯定会读取参数 <code>opts</code> 中的 <code>passive</code> 属性，那么就会触发预先设置好的 <code>getter</code>，使得 <code>supportPassive = true</code>。这样的话，就可以判断浏览器是否支持 <code>passive</code> 了。</p>
+<h2 id="注册多个事件"><a href="#注册多个事件" class="headerlink" title="注册多个事件"></a>注册多个事件</h2><p>相比较于用 <code>on + eventType</code> 的形式来全局注册事件，例如 <code>onClick</code>，<code>addEventListener</code> 的好处是可以对同一个事件类型注册多个事件监听器。另外，<strong>重复注册一个相同的事件监听器，也只会执行一次</strong>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> handler = <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'page clicked'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 虽然下面注册了两次click事件，但由于事件监听器handler是同一个，所以只会执行一次。</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'click'</span>, handler);</span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'click'</span>, handler);</span><br></pre></td></tr></table></figure>
+<h2 id="事件注销"><a href="#事件注销" class="headerlink" title="事件注销"></a>事件注销</h2><blockquote>
+<p>target.removeEventListener(type, listener[, options]);<br>target.removeEventListener(type, listener[, useCapture]);</p>
+</blockquote>
+<p>可以通过 <code>removeEventListener</code> 来注销之前注册的监听事件，但需要满足以下三点条件，才能成功注销事件：</p>
+<ul>
+<li>target 必须存在，并且之前注册过这种类型的事件。</li>
+<li>需要被删除的 listener 事件监听器必须和注册的事件监听器是同一个。这种情况下，需要把之前注册的事件存储为一个变量，否则直接使用匿名函数，肯定不是同一个事件监听器。</li>
+<li>如果注册事件的同时设置了 <code>useCapture</code> 或者 <code>options</code>，那么注销事件时，也必须带上相同的这些参数，否则将不会注销成功。</li>
+</ul>
 <h2 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h2><blockquote>
-<p><a href="http://javascript.info/bubbling-and-capturing" target="_blank" rel="noopener">http://javascript.info/bubbling-and-capturing</a><br> <a href="https://www.w3.org/TR/DOM-Level-3-Events/#dom-event-architecture" target="_blank" rel="noopener">https://www.w3.org/TR/DOM-Level-3-Events/#dom-event-architecture</a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener</a><br> <a href="https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md" target="_blank" rel="noopener">https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md</a><br> <a href="https://zhuanlan.zhihu.com/p/24555031" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/24555031</a><br></p>
 </blockquote>
 
       
@@ -628,7 +622,7 @@
     <strong>本文作者： </strong>林文康</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.wenkanglin.com/2018/05/06/JavaScript事件的学与记：事件捕获和事件冒泡/" title="JavaScript事件的学与记：事件捕获和事件冒泡">http://www.wenkanglin.com/2018/05/06/JavaScript事件的学与记：事件捕获和事件冒泡/</a>
+    <a href="http://www.wenkanglin.com/2018/05/JavaScript事件的学与记：addeventlistener/" title="JavaScript事件的学与记：addEventListener">http://www.wenkanglin.com/2018/05/JavaScript事件的学与记：addeventlistener/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -643,8 +637,6 @@
           
             <a href="/tags/javascript事件/" rel="tag"># JavaScript事件</a>
           
-            <a href="/tags/javascript面试题/" rel="tag"># JavaScript面试题</a>
-          
         </div>
       
 
@@ -656,8 +648,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/05/DOM对象的学与记：nodelist和htmlcollection/" rel="next" title="DOM对象的学与记：NodeList和HTMLCollection">
-                <i class="fa fa-chevron-left"></i> DOM对象的学与记：NodeList和HTMLCollection
+              <a href="/2018/05/JavaScript事件的学与记：事件捕获和事件冒泡/" rel="next" title="JavaScript事件的学与记：事件捕获和事件冒泡">
+                <i class="fa fa-chevron-left"></i> JavaScript事件的学与记：事件捕获和事件冒泡
               </a>
             
           </div>
@@ -666,8 +658,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/06/JavaScript事件的学与记：addeventlistener/" rel="prev" title="JavaScript事件的学与记：addEventListener">
-                JavaScript事件的学与记：addEventListener <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/DOM对象的学与记：innerhtml、innertext、outerhtml、outertext/" rel="prev" title="DOM对象的学与记：innerHTML、innerText、outerHTML、outerText">
+                DOM对象的学与记：innerHTML、innerText、outerHTML、outerText <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -906,7 +898,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#事件流程"><span class="nav-number">1.</span> <span class="nav-text">事件流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置事件触发的阶段"><span class="nav-number">2.</span> <span class="nav-text">设置事件触发的阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件代理或事件委托"><span class="nav-number">3.</span> <span class="nav-text">事件代理或事件委托</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件捕获的使用场景"><span class="nav-number">4.</span> <span class="nav-text">事件捕获的使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它一些补充"><span class="nav-number">5.</span> <span class="nav-text">其它一些补充</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关阅读"><span class="nav-number">6.</span> <span class="nav-text">相关阅读</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#listener-监听器"><span class="nav-number">1.</span> <span class="nav-text">listener 监听器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#options"><span class="nav-number">2.</span> <span class="nav-text">options</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注册多个事件"><span class="nav-number">3.</span> <span class="nav-text">注册多个事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件注销"><span class="nav-number">4.</span> <span class="nav-text">事件注销</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关阅读"><span class="nav-number">5.</span> <span class="nav-text">相关阅读</span></a></li></ol></div>
             
 
           </div>

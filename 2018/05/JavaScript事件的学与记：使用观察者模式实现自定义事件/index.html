@@ -144,20 +144,18 @@
 
 
 
-  <meta name="description" content="在做移动端页面的过程中，可能都遇到过 moble safari 会自动识别一串数字为电话号码，并自动生成拨号的链接。如下图所示：">
-<meta name="keywords" content="HTML meta">
+  <meta name="description" content="观察者模式（发布-订阅者模式），应该不用多说，使用场景应该说是无处不在的。如 addEventListener，又如 Node.js 中的 EventEmitter，还有 Vue 中数据更新驱动视图更新的原理，都是基于这个模式去实现的。 那么，自己通过观察者模式怎么去实现呢？这也是在经历面试过程中，经常会被面试官问到的。">
+<meta name="keywords" content="JavaScript事件,JavaScript面试题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTML meta的学与记：format-detection">
-<meta property="og:url" content="http://www.wenkanglin.com/2018/05/03/HTML meta的学与记：format-detection/index.html">
+<meta property="og:title" content="JavaScript事件的学与记：使用观察者模式实现自定义事件">
+<meta property="og:url" content="http://www.wenkanglin.com/2018/05/JavaScript事件的学与记：使用观察者模式实现自定义事件/index.html">
 <meta property="og:site_name" content="林文康的博客">
-<meta property="og:description" content="在做移动端页面的过程中，可能都遇到过 moble safari 会自动识别一串数字为电话号码，并自动生成拨号的链接。如下图所示：">
+<meta property="og:description" content="观察者模式（发布-订阅者模式），应该不用多说，使用场景应该说是无处不在的。如 addEventListener，又如 Node.js 中的 EventEmitter，还有 Vue 中数据更新驱动视图更新的原理，都是基于这个模式去实现的。 那么，自己通过观察者模式怎么去实现呢？这也是在经历面试过程中，经常会被面试官问到的。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.wenkanglin.com/images/telephone-no.jpg">
-<meta property="og:updated_time" content="2018-05-09T14:30:00.000Z">
+<meta property="og:updated_time" content="2018-05-09T14:32:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTML meta的学与记：format-detection">
-<meta name="twitter:description" content="在做移动端页面的过程中，可能都遇到过 moble safari 会自动识别一串数字为电话号码，并自动生成拨号的链接。如下图所示：">
-<meta name="twitter:image" content="http://www.wenkanglin.com/images/telephone-no.jpg">
+<meta name="twitter:title" content="JavaScript事件的学与记：使用观察者模式实现自定义事件">
+<meta name="twitter:description" content="观察者模式（发布-订阅者模式），应该不用多说，使用场景应该说是无处不在的。如 addEventListener，又如 Node.js 中的 EventEmitter，还有 Vue 中数据更新驱动视图更新的原理，都是基于这个模式去实现的。 那么，自己通过观察者模式怎么去实现呢？这也是在经历面试过程中，经常会被面试官问到的。">
 
 
 
@@ -166,7 +164,7 @@
 
 
 
-  <link rel="canonical" href="http://www.wenkanglin.com/2018/05/03/HTML meta的学与记：format-detection/"/>
+  <link rel="canonical" href="http://www.wenkanglin.com/2018/05/JavaScript事件的学与记：使用观察者模式实现自定义事件/"/>
 
 
 
@@ -176,7 +174,7 @@
   };
 </script>
 
-  <title>HTML meta的学与记：format-detection | 林文康的博客</title>
+  <title>JavaScript事件的学与记：使用观察者模式实现自定义事件 | 林文康的博客</title>
   
 
 
@@ -396,7 +394,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.wenkanglin.com/2018/05/03/HTML meta的学与记：format-detection/">
+    <link itemprop="mainEntityOfPage" href="http://www.wenkanglin.com/2018/05/JavaScript事件的学与记：使用观察者模式实现自定义事件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="林文康">
@@ -413,7 +411,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">HTML meta的学与记：format-detection
+          <h2 class="post-title" itemprop="name headline">JavaScript事件的学与记：使用观察者模式实现自定义事件
               
             
           </h2>
@@ -438,7 +436,7 @@
                 
               
 
-              <time title="创建时间：2018-05-03 16:41:20" itemprop="dateCreated datePublished" datetime="2018-05-03T16:41:20+08:00">2018-05-03</time>
+              <time title="创建时间：2018-05-08 10:55:09" itemprop="dateCreated datePublished" datetime="2018-05-08T10:55:09+08:00">2018-05-08</time>
             
 
             
@@ -455,7 +453,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-09 22:30:00" itemprop="dateModified" datetime="2018-05-09T22:30:00+08:00">2018-05-09</time>
+                <time title="修改时间：2018-05-09 22:32:17" itemprop="dateModified" datetime="2018-05-09T22:32:17+08:00">2018-05-09</time>
               
             
           </span>
@@ -472,14 +470,28 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/html/" itemprop="url" rel="index"><span itemprop="name">HTML</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/面试题/" itemprop="url" rel="index"><span itemprop="name">面试题</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/html/html-meta的学与记/" itemprop="url" rel="index"><span itemprop="name">HTML meta的学与记</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/面试题/javascript面试题的学与记/" itemprop="url" rel="index"><span itemprop="name">JavaScript面试题的学与记</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/javascript/javascript事件的学与记/" itemprop="url" rel="index"><span itemprop="name">JavaScript事件的学与记</span></a></span>
 
                 
                 
@@ -493,7 +505,7 @@
 
           
           
-             <span id="/2018/05/03/HTML meta的学与记：format-detection/" class="leancloud_visitors" data-flag-title="HTML meta的学与记：format-detection">
+             <span id="/2018/05/JavaScript事件的学与记：使用观察者模式实现自定义事件/" class="leancloud_visitors" data-flag-title="JavaScript事件的学与记：使用观察者模式实现自定义事件">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -518,7 +530,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">636</span>
+                <span title="本文字数">341</span>
               
 
               
@@ -552,16 +564,18 @@
       
 
       
-        <p>在做移动端页面的过程中，可能都遇到过 <code>moble safari</code> 会自动识别一串数字为电话号码，并自动生成拨号的链接。如下图所示：</p>
-<p><img src="/images/telephone-no.jpg" alt="拨号链接"></p>
+        <p>观察者模式（发布-订阅者模式），应该不用多说，使用场景应该说是无处不在的。如 <code>addEventListener</code>，又如 Node.js 中的 <code>EventEmitter</code>，还有 Vue 中数据更新驱动视图更新的原理，都是基于这个模式去实现的。</p>
+<p>那么，自己通过观察者模式怎么去实现呢？这也是在经历面试过程中，经常会被面试官问到的。</p>
 <a id="more"></a>
-<p>这可能并不是我们所期望的，需要关闭这个功能。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"telephone=no"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>如上面代码所示，通过 <code>format-detection</code> 这个 meta 字段，在 content 设置 <code>telephone=no</code>，来禁用 <code>mobile safari</code> 自动识别电话号码的功能。</p>
-<p>另外，除了电话号码外，邮箱、地址、日期、链接这些字段也同样可以开启格式化保护：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"date=no"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"address=no"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"email=no"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"url=no"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>或者直接在 content 属性中，添加多个值：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"telephone=no, address=no, email=no, date=no, url=no"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>自定义事件的功能，一般也要包括以下几个功能：</p>
+<ul>
+<li>事件订阅功能 on。</li>
+<li>事件发布功能 emit。</li>
+<li>事件取消订阅功能 off。</li>
+<li>事件单次订阅功能 once。</li>
+</ul>
+<iframe scrolling="no" width="100%" height="300" src="//jsfiddle.net/1zsqd2tt/embedded/js/dark" frameborder="0" allowfullscreen></iframe>
+<p>上面示例的代码，原理很简单。用一个对象 <code>storage</code> 存储当下所有的事件名称和事件监听器。每一种事件类型，都将作为这个对象的 key 值，即属性名，属性值是数组，存储每一个事件类型下的所有事件。</p>
 
       
     </div>
@@ -583,7 +597,7 @@
     <strong>本文作者： </strong>林文康</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.wenkanglin.com/2018/05/03/HTML meta的学与记：format-detection/" title="HTML meta的学与记：format-detection">http://www.wenkanglin.com/2018/05/03/HTML meta的学与记：format-detection/</a>
+    <a href="http://www.wenkanglin.com/2018/05/JavaScript事件的学与记：使用观察者模式实现自定义事件/" title="JavaScript事件的学与记：使用观察者模式实现自定义事件">http://www.wenkanglin.com/2018/05/JavaScript事件的学与记：使用观察者模式实现自定义事件/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -596,7 +610,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/html-meta/" rel="tag"># HTML meta</a>
+            <a href="/tags/javascript事件/" rel="tag"># JavaScript事件</a>
+          
+            <a href="/tags/javascript面试题/" rel="tag"># JavaScript面试题</a>
           
         </div>
       
@@ -609,8 +625,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/02/JavaScript对象的学与记：Object.freeze/" rel="next" title="JavaScript对象的学与记：Object.freeze">
-                <i class="fa fa-chevron-left"></i> JavaScript对象的学与记：Object.freeze
+              <a href="/2018/05/DOM对象的学与记：innerhtml、innertext、outerhtml、outertext/" rel="next" title="DOM对象的学与记：innerHTML、innerText、outerHTML、outerText">
+                <i class="fa fa-chevron-left"></i> DOM对象的学与记：innerHTML、innerText、outerHTML、outerText
               </a>
             
           </div>
@@ -619,8 +635,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/05/DOM对象的学与记：nodelist和htmlcollection/" rel="prev" title="DOM对象的学与记：NodeList和HTMLCollection">
-                DOM对象的学与记：NodeList和HTMLCollection <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/JavaScript事件的学与记：浏览器环境下注册自定义事件/" rel="prev" title="JavaScript事件的学与记：浏览器环境下注册自定义事件">
+                JavaScript事件的学与记：浏览器环境下注册自定义事件 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
