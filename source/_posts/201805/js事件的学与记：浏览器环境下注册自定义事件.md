@@ -1,9 +1,9 @@
 ---
 title: js事件的学与记：浏览器环境下注册自定义事件
 date: 2018-05-08 16:54:41
-updated: 2018-05-09 00:34:14
+updated: 2018-05-09 13:41:33
 tags: js事件
-categories: [JavaScript，js事件的学与记]
+categories: [JavaScript, js事件的学与记]
 copyright: '(c) 2018-present, WenKang Lin'
 ---
 
