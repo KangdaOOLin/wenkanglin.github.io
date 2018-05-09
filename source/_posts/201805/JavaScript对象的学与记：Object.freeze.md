@@ -1,9 +1,9 @@
 ---
-title: js对象的学与记：Object.freeze
+title: JavaScript对象的学与记：Object.freeze
 date: 2018-05-02 17:11:53
-updated: 2018-05-08 16:40:19
-tags: js对象
-categories: [JavaScript, js对象的学与记]
+updated: 2018-05-09 22:32:59
+tags: JavaScript对象
+categories: [JavaScript, JavaScript对象的学与记]
 copyright: '(c) 2018-present, WenKang Lin'
 ---
 
