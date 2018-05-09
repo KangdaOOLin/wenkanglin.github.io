@@ -78,7 +78,7 @@ leancloud_visitors:
   app_id: l2Dm1Um1RyL3w2aGklUyO05R-gzGzoHsz
   app_key: IUw8OtUCOtM54o6MQKw3a2uc
   security: true
-  betterPerformance: true
+  betterPerformance: false
 
 reading_progress:
   enable: true
