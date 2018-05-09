@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.wenkanglin.com/"/>
-  <updated>2018-05-09T15:35:57.000Z</updated>
+  <updated>2018-05-09T15:41:28.000Z</updated>
   <id>http://www.wenkanglin.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://www.wenkanglin.com/2018/05/09/CSS%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9A%84%E5%AD%A6%E4%B8%8E%E8%AE%B0%EF%BC%9A%E5%AE%9E%E7%8E%B0%E5%AE%BD%E9%AB%98%E6%AF%94%E4%BE%8B%E8%87%AA%E9%80%82%E5%BA%94/"/>
     <id>http://www.wenkanglin.com/2018/05/09/CSS面试题的学与记：实现宽高比例自适应/</id>
     <published>2018-05-09T14:22:57.000Z</published>
-    <updated>2018-05-09T15:35:57.000Z</updated>
+    <updated>2018-05-09T15:41:28.000Z</updated>
     
-    <content type="html"><![CDATA[<p>主要是上次被面试官问到的这个问题，然后回答的并不是很好。所以，这里总结一下通过 <code>CSS</code> 方式实现固定宽高比例。</p><ul><li>使用 <code>padding-top</code> 或 <code>padding-bottom</code>。</li><li>使用 <code>calc</code>。</li><li>使用 <code>vw</code> 新单位。</li><li>使用 <code>vw</code> 结合 <code>grid</code> 布局。</li><li>未来原生方案 <code>aspect-ratio</code>.</li></ul><a id="more"></a><p>第一种方式的原理是元素的 <code>padding</code> 和 <code>margin</code> 属性值为百分比的情况下，是参照父元素的宽度进行百分比计算的，元素的宽度也是。所以，让元素的宽度和 <code>padding-top</code> 按比例为父元素宽度的百分比，即可实现宽高比例自适应。</p><iframe scrolling="no" width="100%" height="300" src="//jsfiddle.net/pgx15b7h/embedded/html,css,result/dark" frameborder="0" allowfullscreen></iframe><p>优点是兼容性高，缺点是如果需要填充元素的话，只能设置 <code>position: absolute</code>，否则内容会溢出导致变形。</p><p>其它解决方案，强烈推荐<a href="https://www.w3cplus.com/css/aspect-ratio.html。这里不再重复描述。" target="_blank" rel="noopener">https://www.w3cplus.com/css/aspect-ratio.html。这里不再重复描述。</a></p>]]></content>
+    <content type="html"><![CDATA[<p>主要是上次被面试官问到的这个问题，然后回答的并不是很好。所以，这里总结一下通过 <code>CSS</code> 方式实现固定宽高比例。</p><ul><li>使用 <code>padding-top</code> 或 <code>padding-bottom</code>。</li><li>使用 <code>calc</code>。</li><li>使用 <code>vw</code> 新单位。</li><li>使用 <code>vw</code> 结合 <code>grid</code> 布局。</li><li>未来原生方案 <code>aspect-ratio</code>.</li></ul><a id="more"></a><h2 id="垂直-padding"><a href="#垂直-padding" class="headerlink" title="垂直 padding"></a>垂直 padding</h2><p>第一种方式的原理是元素的 <code>padding</code> 和 <code>margin</code> 属性值为百分比的情况下，是参照父元素的宽度进行百分比计算的，元素的宽度也是。所以，让元素的宽度和 <code>padding-top</code> 按比例为父元素宽度的百分比，即可实现宽高比例自适应。</p><iframe scrolling="no" width="100%" height="300" src="//jsfiddle.net/pgx15b7h/embedded/html,css,result/dark" frameborder="0" allowfullscreen></iframe><p>优点是兼容性高，缺点是如果需要填充元素的话，只能设置 <code>position: absolute</code>，否则内容会溢出导致变形。</p><h2 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h2><blockquote><p><a href="https://www.w3cplus.com/css/aspect-ratio.html" target="_blank" rel="noopener">https://www.w3cplus.com/css/aspect-ratio.html</a></p></blockquote>]]></content>
     
     <summary type="html">
     

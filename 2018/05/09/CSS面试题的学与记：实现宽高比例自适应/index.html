@@ -152,7 +152,7 @@
 <meta property="og:site_name" content="林文康的博客">
 <meta property="og:description" content="主要是上次被面试官问到的这个问题，然后回答的并不是很好。所以，这里总结一下通过 CSS 方式实现固定宽高比例。  使用 padding-top 或 padding-bottom。 使用 calc。 使用 vw 新单位。 使用 vw 结合 grid 布局。 未来原生方案 aspect-ratio.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-09T15:35:57.000Z">
+<meta property="og:updated_time" content="2018-05-09T15:41:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS面试题的学与记：实现宽高比例自适应">
 <meta name="twitter:description" content="主要是上次被面试官问到的这个问题，然后回答的并不是很好。所以，这里总结一下通过 CSS 方式实现固定宽高比例。  使用 padding-top 或 padding-bottom。 使用 calc。 使用 vw 新单位。 使用 vw 结合 grid 布局。 未来原生方案 aspect-ratio.">
@@ -436,7 +436,7 @@
                 
               
 
-              <time title="创建时间：2018-05-09 22:22:57 / 修改时间：23:35:57" itemprop="dateCreated datePublished" datetime="2018-05-09T22:22:57+08:00">2018-05-09</time>
+              <time title="创建时间：2018-05-09 22:22:57 / 修改时间：23:41:28" itemprop="dateCreated datePublished" datetime="2018-05-09T22:22:57+08:00">2018-05-09</time>
             
 
             
@@ -504,7 +504,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">396</span>
+                <span title="本文字数">391</span>
               
 
               
@@ -547,10 +547,12 @@
 <li>未来原生方案 <code>aspect-ratio</code>.</li>
 </ul>
 <a id="more"></a>
-<p>第一种方式的原理是元素的 <code>padding</code> 和 <code>margin</code> 属性值为百分比的情况下，是参照父元素的宽度进行百分比计算的，元素的宽度也是。所以，让元素的宽度和 <code>padding-top</code> 按比例为父元素宽度的百分比，即可实现宽高比例自适应。</p>
+<h2 id="垂直-padding"><a href="#垂直-padding" class="headerlink" title="垂直 padding"></a>垂直 padding</h2><p>第一种方式的原理是元素的 <code>padding</code> 和 <code>margin</code> 属性值为百分比的情况下，是参照父元素的宽度进行百分比计算的，元素的宽度也是。所以，让元素的宽度和 <code>padding-top</code> 按比例为父元素宽度的百分比，即可实现宽高比例自适应。</p>
 <iframe scrolling="no" width="100%" height="300" src="//jsfiddle.net/pgx15b7h/embedded/html,css,result/dark" frameborder="0" allowfullscreen></iframe>
 <p>优点是兼容性高，缺点是如果需要填充元素的话，只能设置 <code>position: absolute</code>，否则内容会溢出导致变形。</p>
-<p>其它解决方案，强烈推荐<a href="https://www.w3cplus.com/css/aspect-ratio.html。这里不再重复描述。" target="_blank" rel="noopener">https://www.w3cplus.com/css/aspect-ratio.html。这里不再重复描述。</a></p>
+<h2 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h2><blockquote>
+<p><a href="https://www.w3cplus.com/css/aspect-ratio.html" target="_blank" rel="noopener">https://www.w3cplus.com/css/aspect-ratio.html</a></p>
+</blockquote>
 
       
     </div>
@@ -670,8 +672,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -805,6 +816,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#垂直-padding"><span class="nav-number">1.</span> <span class="nav-text">垂直 padding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关阅读"><span class="nav-number">2.</span> <span class="nav-text">相关阅读</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
