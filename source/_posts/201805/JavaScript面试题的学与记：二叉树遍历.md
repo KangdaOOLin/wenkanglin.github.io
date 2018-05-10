@@ -1,7 +1,7 @@
 ---
 title: JavaScript面试题的学与记：二叉树遍历
 date: 2018-05-10 18:54:01
-updated: 2018-05-10 20:11:19
+updated: 2018-05-11 01:10:08
 tags: [JavaScript面试题, 算法]
 categories: [面试题, JavaScript面试题的学与记]
 copyright: '(c) 2018-present, WenKang Lin'
@@ -189,4 +189,46 @@ console.log('Post-Order Traversal:', LRDWithRecursive(binaryTree));
 
 1. 初始化一个栈，把根节点压入栈中，并标记当前节点（item）。
 2. 当栈非空时，执行步骤 3；否则栈为空，结束遍历。
-3. 若当前节点（item）存在左子树且没有被标记过，则执行步骤 4
+3. 若当前节点（item）存在左子树且没有被标记过，则执行步骤 4；若左子树被标记过，右子树存在且没有被标记过，则执行步骤 5；否则执行步骤 6。
+4. 对当前节点（item）进行标记；然后将当前节点的左子树赋值给当前节点（item = item.left）；最后将当前节点（item）压入栈中。回到步骤 3。
+5. 对当前节点（item）标记为 right；然后将当前节点的右子树赋值给当前节点（item = item.right）；最后将当前节点（item）压入栈中。回到步骤 3。
+6. 清理当前节点（item）的标记，从栈中取出一个节点并访问该节点；然后将当前栈顶节点赋值给当前节点（item）；最后回到步骤 3。
+
+```js
+const LRD = (node, nodeList = []) => {
+  const stack = [node];
+  let item = node;
+  while (stack.length) {
+    if (item.left && !item.marked) {
+      item.marked = true;
+      stack.push((item = item.left));
+      continue;
+    }
+    if (item.right && item.marked !== 'right') {
+      item.marked = 'right';
+      stack.push((item = item.right));
+      continue;
+    }
+    const target = stack.pop();
+    target.marked && delete target.marked;
+    nodeList.push(target.nodeValue);
+    item = stack.length ? stack[stack.length - 1] : null;
+  }
+  return nodeList;
+};
+
+console.log('Post-Order Traversal:', LRD(binaryTree));
+```
+
+## 广度优先遍历
+
+## 广度优先遍历的递归实现
+
+```js
+const BFSWithRecursive = (node, nodeList = [node.nodeValue], queue = [node]) => {
+  node.left && queue.push(node.left);
+  node.right && queue.push(node.right);
+};
+```
+
+## 广度优先遍历的非递归实现
