@@ -1,4 +1,9 @@
 {
+  "prettier.disableLanguages": [
+    "vue",
+    "vue-html",
+    "markdown"
+  ],
   "psi-header.changes-tracking": {
     "isActive": true,
     "autoHeader": "manualSave",
