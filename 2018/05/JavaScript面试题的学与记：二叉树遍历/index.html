@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="google2f1b83aa3307e038.html" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: 'EQEBFTWMCB',
+      apiKey: 'fc709c1326479dd228ca058fc8bf5810',
+      indexName: 'blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"搜索博客文章","hits_empty":"未找到任何关于${query}的博客文章","hits_stats":"共找到${hits}个结果，耗时${time}ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="不论是二叉树，还是多叉树，遍历的种类一般为：  深度优先遍历（Depth-First-Search，简称 DFS） 广度优先遍历（Breadth-First-Search，简称 BFS）  其中，二叉树的遍历，又可以对深度优先遍历进一步划分：  前序遍历（Pre-Order Traversal） 中序遍历（In-Order Traversal） 后序遍历（Post-Order Traversal）">
+<meta name="keywords" content="JavaScript面试题,算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript面试题的学与记：二叉树遍历">
+<meta property="og:url" content="http://www.wenkanglin.com/2018/05/JavaScript面试题的学与记：二叉树遍历/index.html">
+<meta property="og:site_name" content="林文康的博客">
+<meta property="og:description" content="不论是二叉树，还是多叉树，遍历的种类一般为：  深度优先遍历（Depth-First-Search，简称 DFS） 广度优先遍历（Breadth-First-Search，简称 BFS）  其中，二叉树的遍历，又可以对深度优先遍历进一步划分：  前序遍历（Pre-Order Traversal） 中序遍历（In-Order Traversal） 后序遍历（Post-Order Traversal）">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.wenkanglin.com/images/binary-tree.jpg">
+<meta property="og:updated_time" content="2018-05-11T06:44:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript面试题的学与记：二叉树遍历">
+<meta name="twitter:description" content="不论是二叉树，还是多叉树，遍历的种类一般为：  深度优先遍历（Depth-First-Search，简称 DFS） 广度优先遍历（Breadth-First-Search，简称 BFS）  其中，二叉树的遍历，又可以对深度优先遍历进一步划分：  前序遍历（Pre-Order Traversal） 中序遍历（In-Order Traversal） 后序遍历（Post-Order Traversal）">
+<meta name="twitter:image" content="http://www.wenkanglin.com/images/binary-tree.jpg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="林文康的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://www.wenkanglin.com/2018/05/JavaScript面试题的学与记：二叉树遍历/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>JavaScript面试题的学与记：二叉树遍历 | 林文康的博客</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117961837-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-117961837-1');
+</script>
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?05c58c795e9bb8d61e44f21c662e0a5b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">林文康的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">求知欲 + 计划 + 有效方法 + 努力 = 成功</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">17</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">9</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">13</span></a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.wenkanglin.com/2018/05/JavaScript面试题的学与记：二叉树遍历/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="林文康">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="林文康的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">JavaScript面试题的学与记：二叉树遍历
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-05-10 18:54:01" itemprop="dateCreated datePublished" datetime="2018-05-10T18:54:01+08:00">2018-05-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-11 14:44:43" itemprop="dateModified" datetime="2018-05-11T14:44:43+08:00">2018-05-11</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/面试题/" itemprop="url" rel="index"><span itemprop="name">面试题</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/面试题/javascript面试题的学与记/" itemprop="url" rel="index"><span itemprop="name">JavaScript面试题的学与记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/05/JavaScript面试题的学与记：二叉树遍历/" class="leancloud_visitors" data-flag-title="JavaScript面试题的学与记：二叉树遍历">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">5.7k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">5 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>不论是二叉树，还是多叉树，遍历的种类一般为：</p>
+<ul>
+<li>深度优先遍历（Depth-First-Search，简称 DFS）</li>
+<li>广度优先遍历（Breadth-First-Search，简称 BFS）</li>
+</ul>
+<p>其中，二叉树的遍历，又可以对深度优先遍历进一步划分：</p>
+<ul>
+<li>前序遍历（Pre-Order Traversal）</li>
+<li>中序遍历（In-Order Traversal）</li>
+<li>后序遍历（Post-Order Traversal）</li>
+</ul>
+<p>这里，总结一下二叉树遍历所有遍历方式中递归/非递归实现和原理。递归实现方式逻辑相对更加简单，但性能比起非递归实现更差，非递归实现逻辑相对来说更加复杂难懂。</p>
+<a id="more"></a>
+<p>首先，这里先定义一个二叉树结构的对象，下面的遍历都是基于这个对象去遍历。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> binaryTree = &#123;</span><br><span class="line">  nodeValue: <span class="number">1</span>,</span><br><span class="line">  left: &#123;</span><br><span class="line">    nodeValue: <span class="number">2</span>,</span><br><span class="line">    left: &#123;</span><br><span class="line">      nodeValue: <span class="number">4</span>,</span><br><span class="line">      left: &#123;</span><br><span class="line">        nodeValue: <span class="number">8</span></span><br><span class="line">      &#125;,</span><br><span class="line">      right: &#123;</span><br><span class="line">        nodeValue: <span class="number">9</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    right: &#123;</span><br><span class="line">      nodeValue: <span class="number">5</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  right: &#123;</span><br><span class="line">    nodeValue: <span class="number">3</span>,</span><br><span class="line">    left: &#123;</span><br><span class="line">      nodeValue: <span class="number">6</span></span><br><span class="line">    &#125;,</span><br><span class="line">    right: &#123;</span><br><span class="line">      nodeValue: <span class="number">7</span>,</span><br><span class="line">      left: &#123;</span><br><span class="line">        nodeValue: <span class="number">10</span></span><br><span class="line">      &#125;,</span><br><span class="line">      right: &#123;</span><br><span class="line">        nodeValue: <span class="number">11</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>最终，根据上面的二叉树对象，形成如下图所示的二叉树。</p>
+<p><img src="/images/binary-tree.jpg" alt="二叉树"></p>
+<h2 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h2><p>遍历结果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Pre-Order Traversal: [ 1, 2, 4, 8, 9, 5, 3, 6, 7, 10, 11 ]</span><br></pre></td></tr></table></figure>
+<h3 id="前序遍历的递归实现"><a href="#前序遍历的递归实现" class="headerlink" title="前序遍历的递归实现"></a>前序遍历的递归实现</h3><ol>
+<li>若当前节点存在，则执行步骤 2；否则当前遍历结束。</li>
+<li>访问当前节点，记录到 nodeList。</li>
+<li>若当前节点的左子树存在，则递归遍历左子树。</li>
+<li>若当前节点的右子树存在，则递归遍历右子树。</li>
+<li>结束遍历。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// nodeList依次存储遍历的节点值</span></span><br><span class="line"><span class="comment">// 为了代码简洁，在参数列表中进行了初始化nodeList</span></span><br><span class="line"><span class="keyword">const</span> preOrderRecursive = <span class="function">(<span class="params">node, nodeList = []</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (node) &#123;</span><br><span class="line">    nodeList.push(node.nodeValue);</span><br><span class="line">    node.left &amp;&amp; preOrderRecursive(node.left, nodeList);</span><br><span class="line">    node.right &amp;&amp; preOrderRecursive(node.right, nodeList);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> nodeList;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'Pre-Order Traversal:'</span>, preOrderRecursive(binaryTree));</span><br></pre></td></tr></table></figure>
+<h3 id="前序遍历的非递归实现"><a href="#前序遍历的非递归实现" class="headerlink" title="前序遍历的非递归实现"></a>前序遍历的非递归实现</h3><ol>
+<li>初始化一个栈，并把根节点压入栈中。</li>
+<li>当栈非空时，循环执行步骤 3、4、5；否则栈为空，结束遍历。</li>
+<li>从栈中取一个值，并访问该节点。、，记录到 nodeList。</li>
+<li>若该节点的右子树存在，则将该右子树压入栈中。</li>
+<li>若该节点的左子树存在，则将该左子树压入栈中。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> preOrder = <span class="function">(<span class="params">node, nodeList = []</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (!node) &#123;</span><br><span class="line">    <span class="keyword">return</span> nodeList;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> stack = [node];</span><br><span class="line">  <span class="keyword">while</span> (stack.length) &#123;</span><br><span class="line">    node = stack.pop();</span><br><span class="line">    nodeList.push(node.nodeValue);</span><br><span class="line">    node.right &amp;&amp; stack.push(node.right);</span><br><span class="line">    node.left &amp;&amp; stack.push(node.left);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> nodeList;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'Pre-Order Traversal:'</span>, preOrder(binaryTree));</span><br></pre></td></tr></table></figure>
+<h2 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h2><p>遍历结果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">In-Order Traversal: [ 8, 4, 9, 2, 5, 1, 6, 3, 10, 7, 11 ]</span><br></pre></td></tr></table></figure>
+<h3 id="中序遍历的递归实现"><a href="#中序遍历的递归实现" class="headerlink" title="中序遍历的递归实现"></a>中序遍历的递归实现</h3><ol>
+<li>若当前节点存在，则执行步骤 2；否则当前遍历结束。</li>
+<li>若当前节点的左子树存在，则递归遍历左子树。</li>
+<li>访问当前节点。</li>
+<li>若当前节点的右子树存在，则递归遍历右子树。</li>
+<li>结束遍历。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> inOrderRecursive = <span class="function">(<span class="params">node, nodeList = []</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (node) &#123;</span><br><span class="line">    node.left &amp;&amp; inOrderRecursive(node.left, nodeList);</span><br><span class="line">    nodeList.push(node.nodeValue);</span><br><span class="line">    node.right &amp;&amp; inOrderRecursive(node.right, nodeList);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> nodeList;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'In-Order Traversal:'</span>, inOrderRecursive(binaryTree));</span><br></pre></td></tr></table></figure>
+<h3 id="中序遍历的非递归实现"><a href="#中序遍历的非递归实现" class="headerlink" title="中序遍历的非递归实现"></a>中序遍历的非递归实现</h3><ol>
+<li>初始化一个栈。若栈不为空，或当前节点存在，则执行步骤 2。</li>
+<li>若当前节点存在，执行步骤 3，否则执行步骤 4。</li>
+<li>把当前节点压入栈，并将左子树作为当前节点。回到步骤 2。</li>
+<li>从栈顶取值作为当前节点，并记录到 nodeList，最后把右子树作为当前节点。回到步骤 2。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> inOrder = <span class="function">(<span class="params">node, nodeList = []</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (!node) &#123;</span><br><span class="line">    <span class="keyword">return</span> nodeList;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> stack = [];</span><br><span class="line">  <span class="keyword">while</span> (stack.length || node) &#123;</span><br><span class="line">    <span class="keyword">if</span> (node) &#123;</span><br><span class="line">      stack.push(node);</span><br><span class="line">      node = node.left;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      node = stack.pop();</span><br><span class="line">      nodeList.push(node.nodeValue);</span><br><span class="line">      node = node.right;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> nodeList;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'In-Order Traversal:'</span>, inOrder(binaryTree));</span><br></pre></td></tr></table></figure>
+<h2 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h2><p>遍历结果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Post-Order Traversal: [ 8, 9, 4, 5, 2, 6, 10, 11, 7, 3, 1 ]</span><br></pre></td></tr></table></figure>
+<h3 id="后序遍历的递归实现"><a href="#后序遍历的递归实现" class="headerlink" title="后序遍历的递归实现"></a>后序遍历的递归实现</h3><ol>
+<li>若当前节点存在，则执行步骤 2；否则当前遍历结束。</li>
+<li>若当前节点的左子树存在，则递归遍历左子树。</li>
+<li>若当前节点的右子树存在，则递归遍历右子树。</li>
+<li>访问当前节点。</li>
+<li>结束遍历。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> postOrderRecursive = <span class="function">(<span class="params">node, nodeList = []</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (node) &#123;</span><br><span class="line">    node.left &amp;&amp; postOrderRecursive(node.left, nodeList);</span><br><span class="line">    node.right &amp;&amp; postOrderRecursive(node.right, nodeList);</span><br><span class="line">    nodeList.push(node.nodeValue);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> nodeList;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'Post-Order Traversal:'</span>, postOrderRecursive(binaryTree));</span><br></pre></td></tr></table></figure>
+<h3 id="后序遍历的非递归实现"><a href="#后序遍历的非递归实现" class="headerlink" title="后序遍历的非递归实现"></a>后序遍历的非递归实现</h3><ol>
+<li>初始化一个栈，把根节点压入栈中，使用 tmp 记录当前栈顶的节点。执行步骤 2。</li>
+<li>若栈不为空，tmp 记录当前栈顶节点。</li>
+<li>若 tmp 存在左子树，则把左子树节点压入栈，并回到步骤 2。</li>
+<li>若 tmp 存在右子树，则把右子树节点压入栈，并回到步骤 2。</li>
+<li>从栈顶取值，并记录到 nodeList，并把 tmp 作为当前节点。回到步骤 2。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> postOrder = <span class="function">(<span class="params">node, nodeList = []</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (!node) &#123;</span><br><span class="line">    <span class="keyword">return</span> nodeList;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> stack = [node];</span><br><span class="line">  <span class="keyword">let</span> tmp;</span><br><span class="line">  <span class="keyword">while</span> (stack.length) &#123;</span><br><span class="line">    tmp = stack[stack.length - <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">if</span> (tmp.left &amp;&amp; node !== tmp.left &amp;&amp; node !== tmp.right) &#123;</span><br><span class="line">      stack.push(tmp.left);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (tmp.right &amp;&amp; node !== tmp.right) &#123;</span><br><span class="line">      stack.push(tmp.right);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      nodeList.push(stack.pop().nodeValue);</span><br><span class="line">      node = tmp;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> nodeList;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'Post-Order Traversal:'</span>, postOrder(binaryTree));</span><br></pre></td></tr></table></figure>
+<h2 id="广度优先遍历"><a href="#广度优先遍历" class="headerlink" title="广度优先遍历"></a>广度优先遍历</h2><p>遍历结果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BFS Traversal: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ]</span><br></pre></td></tr></table></figure>
+<p>递归实现和非递归实现原理一致，大体如下：</p>
+<ol>
+<li>初始化一个队列，并把根节点放入队列。执行步骤 2。</li>
+<li>若队列不为空，执行步骤 3。</li>
+<li>从队列取值并作为当前节点，并记录到 nodeList。执行步骤4。</li>
+<li>若当前节点左子树存在，放入队列；若右子树存在，放入队列。回到步骤 3。</li>
+</ol>
+<h3 id="广度优先遍历的递归实现"><a href="#广度优先遍历的递归实现" class="headerlink" title="广度优先遍历的递归实现"></a>广度优先遍历的递归实现</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> bfsRecursive = <span class="function">(<span class="params">node, nodeList = [], queue = [node]</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (!node) &#123;</span><br><span class="line">    <span class="keyword">return</span> nodeList;</span><br><span class="line">  &#125;</span><br><span class="line">  node = queue.shift();</span><br><span class="line">  nodeList.push(node.nodeValue);</span><br><span class="line">  node.left &amp;&amp; queue.push(node.left);</span><br><span class="line">  node.right &amp;&amp; queue.push(node.right);</span><br><span class="line">  queue.length &amp;&amp; bfsRecursive(node, nodeList, queue);</span><br><span class="line">  <span class="keyword">return</span> nodeList;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'BFS Traversal:'</span>, bfsRecursive(binaryTree));</span><br></pre></td></tr></table></figure>
+<h3 id="广度优先遍历的非递归实现"><a href="#广度优先遍历的非递归实现" class="headerlink" title="广度优先遍历的非递归实现"></a>广度优先遍历的非递归实现</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> bfs = <span class="function">(<span class="params">node, nodeList = []</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (!node) &#123;</span><br><span class="line">    <span class="keyword">return</span> nodeList;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> queue = [node];</span><br><span class="line">  <span class="keyword">while</span> (queue.length) &#123;</span><br><span class="line">    node = queue.shift();</span><br><span class="line">    nodeList.push(node.nodeValue);</span><br><span class="line">    node.left &amp;&amp; queue.push(node.left);</span><br><span class="line">    node.right &amp;&amp; queue.push(node.right);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> nodeList;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'BFS Traversal:'</span>, bfs(binaryTree));</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>对于前序遍历、中序遍历、后序遍历的递归实现思路是很相似的。唯一的不同就是：前序遍历把“访问当前节点”的步骤放到了左子树、右子树的前面；中序遍历则把它放到了左子树、右子树的中间；后序遍历则把它放到了最后。</p>
+<p>所以，对于递归遍历来说，只需要针对遍历顺序把“访问当前节点”的这行代码顺序调整一下，即可实现遍历。</p>
+<p>但对于非递归遍历来说，还是要慢慢的琢磨才能加深自己的理解。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>林文康</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.wenkanglin.com/2018/05/JavaScript面试题的学与记：二叉树遍历/" title="JavaScript面试题的学与记：二叉树遍历">http://www.wenkanglin.com/2018/05/JavaScript面试题的学与记：二叉树遍历/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript面试题/" rel="tag"># JavaScript面试题</a>
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/CSS面试题的学与记：实现宽高比例自适应/" rel="next" title="CSS面试题的学与记：实现宽高比例自适应">
+                <i class="fa fa-chevron-left"></i> CSS面试题的学与记：实现宽高比例自适应
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/JavaScript面试题的学与记：DOM树遍历/" rel="prev" title="JavaScript面试题的学与记：DOM树遍历">
+                JavaScript面试题的学与记：DOM树遍历 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="林文康" />
+            
+              <p class="site-author-name" itemprop="name">林文康</p>
+              <p class="site-description motion-element" itemprop="description">前端路上的学与记</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/wenkanglin" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:wenkanglin0910@gmail.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank" rel="external nofollow">
+                <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+              </a>
+            </div>
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前序遍历"><span class="nav-number">1.</span> <span class="nav-text">前序遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前序遍历的递归实现"><span class="nav-number">1.1.</span> <span class="nav-text">前序遍历的递归实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前序遍历的非递归实现"><span class="nav-number">1.2.</span> <span class="nav-text">前序遍历的非递归实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中序遍历"><span class="nav-number">2.</span> <span class="nav-text">中序遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#中序遍历的递归实现"><span class="nav-number">2.1.</span> <span class="nav-text">中序遍历的递归实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中序遍历的非递归实现"><span class="nav-number">2.2.</span> <span class="nav-text">中序遍历的非递归实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后序遍历"><span class="nav-number">3.</span> <span class="nav-text">后序遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#后序遍历的递归实现"><span class="nav-number">3.1.</span> <span class="nav-text">后序遍历的递归实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后序遍历的非递归实现"><span class="nav-number">3.2.</span> <span class="nav-text">后序遍历的非递归实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#广度优先遍历"><span class="nav-number">4.</span> <span class="nav-text">广度优先遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#广度优先遍历的递归实现"><span class="nav-number">4.1.</span> <span class="nav-text">广度优先遍历的递归实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#广度优先遍历的非递归实现"><span class="nav-number">4.2.</span> <span class="nav-text">广度优先遍历的非递归实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">林文康</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">37k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">34 分钟</span>
+  
+</div>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-reading-progress@1.1/reading_progress.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.2.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+    
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.4.1/dist/instantsearch.min.css">
+
+  
+  
+    
+  
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.4.1/dist/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.2.0"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("l2Dm1Um1RyL3w2aGklUyO05R-gzGzoHsz", "IUw8OtUCOtM54o6MQKw3a2uc");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+  
+    
+  
+  <script src="https://cdn.bootcss.com/pangu/3.3.0/pangu.min.js"></script>
+  <script type="text/javascript">pangu.spacingPage();</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

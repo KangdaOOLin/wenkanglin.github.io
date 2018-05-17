@@ -144,18 +144,18 @@
 
 
 
-  <meta name="description" content="前端路上的学与记">
-<meta name="keywords" content="WenKang Lin,林文康,博客,blog,web,JavaScript,ECMAScript,CSS3,HTML5,developer,front-end,前端,技术">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://www.wenkanglin.com/tags/index.html">
+  <meta name="description" content="关于两者的使用，这里不再赘述。而这里主要是想说明一下递归调用 setTimeout 和直接使用 setInterval，这两者表现有什么区别？例如： 12345678910111213const fn = () =&amp;gt; &amp;#123;  // ...  console.log(&apos;call fn&apos;);  // ...&amp;#125;;const handler = () =&amp;gt; &amp;#123;  f">
+<meta name="keywords" content="JavaScript面试题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript面试题的学与记：setTimeout和setInterval">
+<meta property="og:url" content="http://www.wenkanglin.com/2018/05/JavaScript面试题的学与记：setTimeout和setInterval/index.html">
 <meta property="og:site_name" content="林文康的博客">
-<meta property="og:description" content="前端路上的学与记">
+<meta property="og:description" content="关于两者的使用，这里不再赘述。而这里主要是想说明一下递归调用 setTimeout 和直接使用 setInterval，这两者表现有什么区别？例如： 12345678910111213const fn = () =&amp;gt; &amp;#123;  // ...  console.log(&apos;call fn&apos;);  // ...&amp;#125;;const handler = () =&amp;gt; &amp;#123;  f">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-15T10:21:52.000Z">
+<meta property="og:updated_time" content="2018-05-17T09:38:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="前端路上的学与记">
+<meta name="twitter:title" content="JavaScript面试题的学与记：setTimeout和setInterval">
+<meta name="twitter:description" content="关于两者的使用，这里不再赘述。而这里主要是想说明一下递归调用 setTimeout 和直接使用 setInterval，这两者表现有什么区别？例如： 12345678910111213const fn = () =&amp;gt; &amp;#123;  // ...  console.log(&apos;call fn&apos;);  // ...&amp;#125;;const handler = () =&amp;gt; &amp;#123;  f">
 
 
 
@@ -164,7 +164,7 @@
 
 
 
-  <link rel="canonical" href="http://www.wenkanglin.com/tags/"/>
+  <link rel="canonical" href="http://www.wenkanglin.com/2018/05/JavaScript面试题的学与记：setTimeout和setInterval/"/>
 
 
 
@@ -174,7 +174,7 @@
   };
 </script>
 
-  <title>tags | 林文康的博客</title>
+  <title>JavaScript面试题的学与记：setTimeout和setInterval | 林文康的博客</title>
   
 
 
@@ -296,7 +296,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">9</span></a>
   </li>
@@ -372,113 +372,299 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.wenkanglin.com/2018/05/JavaScript面试题的学与记：setTimeout和setInterval/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="林文康">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="林文康的博客">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h2 class="post-title" itemprop="name headline">tags</h2>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
+          <h2 class="post-title" itemprop="name headline">JavaScript面试题的学与记：setTimeout和setInterval
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-05-12 08:37:24" itemprop="dateCreated datePublished" datetime="2018-05-12T08:37:24+08:00">2018-05-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-17 17:38:13" itemprop="dateModified" datetime="2018-05-17T17:38:13+08:00">2018-05-17</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/面试题/" itemprop="url" rel="index"><span itemprop="name">面试题</span></a></span>
+
                 
                 
-                  
-                    
-                  
+                  ，
                 
-                  
-                    
-                  
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/面试题/javascript面试题的学与记/" itemprop="url" rel="index"><span itemprop="name">JavaScript面试题的学与记</span></a></span>
+
                 
-                  
-                    
-                  
                 
-                  
-                    
-                  
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/05/JavaScript面试题的学与记：setTimeout和setInterval/" class="leancloud_visitors" data-flag-title="JavaScript面试题的学与记：setTimeout和setInterval">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
                 
-                  
-                    
-                  
+                  <span class="post-meta-item-text">本文字数：</span>
                 
-                  
-                    
-                  
+                <span title="本文字数">1.7k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
                 
-                  
-                    
-                  
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                目前共计 9 个标签
+                <span title="阅读时长">2 分钟</span>
+              
             </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/css面试题/" style="font-size: 12px; color: #ccc">CSS面试题</a> <a href="/tags/dom对象/" style="font-size: 21px; color: #6f6f6f">DOM对象</a> <a href="/tags/git/" style="font-size: 12px; color: #ccc">Git</a> <a href="/tags/html-meta/" style="font-size: 12px; color: #ccc">HTML meta</a> <a href="/tags/hexo/" style="font-size: 16.5px; color: #9d9d9d">Hexo</a> <a href="/tags/javascript事件/" style="font-size: 25.5px; color: #404040">JavaScript事件</a> <a href="/tags/javascript对象/" style="font-size: 12px; color: #ccc">JavaScript对象</a> <a href="/tags/javascript面试题/" style="font-size: 30px; color: #111">JavaScript面试题</a> <a href="/tags/算法/" style="font-size: 16.5px; color: #9d9d9d">算法</a>
-            </div>
-          </div>
-        
-      </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>关于两者的使用，这里不再赘述。而这里主要是想说明一下递归调用 <code>setTimeout</code> 和直接使用 <code>setInterval</code>，这两者表现有什么区别？例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fn = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'call fn'</span>);</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> handler = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  fn();</span><br><span class="line">  setTimeout(handler, <span class="number">1000</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">setTimeout(handler, <span class="number">1000</span>);</span><br><span class="line">setInterval(fn, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>如上面代码所示，递归调用 <code>setTimeout</code> 也能够达到重复执行的效果。除此之外，和 <code>setInterval</code> 是否有本质上的区别呢？</p>
+<p>答案是肯定有区别的。<strong><code>setTimeout</code> 能确保相邻两次的执行间隔不会被浪费，而 <code>setInterval</code> 可能会存在浪费某部分执行间隔的情况。</strong></p>
+<p>上面的区别描述有些拗口，不是很容易理解。这里举一个形象的例子。由于厕所位置有限，而且每个位置最多只有一个人上，并假设每个人上厕所的时间都是 10 分钟。有些同事 A 们会在旁边一直等，而有些同事 B 们则会在 10 分钟之后再过来看看有没有位置。如果突然其中一个人上厕所的时间是 13 分钟，超过了 10 分钟。A 们因为一直在旁边等着，所以位置能够马上的被下一个同事使用；但 B 们在第一个 10 分钟，过来看过发现还是没有位置，然后走了，接着在下一个 10 分钟后才会过来。这时，就会产生 7 分钟的空闲浪费。这里，A 们就是 <code>setTimeout</code>，B 们就是 <code>setInterval</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(handler, <span class="number">1000</span>);</span><br><span class="line">setInterval(fn, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<p>假设 <code>fn</code> 执行时间需要 1200 ms，0 - 1000 内执行第一次 <code>fn</code>。然后 1000 ms后，<code>setInterval</code> 发现前一次的 <code>fn</code> 还在执行，那么本次 1000 - 2000 的 <code>fn</code> 就会被忽略掉，然后在 2000 ms后再来。而 <code>setTimeout</code> 则会在 1200 ms后，立即执行下一次。</p>
+<p>所以，存在超时情况下，选择使用递归 <code>setTimeout</code> 是最好的。并且，递归的过程中，也可以动态的修改下一步执行的时间间隔。</p>
+<h2 id="关于-this-的陷阱"><a href="#关于-this-的陷阱" class="headerlink" title="关于 this 的陷阱"></a>关于 this 的陷阱</h2><p>我们知道，一个函数中关于 <code>this</code> 指向的问题。一般来说，在非严格模式下，指向的是 <code>window</code> 全局对象；严格模式下值是 <code>undefined</code>。但是，在 <code>setTimeout</code> 和 <code>setInterval</code> 回调函数中，<strong><code>this</code> 指向总是不变，指向的是 <code>window</code> 对象</strong>（箭头函数除外）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span> === <span class="built_in">window</span>); <span class="comment">// true</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>并且，也无法通过 <code>apply</code> 或 <code>call</code> 或 <code>bind</code> 来直接指定 <code>setTimeout</code> 和 <code>setInterval</code> 函数执行的上下文。注意，这里说的是 <code>setTimeout</code> 和 <code>setInterval</code> 函数本身，而不是它们第一个参数（回调函数）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  name: <span class="string">'obj name'</span>,</span><br><span class="line">  handler() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 由于回调函数中this指向的是window对象，所以等价于window.name</span></span><br><span class="line"><span class="comment">// obj.handler.bind(obj)能够正确输出</span></span><br><span class="line">setTimeout(obj.handler);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 但不能通过call直接作用于setTimeout本身来获得正确的输出</span></span><br><span class="line"><span class="comment">// 这里程序报错 Uncaught TypeError: Illegal invocation</span></span><br><span class="line">setTimeout.call(obj, obj.handler);</span><br></pre></td></tr></table></figure>
+
       
     </div>
+
     
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>林文康</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.wenkanglin.com/2018/05/JavaScript面试题的学与记：setTimeout和setInterval/" title="JavaScript面试题的学与记：setTimeout和setInterval">http://www.wenkanglin.com/2018/05/JavaScript面试题的学与记：setTimeout和setInterval/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript面试题/" rel="tag"># JavaScript面试题</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/DOM对象的学与记：textContent、innerText/" rel="next" title="DOM对象的学与记：textContent、innerText">
+                <i class="fa fa-chevron-left"></i> DOM对象的学与记：textContent、innerText
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
 
-    
-    
-    
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
   </div>
 
 
@@ -510,8 +696,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -653,6 +848,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#区别"><span class="nav-number">1.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于-this-的陷阱"><span class="nav-number">2.</span> <span class="nav-text">关于 this 的陷阱</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
