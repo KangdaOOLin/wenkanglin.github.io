@@ -1,7 +1,7 @@
 ---
 title: JavaScript面试题的学与记：setTimeout和setInterval
 date: 2018-05-12 08:37:24
-updated: 2018-05-17 17:38:13
+updated: 2018-05-17 17:41:52
 tags: JavaScript面试题
 categories: [面试题, JavaScript面试题的学与记]
 copyright: (c) 2018-present, WenKang Lin
@@ -73,3 +73,9 @@ setTimeout(obj.handler);
 // 这里程序报错 Uncaught TypeError: Illegal invocation
 setTimeout.call(obj, obj.handler);
 ```
+
+## 相关阅读
+
+> http://qingbob.com/difference-between-settimeout-setinterval/
+> https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout
+> https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval
