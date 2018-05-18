@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.wenkanglin.com/"/>
-  <updated>2018-05-17T09:41:52.000Z</updated>
+  <updated>2018-05-18T08:54:34.000Z</updated>
   <id>http://www.wenkanglin.com/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript事件的学与记：stopPropagation和stopImmediatePropagation</title>
+    <link href="http://www.wenkanglin.com/2018/05/JavaScript%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%AD%A6%E4%B8%8E%E8%AE%B0%EF%BC%9AstopPropagation%E5%92%8CstopImmediatePropagation/"/>
+    <id>http://www.wenkanglin.com/2018/05/JavaScript事件的学与记：stopPropagation和stopImmediatePropagation/</id>
+    <published>2018-05-18T08:19:06.000Z</published>
+    <updated>2018-05-18T08:54:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><code>stopPropagation</code> 大家都比较熟悉，但 <code>stopImmediatePropagation</code> 是什么呢？和前者有啥区别呢？面试官如是问道。</p><blockquote><p>Prevents other listeners of the same event from being called.</p></blockquote><p>上面是 MDN 上关于 <code>stopImmediatePropagation</code> 的描述，翻译过来就是“阻止同事件类型的其它监听器被触发”。</p><a id="more"></a><p>根据实际的例子，理解起来可能会更加容易。假设如下代码：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"btn"</span>&gt;</span>click me to stop propagation<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">'#btn'</span>);</span><br><span class="line"></span><br><span class="line">btn.addEventListener(<span class="string">'click'</span>, event =&gt; &#123;</span><br><span class="line">  <span class="built_in">window</span>.alert(<span class="string">'btn click 1'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">btn.addEventListener(<span class="string">'click'</span>, event =&gt; &#123;</span><br><span class="line">  <span class="built_in">window</span>.alert(<span class="string">'btn click 2'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.body.addEventListener(<span class="string">'click'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">window</span>.alert(<span class="string">'body click'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>点击按钮，body 也会触发点击事件。若想要在点击按钮时，阻止 body 点击事件触发，可以使用 <code>stopPropagation</code>。这里按钮注册了两个点击事件，随便给其中一个事件使用 <code>stopPropagation</code> 都可以阻止冒泡。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">'#btn'</span>);</span><br><span class="line"></span><br><span class="line">btn.addEventListener(<span class="string">'click'</span>, event =&gt; &#123;</span><br><span class="line">  <span class="built_in">window</span>.alert(<span class="string">'btn click 1'</span>);</span><br><span class="line">  event.stopPropagation();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">btn.addEventListener(<span class="string">'click'</span>, event =&gt; &#123;</span><br><span class="line">  <span class="built_in">window</span>.alert(<span class="string">'btn click 2'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.body.addEventListener(<span class="string">'click'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">window</span>.alert(<span class="string">'body click'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>如上所示，点击按钮时，body 就不会再触发点击事件了，但按钮的另一个点击事件还是会触发。所以，<strong>若想保持事件触发的唯一性</strong>，那么就可以使用 <code>stopImmediatePropagation</code> 来阻止。这样，按钮的另一个点击事件也就不会再触发了。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">'#btn'</span>);</span><br><span class="line"></span><br><span class="line">btn.addEventListener(<span class="string">'click'</span>, event =&gt; &#123;</span><br><span class="line">  <span class="built_in">window</span>.alert(<span class="string">'btn click 1'</span>);</span><br><span class="line">  event.stopImmediatePropagation();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">btn.addEventListener(<span class="string">'click'</span>, event =&gt; &#123;</span><br><span class="line">  <span class="built_in">window</span>.alert(<span class="string">'btn click 2'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.body.addEventListener(<span class="string">'click'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">window</span>.alert(<span class="string">'body click'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><iframe scrolling="no" width="100%" height="300" src="//jsfiddle.net/3dbwuL8m/embedded/html,js,result/dark" frameborder="0" allowfullscreen></iframe><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><code>stopImmediatePropagation</code> 既能阻止事件向父元素冒泡，也能阻止元素同事件类型的其它监听器被触发。而 <code>stopPropagation</code> 只能实现前者的效果。</p><h2 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h2><blockquote><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation</a><br><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/stopImmediatePropagation" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/API/Event/stopImmediatePropagation</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;code&gt;stopPropagation&lt;/code&gt; 大家都比较熟悉，但 &lt;code&gt;stopImmediatePropagation&lt;/code&gt; 是什么呢？和前者有啥区别呢？面试官如是问道。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Prevents other listeners of the same event from being called.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;上面是 MDN 上关于 &lt;code&gt;stopImmediatePropagation&lt;/code&gt; 的描述，翻译过来就是“阻止同事件类型的其它监听器被触发”。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="面试题" scheme="http://www.wenkanglin.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+      <category term="JavaScript" scheme="http://www.wenkanglin.com/categories/javascript/"/>
+    
+      <category term="JavaScript面试题的学与记" scheme="http://www.wenkanglin.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/javascript%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9A%84%E5%AD%A6%E4%B8%8E%E8%AE%B0/"/>
+    
+      <category term="JavaScript事件的学与记" scheme="http://www.wenkanglin.com/categories/javascript/javascript%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%AD%A6%E4%B8%8E%E8%AE%B0/"/>
+    
+    
+      <category term="JavaScript事件" scheme="http://www.wenkanglin.com/tags/javascript%E4%BA%8B%E4%BB%B6/"/>
+    
+      <category term="JavaScript面试题" scheme="http://www.wenkanglin.com/tags/javascript%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript面试题的学与记：setTimeout和setInterval</title>
@@ -240,9 +274,9 @@
     
       <category term="JavaScript" scheme="http://www.wenkanglin.com/categories/javascript/"/>
     
-      <category term="JavaScript事件的学与记" scheme="http://www.wenkanglin.com/categories/javascript/javascript%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%AD%A6%E4%B8%8E%E8%AE%B0/"/>
-    
       <category term="JavaScript面试题的学与记" scheme="http://www.wenkanglin.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/javascript%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9A%84%E5%AD%A6%E4%B8%8E%E8%AE%B0/"/>
+    
+      <category term="JavaScript事件的学与记" scheme="http://www.wenkanglin.com/categories/javascript/javascript%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%AD%A6%E4%B8%8E%E8%AE%B0/"/>
     
     
       <category term="JavaScript事件" scheme="http://www.wenkanglin.com/tags/javascript%E4%BA%8B%E4%BB%B6/"/>
@@ -325,9 +359,9 @@
     
       <category term="JavaScript" scheme="http://www.wenkanglin.com/categories/javascript/"/>
     
-      <category term="JavaScript事件的学与记" scheme="http://www.wenkanglin.com/categories/javascript/javascript%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%AD%A6%E4%B8%8E%E8%AE%B0/"/>
-    
       <category term="JavaScript面试题的学与记" scheme="http://www.wenkanglin.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/javascript%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9A%84%E5%AD%A6%E4%B8%8E%E8%AE%B0/"/>
+    
+      <category term="JavaScript事件的学与记" scheme="http://www.wenkanglin.com/categories/javascript/javascript%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%AD%A6%E4%B8%8E%E8%AE%B0/"/>
     
     
       <category term="JavaScript事件" scheme="http://www.wenkanglin.com/tags/javascript%E4%BA%8B%E4%BB%B6/"/>

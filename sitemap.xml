@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.wenkanglin.com/2018/05/JavaScript%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%AD%A6%E4%B8%8E%E8%AE%B0%EF%BC%9AstopPropagation%E5%92%8CstopImmediatePropagation/</loc>
+    
+    <lastmod>2018-05-18T08:54:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.wenkanglin.com/2018/05/JavaScript%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9A%84%E5%AD%A6%E4%B8%8E%E8%AE%B0%EF%BC%9AsetTimeout%E5%92%8CsetInterval/</loc>
     
     <lastmod>2018-05-17T09:41:52.000Z</lastmod>

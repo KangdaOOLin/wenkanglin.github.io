@@ -150,18 +150,18 @@
 
 
 
-  <meta name="description" content="关于两者的使用，这里不再赘述。而这里主要是想说明一下递归调用 setTimeout 和直接使用 setInterval，这两者表现有什么区别？例如： 12345678910111213const fn = () =&amp;gt; &amp;#123;  // ...  console.log(&apos;call fn&apos;);  // ...&amp;#125;;const handler = () =&amp;gt; &amp;#123;  f">
-<meta name="keywords" content="JavaScript面试题">
+  <meta name="description" content="stopPropagation 大家都比较熟悉，但 stopImmediatePropagation 是什么呢？和前者有啥区别呢？面试官如是问道。  Prevents other listeners of the same event from being called.  上面是 MDN 上关于 stopImmediatePropagation 的描述，翻译过来就是“阻止同事件类型的其它监听器被">
+<meta name="keywords" content="JavaScript事件,JavaScript面试题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript面试题的学与记：setTimeout和setInterval">
-<meta property="og:url" content="http://www.wenkanglin.com/2018/05/JavaScript面试题的学与记：setTimeout和setInterval/index.html">
+<meta property="og:title" content="JavaScript事件的学与记：stopPropagation和stopImmediatePropagation">
+<meta property="og:url" content="http://www.wenkanglin.com/2018/05/JavaScript事件的学与记：stopPropagation和stopImmediatePropagation/index.html">
 <meta property="og:site_name" content="林文康的博客">
-<meta property="og:description" content="关于两者的使用，这里不再赘述。而这里主要是想说明一下递归调用 setTimeout 和直接使用 setInterval，这两者表现有什么区别？例如： 12345678910111213const fn = () =&amp;gt; &amp;#123;  // ...  console.log(&apos;call fn&apos;);  // ...&amp;#125;;const handler = () =&amp;gt; &amp;#123;  f">
+<meta property="og:description" content="stopPropagation 大家都比较熟悉，但 stopImmediatePropagation 是什么呢？和前者有啥区别呢？面试官如是问道。  Prevents other listeners of the same event from being called.  上面是 MDN 上关于 stopImmediatePropagation 的描述，翻译过来就是“阻止同事件类型的其它监听器被">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-17T09:41:52.000Z">
+<meta property="og:updated_time" content="2018-05-18T08:54:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript面试题的学与记：setTimeout和setInterval">
-<meta name="twitter:description" content="关于两者的使用，这里不再赘述。而这里主要是想说明一下递归调用 setTimeout 和直接使用 setInterval，这两者表现有什么区别？例如： 12345678910111213const fn = () =&amp;gt; &amp;#123;  // ...  console.log(&apos;call fn&apos;);  // ...&amp;#125;;const handler = () =&amp;gt; &amp;#123;  f">
+<meta name="twitter:title" content="JavaScript事件的学与记：stopPropagation和stopImmediatePropagation">
+<meta name="twitter:description" content="stopPropagation 大家都比较熟悉，但 stopImmediatePropagation 是什么呢？和前者有啥区别呢？面试官如是问道。  Prevents other listeners of the same event from being called.  上面是 MDN 上关于 stopImmediatePropagation 的描述，翻译过来就是“阻止同事件类型的其它监听器被">
 
 
 
@@ -170,7 +170,7 @@
 
 
 
-  <link rel="canonical" href="http://www.wenkanglin.com/2018/05/JavaScript面试题的学与记：setTimeout和setInterval/"/>
+  <link rel="canonical" href="http://www.wenkanglin.com/2018/05/JavaScript事件的学与记：stopPropagation和stopImmediatePropagation/"/>
 
 
 
@@ -180,7 +180,7 @@
   };
 </script>
 
-  <title>JavaScript面试题的学与记：setTimeout和setInterval | 林文康的博客</title>
+  <title>JavaScript事件的学与记：stopPropagation和stopImmediatePropagation | 林文康的博客</title>
   
 
 
@@ -401,7 +401,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.wenkanglin.com/2018/05/JavaScript面试题的学与记：setTimeout和setInterval/">
+    <link itemprop="mainEntityOfPage" href="http://www.wenkanglin.com/2018/05/JavaScript事件的学与记：stopPropagation和stopImmediatePropagation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="林文康">
@@ -418,7 +418,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">JavaScript面试题的学与记：setTimeout和setInterval
+          <h2 class="post-title" itemprop="name headline">JavaScript事件的学与记：stopPropagation和stopImmediatePropagation
               
             
           </h2>
@@ -443,24 +443,12 @@
                 
               
 
-              <time title="创建时间：2018-05-12 08:37:24" itemprop="dateCreated datePublished" datetime="2018-05-12T08:37:24+08:00">2018-05-12</time>
+              <time title="创建时间：2018-05-18 16:19:06 / 修改时间：16:54:34" itemprop="dateCreated datePublished" datetime="2018-05-18T16:19:06+08:00">2018-05-18</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-05-17 17:41:52" itemprop="dateModified" datetime="2018-05-17T17:41:52+08:00">2018-05-17</time>
               
             
           </span>
@@ -484,7 +472,21 @@
                   ，
                 
               
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+                  ，
+                
+              
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/面试题/javascript面试题的学与记/" itemprop="url" rel="index"><span itemprop="name">JavaScript面试题的学与记</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/javascript/javascript事件的学与记/" itemprop="url" rel="index"><span itemprop="name">JavaScript事件的学与记</span></a></span>
 
                 
                 
@@ -546,21 +548,23 @@
       
 
       
-        <p>关于两者的使用，这里不再赘述。而这里主要是想说明一下递归调用 <code>setTimeout</code> 和直接使用 <code>setInterval</code>，这两者表现有什么区别？例如：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fn = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'call fn'</span>);</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> handler = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  fn();</span><br><span class="line">  setTimeout(handler, <span class="number">1000</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">setTimeout(handler, <span class="number">1000</span>);</span><br><span class="line">setInterval(fn, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+        <p><code>stopPropagation</code> 大家都比较熟悉，但 <code>stopImmediatePropagation</code> 是什么呢？和前者有啥区别呢？面试官如是问道。</p>
+<blockquote>
+<p>Prevents other listeners of the same event from being called.</p>
+</blockquote>
+<p>上面是 MDN 上关于 <code>stopImmediatePropagation</code> 的描述，翻译过来就是“阻止同事件类型的其它监听器被触发”。</p>
 <a id="more"></a>
-<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>如上面代码所示，递归调用 <code>setTimeout</code> 也能够达到重复执行的效果。除此之外，和 <code>setInterval</code> 是否有本质上的区别呢？</p>
-<p>答案是肯定有区别的。<strong><code>setTimeout</code> 能确保相邻两次的执行间隔不会被浪费，而 <code>setInterval</code> 可能会存在浪费某部分执行间隔的情况。</strong></p>
-<p>上面的区别描述有些拗口，不是很容易理解。这里举一个形象的例子。由于厕所位置有限，而且每个位置最多只有一个人上，并假设每个人上厕所的时间都是 10 分钟。有些同事 A 们会在旁边一直等，而有些同事 B 们则会在 10 分钟之后再过来看看有没有位置。如果突然其中一个人上厕所的时间是 13 分钟，超过了 10 分钟。A 们因为一直在旁边等着，所以位置能够马上的被下一个同事使用；但 B 们在第一个 10 分钟，过来看过发现还是没有位置，然后走了，接着在下一个 10 分钟后才会过来。这时，就会产生 7 分钟的空闲浪费。这里，A 们就是 <code>setTimeout</code>，B 们就是 <code>setInterval</code>。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(handler, <span class="number">1000</span>);</span><br><span class="line">setInterval(fn, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
-<p>假设 <code>fn</code> 执行时间需要 1200 ms，0 - 1000 内执行第一次 <code>fn</code>。然后 1000 ms后，<code>setInterval</code> 发现前一次的 <code>fn</code> 还在执行，那么本次 1000 - 2000 的 <code>fn</code> 就会被忽略掉，然后在 2000 ms后再来。而 <code>setTimeout</code> 则会在 1200 ms后，立即执行下一次。</p>
-<p>所以，存在超时情况下，选择使用递归 <code>setTimeout</code> 是最好的。并且，递归的过程中，也可以动态的修改下一步执行的时间间隔。</p>
-<h2 id="关于-this-的陷阱"><a href="#关于-this-的陷阱" class="headerlink" title="关于 this 的陷阱"></a>关于 this 的陷阱</h2><p>我们知道，一个函数中关于 <code>this</code> 指向的问题。一般来说，在非严格模式下，指向的是 <code>window</code> 全局对象；严格模式下值是 <code>undefined</code>。但是，在 <code>setTimeout</code> 和 <code>setInterval</code> 回调函数中，<strong><code>this</code> 指向总是不变，指向的是 <code>window</code> 对象</strong>（箭头函数除外）。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span> === <span class="built_in">window</span>); <span class="comment">// true</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>并且，也无法通过 <code>apply</code> 或 <code>call</code> 或 <code>bind</code> 来直接指定 <code>setTimeout</code> 和 <code>setInterval</code> 函数执行的上下文。注意，这里说的是 <code>setTimeout</code> 和 <code>setInterval</code> 函数本身，而不是它们第一个参数（回调函数）。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  name: <span class="string">'obj name'</span>,</span><br><span class="line">  handler() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 由于回调函数中this指向的是window对象，所以等价于window.name</span></span><br><span class="line"><span class="comment">// obj.handler.bind(obj)能够正确输出</span></span><br><span class="line">setTimeout(obj.handler);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 但不能通过call直接作用于setTimeout本身来获得正确的输出</span></span><br><span class="line"><span class="comment">// 这里程序报错 Uncaught TypeError: Illegal invocation</span></span><br><span class="line">setTimeout.call(obj, obj.handler);</span><br></pre></td></tr></table></figure>
+<p>根据实际的例子，理解起来可能会更加容易。假设如下代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"btn"</span>&gt;</span>click me to stop propagation<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">'#btn'</span>);</span><br><span class="line"></span><br><span class="line">btn.addEventListener(<span class="string">'click'</span>, event =&gt; &#123;</span><br><span class="line">  <span class="built_in">window</span>.alert(<span class="string">'btn click 1'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">btn.addEventListener(<span class="string">'click'</span>, event =&gt; &#123;</span><br><span class="line">  <span class="built_in">window</span>.alert(<span class="string">'btn click 2'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.body.addEventListener(<span class="string">'click'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">window</span>.alert(<span class="string">'body click'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>点击按钮，body 也会触发点击事件。若想要在点击按钮时，阻止 body 点击事件触发，可以使用 <code>stopPropagation</code>。这里按钮注册了两个点击事件，随便给其中一个事件使用 <code>stopPropagation</code> 都可以阻止冒泡。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">'#btn'</span>);</span><br><span class="line"></span><br><span class="line">btn.addEventListener(<span class="string">'click'</span>, event =&gt; &#123;</span><br><span class="line">  <span class="built_in">window</span>.alert(<span class="string">'btn click 1'</span>);</span><br><span class="line">  event.stopPropagation();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">btn.addEventListener(<span class="string">'click'</span>, event =&gt; &#123;</span><br><span class="line">  <span class="built_in">window</span>.alert(<span class="string">'btn click 2'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.body.addEventListener(<span class="string">'click'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">window</span>.alert(<span class="string">'body click'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>如上所示，点击按钮时，body 就不会再触发点击事件了，但按钮的另一个点击事件还是会触发。所以，<strong>若想保持事件触发的唯一性</strong>，那么就可以使用 <code>stopImmediatePropagation</code> 来阻止。这样，按钮的另一个点击事件也就不会再触发了。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">'#btn'</span>);</span><br><span class="line"></span><br><span class="line">btn.addEventListener(<span class="string">'click'</span>, event =&gt; &#123;</span><br><span class="line">  <span class="built_in">window</span>.alert(<span class="string">'btn click 1'</span>);</span><br><span class="line">  event.stopImmediatePropagation();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">btn.addEventListener(<span class="string">'click'</span>, event =&gt; &#123;</span><br><span class="line">  <span class="built_in">window</span>.alert(<span class="string">'btn click 2'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.body.addEventListener(<span class="string">'click'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">window</span>.alert(<span class="string">'body click'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<iframe scrolling="no" width="100%" height="300" src="//jsfiddle.net/3dbwuL8m/embedded/html,js,result/dark" frameborder="0" allowfullscreen></iframe>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><code>stopImmediatePropagation</code> 既能阻止事件向父元素冒泡，也能阻止元素同事件类型的其它监听器被触发。而 <code>stopPropagation</code> 只能实现前者的效果。</p>
 <h2 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h2><blockquote>
-<p><a href="http://qingbob.com/difference-between-settimeout-setinterval/" target="_blank" rel="noopener">http://qingbob.com/difference-between-settimeout-setinterval/</a><br><a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout</a><br><a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval</a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation</a><br><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/stopImmediatePropagation" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/API/Event/stopImmediatePropagation</a></p>
 </blockquote>
 
       
@@ -583,7 +587,7 @@
     <strong>本文作者： </strong>林文康</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.wenkanglin.com/2018/05/JavaScript面试题的学与记：setTimeout和setInterval/" title="JavaScript面试题的学与记：setTimeout和setInterval">http://www.wenkanglin.com/2018/05/JavaScript面试题的学与记：setTimeout和setInterval/</a>
+    <a href="http://www.wenkanglin.com/2018/05/JavaScript事件的学与记：stopPropagation和stopImmediatePropagation/" title="JavaScript事件的学与记：stopPropagation和stopImmediatePropagation">http://www.wenkanglin.com/2018/05/JavaScript事件的学与记：stopPropagation和stopImmediatePropagation/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>(c) 2018-present, WenKang Lin</li>
@@ -595,6 +599,8 @@
     <footer class="post-footer">
       
         <div class="post-tags">
+          
+            <a href="/tags/javascript事件/" rel="tag"># JavaScript事件</a>
           
             <a href="/tags/javascript面试题/" rel="tag"># JavaScript面试题</a>
           
@@ -609,8 +615,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/DOM对象的学与记：textContent、innerText/" rel="next" title="DOM对象的学与记：textContent、innerText">
-                <i class="fa fa-chevron-left"></i> DOM对象的学与记：textContent、innerText
+              <a href="/2018/05/JavaScript面试题的学与记：setTimeout和setInterval/" rel="next" title="JavaScript面试题的学与记：setTimeout和setInterval">
+                <i class="fa fa-chevron-left"></i> JavaScript面试题的学与记：setTimeout和setInterval
               </a>
             
           </div>
@@ -618,10 +624,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/JavaScript事件的学与记：stopPropagation和stopImmediatePropagation/" rel="prev" title="JavaScript事件的学与记：stopPropagation和stopImmediatePropagation">
-                JavaScript事件的学与记：stopPropagation和stopImmediatePropagation <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -857,7 +859,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#区别"><span class="nav-number">1.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于-this-的陷阱"><span class="nav-number">2.</span> <span class="nav-text">关于 this 的陷阱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关阅读"><span class="nav-number">3.</span> <span class="nav-text">相关阅读</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关阅读"><span class="nav-number">2.</span> <span class="nav-text">相关阅读</span></a></li></ol></div>
             
 
           </div>
