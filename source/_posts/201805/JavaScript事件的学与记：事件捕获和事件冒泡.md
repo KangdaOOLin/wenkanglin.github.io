@@ -1,7 +1,7 @@
 ---
 title: JavaScript事件的学与记：事件捕获和事件冒泡
 date: 2018-05-06 15:53:33
-updated: 2018-05-09 22:31:35
+updated: 2018-05-19 22:19:45
 tags: [JavaScript事件, JavaScript面试题]
 categories:
   - [JavaScript, JavaScript事件的学与记]
@@ -96,7 +96,8 @@ el.addEventListener('click', event => {
 
 ## 相关阅读
 
-> http://javascript.info/bubbling-and-capturing<br> https://www.w3.org/TR/DOM-Level-3-Events/#dom-event-architecture
+> http://javascript.info/bubbling-and-capturing
+> https://www.w3.org/TR/DOM-Level-3-Events/#dom-event-architecture
 
 [event.eventphase]: https://developer.mozilla.org/en-US/docs/Web/API/Event/eventPhase
 [event.bubbles]: https://developer.mozilla.org/en-US/docs/Web/API/Event/bubbles

@@ -1,7 +1,7 @@
 ---
 title: DOM对象的学与记：innerHTML、innerText、outerHTML、outerText
 date: 2018-05-07 11:17:59
-updated: 2018-05-08 16:38:24
+updated: 2018-05-19 22:18:53
 tags: DOM对象
 categories: [JavaScript, DOM对象的学与记]
 copyright: '(c) 2018-present, WenKang Lin'
@@ -131,6 +131,9 @@ p.outerText = 'some text';
 
 ## 相关阅读
 
-> https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML<br> https://developer.mozilla.org/en-US/docs/Web/API/Node/innerText<br> https://developer.mozilla.org/en-US/docs/Web/API/Element/outerHTML<br> https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/outerText
+> https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML
+> https://developer.mozilla.org/en-US/docs/Web/API/Node/innerText
+> https://developer.mozilla.org/en-US/docs/Web/API/Element/outerHTML
+> https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/outerText
 
 [documentfragment]: https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment

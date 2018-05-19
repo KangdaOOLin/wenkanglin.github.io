@@ -1,7 +1,7 @@
 ---
 title: JavaScript事件的学与记：addEventListener
 date: 2018-05-06 21:34:34
-updated: 2018-05-09 22:30:58
+updated: 2018-05-19 22:19:31
 tags: JavaScript事件
 categories: [JavaScript, JavaScript事件的学与记]
 copyright: '(c) 2018-present, WenKang Lin'
@@ -105,6 +105,8 @@ window.addEventListener('click', handler);
 
 ## 相关阅读
 
-> https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener<br> https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md<br> https://zhuanlan.zhihu.com/p/24555031<br>
+> https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+> https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md
+> https://zhuanlan.zhihu.com/p/24555031
 
 [eventlistener]: https://developer.mozilla.org/en-US/docs/Web/API/EventListener

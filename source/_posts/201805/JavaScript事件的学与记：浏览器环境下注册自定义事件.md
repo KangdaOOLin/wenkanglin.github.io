@@ -1,7 +1,7 @@
 ---
 title: JavaScript事件的学与记：浏览器环境下注册自定义事件
 date: 2018-05-08 16:54:41
-updated: 2018-05-09 22:32:34
+updated: 2018-05-19 22:20:08
 tags: JavaScript事件
 categories: [JavaScript, JavaScript事件的学与记]
 copyright: '(c) 2018-present, WenKang Lin'
@@ -85,7 +85,10 @@ if (cancelled) {
 
 ## 相关阅读
 
-> https://developer.mozilla.org/en-US/docs/Web/API/Event<br> https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent<br> https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent<br> https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events
+> https://developer.mozilla.org/en-US/docs/Web/API/Event
+> https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
+> https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent
+> https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events
 
 [event]: https://developer.mozilla.org/en-US/docs/Web/API/Event
 [customevent]: https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
