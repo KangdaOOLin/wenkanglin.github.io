@@ -1,7 +1,7 @@
 ---
 title: DOM对象的学与记：元素宽高offset、client、scroll
 date: 2018-05-19 17:02:57
-updated: 2018-05-20 15:28:57
+updated: 2018-05-20 17:02:16
 tags: DOM对象
 categories: [JavaScript, DOM对象的学与记]
 copyright: '(c) 2018-present, WenKang Lin'
@@ -115,6 +115,12 @@ copyright: '(c) 2018-present, WenKang Lin'
 }
 ```
 
+## 内容溢出
+
+{% jsfiddle 5on4supg html,css,js,result dark %}
+
+如上面 demo 所示，若元素固定高度而内容溢出的情况下，只有 scrollWidth/scrollHeight 能够包含溢出内容的高度。
+
 ## 总结
 
 | 对比项                  | offset   | client   | scroll   | getBoundingClientRect   |
@@ -129,6 +135,7 @@ copyright: '(c) 2018-present, WenKang Lin'
 | 宽高是否精确            | ✘        | ✘        | ✘        | ✔                       |
 | 能否获取行内元素宽高    | ✔        | ✘        | ✘        | ✔                       |
 | 包含非可视内容宽高      | ✘        | ✘        | ✔        | ✘                       |
+| 包含溢出内容宽高        | ✘        | ✘        | ✔        | ✘                       |
 
 ## 相关阅读
 
