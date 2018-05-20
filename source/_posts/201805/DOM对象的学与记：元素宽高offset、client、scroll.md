@@ -1,7 +1,7 @@
 ---
 title: DOM对象的学与记：元素宽高offset、client、scroll
 date: 2018-05-19 17:02:57
-updated: 2018-05-20 01:18:22
+updated: 2018-05-20 15:28:57
 tags: DOM对象
 categories: [JavaScript, DOM对象的学与记]
 copyright: '(c) 2018-present, WenKang Lin'
@@ -92,19 +92,43 @@ copyright: '(c) 2018-present, WenKang Lin'
 
 {% jsfiddle q6dg3aav html,css,js,result dark %}
 
+## box-sizing 属性影响
+
+上面总结的几个获取元素宽高的方式，都是会包括 `padding` 的值。但是，要注意元素样式属性 `box-sizing` 的值。例如，存在以下代码：
+
+```css
+.box {
+  height: 400px;
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+```
+
+那么，请问上面元素 `.box`，通过 offset、client、scroll、getBoundingClientRect 方式获取的高度分别是多少呢？
+
+答案是 400，而不是 400 + 20 * 2 = 440。因为该元素设置了 `box-sizing: border-box`，使得元素设置的高度 `height: 400px` 包含了 `padding` 和 `border` 的值。所以，上面的 CSS 代码可以理解成下面的方式：
+
+```css
+.box {
+  height: 360px;
+  padding: 20px 0;
+}
+```
+
 ## 总结
 
-| 对比项                  | offset | client | scroll | getBoundingClientRect |
-| ----------------------- | ------ | ------ | ------ | --------------------- |
-| 包含padding             | ✔      | ✔      | ✔      | ✔                     |
-| 包含border              | ✔      | ✘      | ✘      | ✔                     |
-| 包含滚动条              | ✔      | ✘      | ✘      | ✔                     |
-| 包含伪元素宽高          | ✘      | ✘      | ✔      | ✘                     |
-| 宽高是否可写            | ✘      | ✘      | ✘      | ✘                     |
-| 受 `display: none` 影响 | ✔      | ✔      | ✔      | ✔                     |
-| 宽高是否精确            | ✘      | ✘      | ✘      | ✔                     |
-| 能否获取行内元素宽高    | ✔      | ✘      | ✘      | ✔                     |
-| 包含非可视内容宽高      | ✘      | ✘      | ✔      | ✘                     |
+| 对比项                  | offset   | client   | scroll   | getBoundingClientRect   |
+| ----------------------- | :------: | :------: | :------: | :---------------------: |
+| 包含padding             | ✔        | ✔        | ✔        | ✔                       |
+| 包含border              | ✔        | ✘        | ✘        | ✔                       |
+| 包含滚动条              | ✔        | ✘        | ✘        | ✔                       |
+| 包含伪元素宽高          | ✘        | ✘        | ✔        | ✘                       |
+| 宽高是否可写            | ✘        | ✘        | ✘        | ✘                       |
+| 受 `display: none` 影响 | ✔        | ✔        | ✔        | ✔                       |
+| 受 `box-sizing` 影响    | ✔        | ✔        | ✔        | ✔                       |
+| 宽高是否精确            | ✘        | ✘        | ✘        | ✔                       |
+| 能否获取行内元素宽高    | ✔        | ✘        | ✘        | ✔                       |
+| 包含非可视内容宽高      | ✘        | ✘        | ✔        | ✘                       |
 
 ## 相关阅读
 
