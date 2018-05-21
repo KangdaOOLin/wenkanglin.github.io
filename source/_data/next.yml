@@ -25,6 +25,13 @@ avatar:
   url: /images/avatar.jpg
   rounded: true
 
+favicon:
+  small: /icons/favicon-16x16.png
+  medium: /icons/favicon-32x32.png
+  apple_touch_icon: /icons/apple-icon.png
+  android_manifest: /manifest.json
+  ms_browserconfig: /browserconfig.xml
+
 social:
   GitHub: https://github.com/wenkanglin
   E-Mail: mailto:wenkanglin0910@gmail.com
