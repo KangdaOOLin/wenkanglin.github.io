@@ -21,7 +21,9 @@ menu_settings:
 
 scheme: Gemini
 
-avatar: /images/avatar.jpg
+avatar:
+  url: /images/avatar.jpg
+  rounded: true
 
 social:
   GitHub: https://github.com/wenkanglin
